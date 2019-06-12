@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   # landing_page
   root 'pages#index'
 
@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   get '/user_define/edit', to: 'user_define#edit'
 
   # calc_page
-  resources :calcs, only: [:index, :show]
+  resource :calc, only: [:show]
 
   # member_system => devise gem
 
 end
+

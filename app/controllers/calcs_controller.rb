@@ -1,9 +1,8 @@
 class CalcsController < ApplicationController
-
-  def index
-  end
+  include CalcsHelper
 
   def show
+    @drinks = drinks
   end
   
 end
