@@ -1,4 +1,4 @@
-module CalcsHelper
+module CalcHelper
   def drinks
     Drink.all
   end
