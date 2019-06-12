@@ -1,0 +1,21 @@
+.navbar.main {
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  padding: 0;
+}
+.navbar-toggler {
+  background-color: #aaf;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.navbar-collapse {
+  background-color: #aaf;
+  width: 100%;
+}
+.nav-link { 
+  text-align: center; 
+}
+.nav-link:hover { font-weight: 900; }

@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+drink = Drink.create([
+  { name: 'Beer', volume_alcohol: '4.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Cider', volume_alcohol: '4.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Craft-Beer', volume_alcohol: '6', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Red-Wine', volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'White-Wine', volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Champagne', volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Tequila', volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Vodka', volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Whisky', volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Umeshu', volume_alcohol: '15', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Sake', volume_alcohol: '13', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Soju', volume_alcohol: '20.1', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Gao-Liang-38', volume_alcohol: '38', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Gao-Liang-58', volume_alcohol: '58', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+])
