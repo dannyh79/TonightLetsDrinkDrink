@@ -1,28 +1,43 @@
-<h2>Sign up</h2>
+git <h2>註冊</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "信箱" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label "密碼" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(註冊密碼長度至少 <%= @minimum_password_length %> 碼)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "確認密碼" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label "性別" %><em>（會影響估計）</em><br />
+    <select :user_gender %>
+      <option value="">請選擇</option>
+      <option value="1">女</option>
+      <option value="0">男</option>
+    </select>    
+    </div>
+
+  <div class="field">
+     <%= f.label "體重" %>（公斤）：<br />
+     <input type="number" name="user[weight]" id="user_weight" />
+     </div>  
+         
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "送出" %>
   </div>
 <% end %>
 
