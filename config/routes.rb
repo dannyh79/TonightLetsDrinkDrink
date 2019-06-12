@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   # member_system => devise gem
   devise_for :users, controllers: { sessions: 'users/sessions' }
   
