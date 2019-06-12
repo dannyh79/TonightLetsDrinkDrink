@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   # member_system => devise gem
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { registrations: 'registrations' }
   
   # landing_page
   root 'pages#index'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/user_define/edit', to: 'user_define#edit'
 
   # calc_page
-  resource :calc, only: [:show]  # 寫 helper 帶資料進去
+  resource :calc, only: [:show]
 
 end
 
