@@ -135,6 +135,10 @@ input[type="submit"] {
   flex: none;
 }
 
+.modal-body .info li {
+  display: none;
+}
+
 @keyframes go_level_1 {
   from { bottom: 1.5rem; }
   to { bottom: -1%; }
