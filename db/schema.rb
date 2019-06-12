@@ -10,8 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_06_12_042242) do
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.decimal "volume_alcohol"
+    t.string "img_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,17 +35,3 @@ ActiveRecord::Schema.define(version: 2019_06_12_042242) do
   end
 
 end
-
-ActiveRecord::Schema.define(version: 2019_06_12_035205) do
-
-  create_table "drinks", force: :cascade do |t|
-    t.string "name"
-    t.decimal "volume_alcohol"
-    t.string "img_path"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-end
-
-
