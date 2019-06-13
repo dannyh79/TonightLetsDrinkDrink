@@ -1,3 +1,5 @@
+// meta: PC screen first, then RWD to different sizes of screens 
+
 .select-result {
   background-color: #afa;
   width: 100vw;
@@ -70,7 +72,6 @@ input[type="radio"]:checked + .option {
 
 .time-unit { 
   height: 50vh;
-  
   display: none; 
 }
 .time-before,
@@ -91,17 +92,19 @@ input[type="submit"] {
 }
 
 
+
+// The 5 buttons' layout & man-figure's animation
 .result { 
   background-color: #ffa;
   width: 60vw;
   height: 100vh;
   position: relative;
-
   display: none; 
 }
+// 嘗試著修改成固定高, 加上絕對定位
 .result .container-man-figure {
   width: 100%;
-  height: 78vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 
@@ -112,73 +115,60 @@ input[type="submit"] {
   }
 
   #man-figure {
-    top: -5rem;
+    top: 0;
     z-index: 1;
   }
   
   #water-level {
     background-color: #f00;
-    bottom: -13%;
+    bottom: -132%;
   }
-
 }
 
+// 要改成固定高?
 .result .container-btn {
   width: 13rem;
-  height: 40vh;
+  height: 50%;
   position: absolute;
   right: 2vw;
-  top: 18%;
+  top: 30%;
   z-index: 2;
 }
 .result .btn {
   flex: none;
 }
 
+.modal-body .info li {
+  display: none;
+}
+
 @keyframes go_level_1 {
-  from { bottom: 1.5rem; }
-  to { bottom: -1%; }
+  from { bottom: -132%; }
+  to { bottom: -115%; }
 }
-
 @keyframes go_level_2 {
-  from { bottom: 1.5rem; }
-  to { bottom: 11%; }
+  from { bottom: -132%; }
+  to { bottom: -105%; }
 }
-
 @keyframes go_level_3 {
-  from { bottom: 1.5rem; }
-  to { bottom: 23%; }
+  from { bottom: -132%; }
+  to { bottom: -91%; }
 }
-
 @keyframes go_level_4 {
-  from { bottom: 1.5rem; }
-  to { bottom: 35%; }
+  from { bottom: -132%; }
+  to { bottom: -80%; }
 }
-
 @keyframes go_level_5 {
-  from { bottom: 1.5rem; }
-  to { bottom: 47%; }
+  from { bottom: -132%; }
+  to { bottom: -67%; }
 }
 
-.level_1 {
-  animation: go_level_1 2s forwards;
-}
+.level_1 { animation: go_level_1 2s forwards; }
+.level_2 { animation: go_level_2 2s forwards; }
+.level_3 { animation: go_level_3 2s forwards; }
+.level_4 { animation: go_level_4 2s forwards; }
+.level_5 { animation: go_level_5 2s forwards; }
 
-.level_2 {
-  animation: go_level_2 2s forwards;
-}
-
-.level_3 {
-  animation: go_level_3 2s forwards;
-}
-
-.level_4 {
-  animation: go_level_4 2s forwards;
-}
-
-.level_5 {
-  animation: go_level_5 2s forwards;
-}
 
 
 @media screen and (max-width: 767px) {
@@ -204,4 +194,96 @@ input[type="submit"] {
     width: 100vw;
     height: 80vh;
   }
+
+  // Config of the 5 buttons' layout & man-figure's animation
+  // .result { 
+  //   // background-color: #ffa;
+  //   // width: 60vw;
+  //   // height: 100vh;
+  //   // position: relative;
+  //   // display: none; 
+  // }
+  .result .container-man-figure {
+    width: 100%;
+    height: 100%;
+    // position: relative;
+    overflow: hidden;
+  
+    #man-figure,
+    #water-level {
+      position: absolute;
+      width: 100%;
+    }
+  
+    #man-figure {
+      top: 0;
+      z-index: 1;
+    }
+    
+    #water-level {
+      background-color: #f00;
+      bottom: -111%;
+    }
+  }
+  
+  // .result .container-btn {
+    // width: 13rem;
+    // height: 50%;
+    // position: absolute;
+    // right: 2vw;
+    // top: 30%;
+    // z-index: 2;
+  // }
+  
+  @keyframes go_level_1 {
+    from { bottom: -111%; }
+    to { bottom: -100%; }
+  }
+  
+  @keyframes go_level_2 {
+    from { bottom: -111%; }
+    to { bottom: -90%; }
+  }
+  
+  @keyframes go_level_3 {
+    from { bottom: -111%; }
+    to { bottom: -80%; }
+  }
+  
+  @keyframes go_level_4 {
+    from { bottom: -111%; }
+    to { bottom: -66%; }
+  }
+  
+  @keyframes go_level_5 {
+    from { bottom: -111%; }
+    to { bottom: -55%; }
+  }
 }
+
+// @media screen and (min-width: 768px) {
+//   @keyframes go_level_1 {
+//     from { bottom: -110%; }
+//     to { bottom: -99%; }
+//   }
+  
+//   @keyframes go_level_2 {
+//     from { bottom: -110%; }
+//     to { bottom: -88%; }
+//   }
+  
+//   @keyframes go_level_3 {
+//     from { bottom: -110%; }
+//     to { bottom: -77%; }
+//   }
+  
+//   @keyframes go_level_4 {
+//     from { bottom: -110%; }
+//     to { bottom: -66%; }
+//   }
+  
+//   @keyframes go_level_5 {
+//     from { bottom: -110%; }
+//     to { bottom: -55%; }
+//   }
+// }
