@@ -100,27 +100,27 @@ $(document).on('turbolinks:load', function() {
     // console.log(minToTime(safeDrive5));
 
     if (safeDrive1 <= 0) {
-      driveText1 = `酒測值低於酒駕標準 ${bacLevel1} %`;
+      driveText1 = `酒測值低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText1 = `結束後 ${minToTime(safeDrive1)}，可低於酒駕標準 ${bacLevel1}`;
+      driveText1 = `結束後 ${minToTime(safeDrive1)}，可低於酒測標準 ${bacLevel1}`;
     }
     if (safeDrive2 <= 0) {
-      driveText2 = `酒測值低於酒駕標準 ${bacLevel1} %`;
+      driveText2 = `酒測值低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText2 = `結束後 ${minToTime(safeDrive2)}，可低於酒駕標準 ${bacLevel1}`;
+      driveText2 = `結束後 ${minToTime(safeDrive2)}，可低於酒測標準 ${bacLevel1}`;
     }
     if (safeDrive3 <= 0) {
-      driveText3 = `酒測值低於酒駕標準 ${bacLevel1} %`;
+      driveText3 = `酒測值低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText3 = `結束後 ${minToTime(safeDrive3)}，可低於酒駕標準 ${bacLevel1}`;
+      driveText3 = `結束後 ${minToTime(safeDrive3)}，可低於酒測標準 ${bacLevel1}`;
     }
     if (safeDrive4 <= 0) {
-      driveText4 = `酒測值低於酒駕標準 ${bacLevel1} %`;
+      driveText4 = `酒測值低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText4 = `結束後 ${minToTime(safeDrive4)}，可低於酒駕標準 ${bacLevel1}`;
+      driveText4 = `結束後 ${minToTime(safeDrive4)}，可低於酒測標準 ${bacLevel1}`;
     }
     if (safeDrive5 <= 0) {
-      driveText5 = `酒測值低於酒駕標準 ${bacLevel1} %`;
+      driveText5 = `酒測值低於酒測標準 ${bacLevel1} %`;
       // console.log('low');
     } else {
       driveText5 = `結束後 ${minToTime(safeDrive5)}，可低於酒駕標準 ${bacLevel1}`;
