@@ -16,7 +16,14 @@ Rails.application.routes.draw do
   get '/user_define/edit', to: 'user_define#edit'
 
   # calc_page
-  resource :calc, only: [:show]
+  resource :calc, only: [:show] do
+    member do
+      get '/user_define', to: 'calcs#user_define'
+      get '/record_user_define', to: 'calcs#record_user_define'
+    end
+  end
+
+  # calc_page
 
 end
 

@@ -1,5 +1,8 @@
 // meta: PC screen first, then RWD to different sizes of screens 
 
+
+// WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
+
 .select-result {
   background-color: #afa;
   width: 100vw;
@@ -101,8 +104,11 @@ input[type="submit"] {
   display: none; 
 }
 
-// config for ".container-btn" in "animation_man-figure.scss"
+// for form in "user_define.html.erb"
+#save-btn { width: 5rem; }
 
+
+// config for ".container-btn" in "animation_man-figure.scss"
 
 @media screen and (max-width: 767px) {
   .select-result { 
@@ -122,6 +128,12 @@ input[type="submit"] {
   .time-unit {
     height: 20vh;
   }
+  #user-defined_to-be-mixed-list { 
+    width: 100%;
+  }
+
+
+
 
   .result {
     width: 100vw;
