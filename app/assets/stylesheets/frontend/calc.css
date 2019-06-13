@@ -1,0 +1,302 @@
+.select-result {
+  background-color: #afa;
+  width: 100vw;
+  height: 100vh; }
+
+.select-result .row.flex-column {
+  height: 100vh; }
+
+.form {
+  width: 40vw;
+  background-color: #faa;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px; }
+
+.alc-select {
+  height: 50vh;
+  padding-top: 45px; }
+
+.alc-select .container-scroll {
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: scroll; }
+
+input[type="radio"] {
+  display: none; }
+
+.option {
+  background-color: #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.option .img-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none; }
+
+.option .name {
+  -webkit-box-flex: 1;
+  -ms-flex: auto;
+  flex: auto;
+  margin-left: 1rem; }
+
+.option .concentration {
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 1rem; }
+
+.option .btn-delete {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #aaf;
+  border-radius: 50%;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 1rem;
+  /* hidding the delete button */
+  visibility: hidden; }
+
+.option img {
+  width: 100%; }
+
+input[type="radio"]:checked + .option {
+  background-color: #555; }
+
+.time-unit {
+  height: 50vh;
+  display: none; }
+
+.time-before,
+.time-after {
+  width: 50%; }
+
+.unit {
+  width: 100%; }
+
+label[for="time-before"],
+label[for="time-after"],
+label[for="unit"] {
+  display: block; }
+
+input[type="submit"] {
+  width: 100%;
+  display: block; }
+
+.result {
+  background-color: #ffa;
+  width: 60vw;
+  height: 100vh;
+  position: relative;
+  display: none; }
+
+.result .container-man-figure {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; }
+  .result .container-man-figure #man-figure,
+  .result .container-man-figure #water-level {
+    position: absolute;
+    width: 100%; }
+  .result .container-man-figure #man-figure {
+    top: 0;
+    z-index: 1; }
+  .result .container-man-figure #water-level {
+    background-color: #f00;
+    bottom: -132%; }
+
+.result .container-btn {
+  width: 13rem;
+  height: 50%;
+  position: absolute;
+  right: 2vw;
+  top: 30%;
+  z-index: 2; }
+
+.result .btn {
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none; }
+
+.modal-body .info li {
+  display: none; }
+
+@-webkit-keyframes go_level_1 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -115%; } }
+
+@keyframes go_level_1 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -115%; } }
+
+@-webkit-keyframes go_level_2 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -105%; } }
+
+@keyframes go_level_2 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -105%; } }
+
+@-webkit-keyframes go_level_3 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -91%; } }
+
+@keyframes go_level_3 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -91%; } }
+
+@-webkit-keyframes go_level_4 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -80%; } }
+
+@keyframes go_level_4 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -80%; } }
+
+@-webkit-keyframes go_level_5 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -67%; } }
+
+@keyframes go_level_5 {
+  from {
+    bottom: -132%; }
+  to {
+    bottom: -67%; } }
+
+.level_1 {
+  -webkit-animation: go_level_1 2s forwards;
+  animation: go_level_1 2s forwards; }
+
+.level_2 {
+  -webkit-animation: go_level_2 2s forwards;
+  animation: go_level_2 2s forwards; }
+
+.level_3 {
+  -webkit-animation: go_level_3 2s forwards;
+  animation: go_level_3 2s forwards; }
+
+.level_4 {
+  -webkit-animation: go_level_4 2s forwards;
+  animation: go_level_4 2s forwards; }
+
+.level_5 {
+  -webkit-animation: go_level_5 2s forwards;
+  animation: go_level_5 2s forwards; }
+
+@media screen and (max-width: 767px) {
+  .select-result {
+    height: 200vh; }
+  .select-result .row.flex-column {
+    height: 200vh; }
+  .form {
+    width: 100vw; }
+  .alc-select {
+    height: 100vh; }
+  .time-unit {
+    height: 20vh; }
+  .result {
+    width: 100vw;
+    height: 80vh; }
+  .result .container-man-figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+    .result .container-man-figure #man-figure,
+    .result .container-man-figure #water-level {
+      position: absolute;
+      width: 100%; }
+    .result .container-man-figure #man-figure {
+      top: 0;
+      z-index: 1; }
+    .result .container-man-figure #water-level {
+      background-color: #f00;
+      bottom: -111%; }
+  @-webkit-keyframes go_level_1 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -100%; } }
+  @keyframes go_level_1 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -100%; } }
+  @-webkit-keyframes go_level_2 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -90%; } }
+  @keyframes go_level_2 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -90%; } }
+  @-webkit-keyframes go_level_3 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -80%; } }
+  @keyframes go_level_3 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -80%; } }
+  @-webkit-keyframes go_level_4 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -66%; } }
+  @keyframes go_level_4 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -66%; } }
+  @-webkit-keyframes go_level_5 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -55%; } }
+  @keyframes go_level_5 {
+    from {
+      bottom: -111%; }
+    to {
+      bottom: -55%; } } }
