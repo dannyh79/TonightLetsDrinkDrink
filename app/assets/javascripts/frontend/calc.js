@@ -59,11 +59,11 @@ $(document).on('turbolinks:load', function() {
     maxDrinksLevel4 = Math.floor((calcDrink(bacLevel4, gender)) * 10) / 10;
     maxDrinksLevel5 = Math.floor((calcDrink(bacLevel5, gender)) * 10) / 10;
 
-    console.log(`Level 01 飲用份量：${maxDrinksLevel1} 杯`);
-    console.log(`Level 02 飲用份量：${maxDrinksLevel2} 杯`);
-    console.log(`Level 03 飲用份量：${maxDrinksLevel3} 杯`);
-    console.log(`Level 04 飲用份量：${maxDrinksLevel4} 杯`);
-    console.log(`Level 05 飲用份量：${maxDrinksLevel5} 杯`);
+    // console.log(`Level 01 飲用份量：${maxDrinksLevel1} 杯`);
+    // console.log(`Level 02 飲用份量：${maxDrinksLevel2} 杯`);
+    // console.log(`Level 03 飲用份量：${maxDrinksLevel3} 杯`);
+    // console.log(`Level 04 飲用份量：${maxDrinksLevel4} 杯`);
+    // console.log(`Level 05 飲用份量：${maxDrinksLevel5} 杯`);
     levelText1 = `（正常）：${liquorName} ${maxDrinksLevel1} 杯`;
     levelText2 = `心情愉悅：${liquorName} ${maxDrinksLevel2} 杯`;
     levelText3 = `亢奮：${liquorName} ${maxDrinksLevel3} 杯`;
@@ -102,28 +102,28 @@ $(document).on('turbolinks:load', function() {
     if (safeDrive1 <= 0) {
       driveText1 = `血酒濃度低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText1 = `結束後 ${minToTime(safeDrive1)}，血酒濃度可低於酒測標準 ${bacLevel1}`;
+      driveText1 = `結束後 ${minToTime(safeDrive1)}，血酒濃度可低於酒測標準 ${bacLevel1} %`;
     }
     if (safeDrive2 <= 0) {
       driveText2 = `血酒濃度低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText2 = `結束後 ${minToTime(safeDrive2)}，血酒濃度可低於酒測標準 ${bacLevel1}`;
+      driveText2 = `結束後 ${minToTime(safeDrive2)}，血酒濃度可低於酒測標準 ${bacLevel1} %`;
     }
     if (safeDrive3 <= 0) {
       driveText3 = `血酒濃度低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText3 = `結束後 ${minToTime(safeDrive3)}，血酒濃度可低於酒測標準 ${bacLevel1}`;
+      driveText3 = `結束後 ${minToTime(safeDrive3)}，血酒濃度可低於酒測標準 ${bacLevel1} %`;
     }
     if (safeDrive4 <= 0) {
       driveText4 = `血酒濃度低於酒測標準 ${bacLevel1} %`;
     } else {
-      driveText4 = `結束後 ${minToTime(safeDrive4)}，血酒濃度可低於酒測標準 ${bacLevel1}`;
+      driveText4 = `結束後 ${minToTime(safeDrive4)}，血酒濃度可低於酒測標準 ${bacLevel1} %`;
     }
     if (safeDrive5 <= 0) {
       driveText5 = `血酒濃度低於酒測標準 ${bacLevel1} %`;
       // console.log('low');
     } else {
-      driveText5 = `結束後 ${minToTime(safeDrive5)}，血酒濃度可低於酒駕標準 ${bacLevel1}`;
+      driveText5 = `結束後 ${minToTime(safeDrive5)}，血酒濃度可低於酒駕標準 ${bacLevel1} %`;
       // console.log('height');
     }
   }
@@ -184,23 +184,23 @@ $(document).on('turbolinks:load', function() {
     $(window).scrollTop(top);
     // let totalTime = timeBefore + timeAfter;
     // 檢查內容
-    console.log(`體重：${weight}`);
-    // console.log(typeof weight);
-    console.log(`轉磅數：${toLB}`);
-    // console.log(typeof toLB);
-    console.log(`性別常數：${gender}`);
-    // console.log(typeof gender);
-    console.log(`經過多久：${timeBefore}`);
-    // console.log(typeof timeBefore);
-    console.log(`多久離開：${timeAfter}`);
-    // console.log(typeof timeAfter);
-    // console.log(`總時數：${totalTime}`);
-    // console.log(typeof totalTime);
-    console.log(`酒品酒精濃度：${alcoholContent}`);
-    // console.log(typeof alcoholContent);
-    console.log(`轉盎司${toOunces}`);
-    // console.log(typeof toOunces);
-    console.log(`每單位毫升${unit}`);
+    // console.log(`體重：${weight}`);
+    // // console.log(typeof weight);
+    // console.log(`轉磅數：${toLB}`);
+    // // console.log(typeof toLB);
+    // console.log(`性別常數：${gender}`);
+    // // console.log(typeof gender);
+    // console.log(`經過多久：${timeBefore}`);
+    // // console.log(typeof timeBefore);
+    // console.log(`多久離開：${timeAfter}`);
+    // // console.log(typeof timeAfter);
+    // // console.log(`總時數：${totalTime}`);
+    // // console.log(typeof totalTime);
+    // console.log(`酒品酒精濃度：${alcoholContent}`);
+    // // console.log(typeof alcoholContent);
+    // console.log(`轉盎司${toOunces}`);
+    // // console.log(typeof toOunces);
+    // console.log(`每單位毫升${unit}`);
     // console.log(typeof unit);
 
     changeButton();
