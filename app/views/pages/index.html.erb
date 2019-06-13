@@ -1,3 +1,39 @@
 <h1>Landing Page</h1>
 
-<%= link_to '開始', intro_path %>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+我已滿 18 歲，想來試試</button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLongTitle">「今夜想買醉」⋯⋯</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="info">
+              <h5>不會</h5>
+              <ul>
+                <li>告訴你酒量好不好</li>
+                <li>負責你急性、大量飲酒的任何後果</li>
+              </ul>
+              <h5>會</h5>
+              <ul>
+                <li>需要你正確填寫性別體重，作估計使用</li>
+                <li>先請你選擇飲品、開始跟預定結束時間，和每單位的份量</li>
+                <li>依照上面的資料產出在預定結束時間時五種等級的「醉況」</li>
+                <li>估計你喝了多少酒、在預定結束時間時可能的身體反應</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">再想一下</button>
+            <%= link_to '我知道了', intro_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>    
