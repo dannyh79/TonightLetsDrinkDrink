@@ -1,9 +1,10 @@
 <div class="container-fluid select-result">
   <div class="row flex-column">
-
-    <%= link_to '選一種酒', calc_path %>
-    <%= link_to '調酒紀錄', record_user_define_calc_path %>
-    <%= link_to '自製調酒', user_define_calc_path %>
+    <div class="container-form-tabs">
+      <%= link_to '選一種酒', calc_path, class: 'form-tab' %>
+      <%= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
+      <%= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
+    </div>
 
     <form action="" class="form d-flex flex-wrap alc-select">
       <h3>選擇一個調酒紀錄：</h3>

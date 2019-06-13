@@ -1,13 +1,27 @@
 // meta: PC screen first, then RWD to different sizes of screens 
 
 
-// WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
+
 
 .select-result {
   background-color: #afa;
   width: 100vw;
   height: 100vh;
 }
+
+
+// WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
+.select-result .container-form-tabs {
+  padding-top: 45px; 
+
+  height: 10vh;
+  display: inline-block;
+
+  .form-tab { padding: 0 10px; }
+}
+
+
+
 .select-result .row.flex-column {
   height: 100vh;
 }
@@ -21,7 +35,6 @@
 }
 .alc-select { 
   height: 50vh;
-  padding-top: 45px; 
 }
 .alc-select .container-scroll {
   width: 100%;
@@ -74,7 +87,7 @@ input[type="radio"]:checked + .option {
 
 
 .time-unit { 
-  height: 50vh;
+  height: 40vh;
   display: none; 
 }
 .time-before,
@@ -123,7 +136,7 @@ input[type="submit"] {
     width: 100vw;
   }
   .alc-select { 
-    height: 100vh; 
+    height: 90vh; 
   }
   .time-unit {
     height: 20vh;
