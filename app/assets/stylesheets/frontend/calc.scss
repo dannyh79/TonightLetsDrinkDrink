@@ -17,56 +17,63 @@
 .alc-select { 
   height: 50vh;
   padding-top: 45px; 
+
+  .container-scroll {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }  
 }
-.alc-select .container-scroll {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-}
+
 input[type="radio"] {
   display: none;
 }
+
 .option {
   background-color: #ddd;
   display: flex;
   padding: 5px 10px;
   align-items: center;
-}
-.option .img-container { 
-  width: 50px; 
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex: none;
-}
-.option .name {
-  flex: auto; 
-  margin-left: 1rem;
-}
-.option .concentration { 
-  flex: none; 
-  margin-right: 1rem;
-}
-.option .btn-delete {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  background-color: #aaf;
-  border-radius: 50%;
-  flex: none;
-  margin-right: 1rem;
 
-  /* hidding the delete button */
-  visibility: hidden; 
-}
-.option img { width: 100%; }
-input[type="radio"]:checked + .option {
-  background-color: #555;
-}
+  .img-container { 
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex: none;
+  }
 
+  .name {
+    flex: auto; 
+    margin-left: 1rem;
+  }
+
+  .concentration { 
+    flex: none; 
+    margin-right: 1rem;
+  }
+
+  .btn-delete {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #aaf;
+    border-radius: 50%;
+    flex: none;
+    margin-right: 1rem;
+  
+    /* hidding the delete button */
+    visibility: hidden; 
+  }
+
+  img { width: 100%; }
+  input[type="radio"]:checked + .option {
+    background-color: #555;
+  }
+}
 
 .time-unit { 
   height: 50vh;
@@ -90,7 +97,6 @@ input[type="submit"] {
   display: block; 
 }
 
-
 .result { 
   background-color: #ffa;
   width: 60vw;
@@ -98,41 +104,43 @@ input[type="submit"] {
   position: relative;
 
   display: none; 
-}
-.result .container-man-figure {
-  width: 100%;
-  height: 78vh;
-  position: relative;
-  overflow: hidden;
 
-  #man-figure,
-  #water-level {
-    position: absolute;
+  .container-man-figure {
     width: 100%;
-  }
-
-  #man-figure {
-    top: -5rem;
-    z-index: 1;
-  }
+    height: 78vh;
+    position: relative;
+    overflow: hidden;
   
-  #water-level {
-    background-color: #f00;
-    bottom: -13%;
+    #man-figure,
+    #water-level {
+      position: absolute;
+      width: 100%;
+    }
+  
+    #man-figure {
+      top: -5rem;
+      z-index: 1;
+    }
+    
+    #water-level {
+      background-color: #f00;
+      bottom: -13%;
+    }  
   }
 
-}
+  .container-btn {
+    width: 13rem;
+    height: 40vh;
+    position: absolute;
+    right: 2vw;
+    top: 18%;
+    z-index: 2;
+  }  
 
-.result .container-btn {
-  width: 13rem;
-  height: 40vh;
-  position: absolute;
-  right: 2vw;
-  top: 18%;
-  z-index: 2;
-}
-.result .btn {
-  flex: none;
+  .btn {
+    flex: none;
+  }  
+  
 }
 
 @keyframes go_level_1 {
@@ -185,10 +193,10 @@ input[type="submit"] {
   .select-result { 
     height: 200vh; 
   }
+
   .select-result .row.flex-column {
     height: 200vh;
   }
-
 
   .form {
     width: 100vw;
