@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   #   stored_location_for(resource) || root_path
   # end
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || calc_path
+  end
+
   protected
 
   def configure_permitted_parameters
