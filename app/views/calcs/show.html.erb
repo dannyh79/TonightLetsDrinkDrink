@@ -78,10 +78,9 @@
 
     <!-- WiP; man-figure and its animation -->
     <div id="result" class="result">
-
       <div class="container-man-figure">
-        <img id="man-figure" src="https://trello-attachments.s3.amazonaws.com/5cec9cb07fc7c78c37741624/5cf791c8a0191a5d394086e7/c03d8170c49e5daafeb52614b9175bbf/%E4%BA%BA%E5%9E%8B-%E7%99%BD%E8%83%8C%E6%99%AF.png" alt="">
-        <img id="water-level" src="https://trello-attachments.s3.amazonaws.com/5cec9cb07fc7c78c37741624/5cf791c8a0191a5d394086e7/4f30119f2f1913848ad0ac6649a807ea/%E6%B0%B4%E7%8B%80%E6%85%8B%E7%B7%9A-%E9%AB%98%E7%95%99%E7%99%BD.png" alt="">
+        <%= image_tag("man-figure.png", alt: '大叉燒包', id: 'man-figure') %>
+        <%= image_tag("water-level.png", alt: '超大叉燒包', id: 'water-level') %>
       </div>
       
       <div class="d-flex flex-column justify-content-between container-btn">
@@ -120,22 +119,65 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5>血酒濃度: 0.30 % </h5>
+        <h5 id="modal-bac">血酒濃度: 0.30 % </h5>
         <div class="info">
           <div>
-            <p>可能會有的行為特徵</p>
+            <p>行為特徵</p>
           </div>
           <ul>
-            <li>心情愉悅</li>
-            <li>感到放鬆</li>
-            <li>多話</li>
-            <li>意識的抑制開始降低</li>
+            <li class="level1">個體平均感覺正常</li>
+
+            <li class="level2">溫和欣快感</li>
+            <li class="level2">鬆弛</li>
+            <li class="level2">快樂</li>
+            <li class="level2">多語</li>
+            <li class="level2">抑制力下降</li>
+
+            <li class="level3">感覺變得麻木</li>
+            <li class="level3">去抑制</li>
+            <li class="level3">外向</li>
+
+            <li class="level4">過表達</li>
+            <li class="level4">情緒波動</li>
+            <li class="level4">憤怒或悲傷</li>
+            <li class="level4">喧鬧</li>
+            <li class="level4">力比多下降</li>
+
+            <li class="level5">目光呆滯；恍惚</li>
+            <li class="level5">失去理解力</li>
+            <li class="level5">感知受損</li>
+            <li class="level5">可能陷入昏迷</li>
+
+
           </ul>
+          <div>
+            <p>損害</p>
+          </div>
           <ul>
-            <li>注意力受損</li>
+            <li class="level1">特殊試驗可探測到些微效應</li>
+
+            <li class="level2">專注力</li>
+
+            <li class="level3">推理</li>
+            <li class="level3">深度感知</li>
+            <li class="level3">周邊視覺</li>
+            <li class="level3">眩光視覺恢復</li>
+
+            <li class="level4">條件反射</li>
+            <li class="level4">反應時間</li>
+            <li class="level4">粗略運動控制</li>
+            <li class="level4">蹣跚</li>
+            <li class="level4">口齒不清</li>
+            <li class="level4">暫時陽痿</li>
+            <li class="level4">可能暫時性酒精中毒</li>
+
+            <li class="level5">嚴重的運動能力受損</li>
+            <li class="level5">失去意識</li>
+            <li class="level5">記憶空白</li>
+
           </ul>
         </div>
-        
+
         <hr>
         <h6>於 0 小時 58 分後低於酒測值水準（0.25 %）</h6>
       </div>
