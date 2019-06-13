@@ -1,4 +1,8 @@
 <h1>About Us</h1>
 
 <!-- if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 -->
-<%= link_to '回首頁', root_path %>
+<% if user_signed_in? %>
+  <%= link_to '回到計算頁', calc_path, class: 'btn btn-index' %>
+<% else %>
+  <%= link_to '回到登入頁', new_user_session_path, class: 'btn btn-index' %>
+<% end %>
