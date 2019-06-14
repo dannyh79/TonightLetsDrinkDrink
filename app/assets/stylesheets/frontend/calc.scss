@@ -1,8 +1,11 @@
+// meta: PC screen first, then RWD to different sizes of screens 
+
 .select-result {
   background-color: #afa;
   width: 100vw;
   height: 100vh;
 }
+
 .select-result .row.flex-column {
   height: 100vh;
 }
@@ -14,6 +17,7 @@
   box-sizing: border-box;
   padding: 10px;
 }
+
 .alc-select { 
   height: 50vh;
   padding-top: 45px; 
@@ -55,6 +59,7 @@ input[type="radio"] {
     margin-right: 1rem;
   }
 
+
   .btn-delete {
     width: 30px;
     height: 30px;
@@ -70,39 +75,43 @@ input[type="radio"] {
   }
 
   img { width: 100%; }
-  input[type="radio"]:checked + .option {
-    background-color: #555;
-  }
+}
+
+input[type="radio"]:checked + .option {
+  background-color: #555;
 }
 
 .time-unit { 
   height: 50vh;
-  
   display: none; 
 }
+
 .time-before,
 .time-after {
   width: 50%;
 }
+
 .unit {
   width: 100%;
 }
+
 label[for="time-before"],
 label[for="time-after"],
 label[for="unit"]  {
   display: block;
 }
+
 input[type="submit"] { 
   width: 100%;
   display: block; 
 }
+
 
 .result { 
   background-color: #ffa;
   width: 60vw;
   height: 100vh;
   position: relative;
-
   display: none; 
 
   .container-man-figure {
@@ -140,7 +149,6 @@ input[type="submit"] {
   .btn {
     flex: none;
   }  
-  
 }
 
 @keyframes go_level_1 {
@@ -148,46 +156,7 @@ input[type="submit"] {
   to { bottom: -1%; }
 }
 
-@keyframes go_level_2 {
-  from { bottom: 1.5rem; }
-  to { bottom: 11%; }
-}
-
-@keyframes go_level_3 {
-  from { bottom: 1.5rem; }
-  to { bottom: 23%; }
-}
-
-@keyframes go_level_4 {
-  from { bottom: 1.5rem; }
-  to { bottom: 35%; }
-}
-
-@keyframes go_level_5 {
-  from { bottom: 1.5rem; }
-  to { bottom: 47%; }
-}
-
-.level_1 {
-  animation: go_level_1 2s forwards;
-}
-
-.level_2 {
-  animation: go_level_2 2s forwards;
-}
-
-.level_3 {
-  animation: go_level_3 2s forwards;
-}
-
-.level_4 {
-  animation: go_level_4 2s forwards;
-}
-
-.level_5 {
-  animation: go_level_5 2s forwards;
-}
-
+// config for ".container-btn" in "animation_man-figure.scss"
 
 @media screen and (max-width: 767px) {
   .select-result { 
@@ -201,9 +170,11 @@ input[type="submit"] {
   .form {
     width: 100vw;
   }
+
   .alc-select { 
     height: 100vh; 
   }
+
   .time-unit {
     height: 20vh;
   }
