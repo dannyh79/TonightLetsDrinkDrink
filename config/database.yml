@@ -15,9 +15,8 @@ test:
 production:
   <<: *default
   database: tonight_lets_drink_drink_production
-  username: aabb
-  password: <%= ENV['AABB_DATABASE_PASSWORD'] %>
 
+  
 # # SQLite version 3.x
 # #   gem install sqlite3
 # #
