@@ -1,0 +1,73 @@
+<div class="container-fluid select-result">
+  <div class="row flex-column">
+    <div class="container-form-tabs">
+      <%= link_to '選一種酒', calc_path, class: 'form-tab' %>
+      <%= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
+      <%= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
+    </div>
+
+    <form action="" class="form d-flex flex-wrap alc-select">
+      <h3>選擇一個調酒紀錄：</h3>
+
+
+      <div class="wrap col-12">
+        <label for="name_user-define">酒品名稱：</label>
+        <input type="text" id="name_user-define" placeholder="輸入名稱">
+      </div>
+
+
+      <div class="wrap col-12 d-flex flex-wrap">
+        <form action="">
+          <div class="col-6">
+            <label for="volume_alcohol">調酒材料：</label>
+
+
+            <%# WIP: <optgroup> tag to group the drinks according to their alcohol level %>
+            <select name="volume_alcohol" id="volume_alcohol">
+              <% @drinks.each do |drink| %>
+                <option value="<%= drink.volume_alcohol %>">
+                  <%= drink.name %> <%= drink.volume_alcohol %> %
+                </option>
+              <% end %>
+              
+            </select>
+          </div>
+
+          <div class="col-4">
+            <label for="ratio">所佔比例：</label>
+            <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">
+          </div>
+
+
+          <input type="submit" class="col-2" value="新增品項">
+
+
+          <div class="col-12 container-scroll">
+
+            <%# JS WIP: need render the drink selected from the above form when "新增品項" is pressed %>
+            <%# current_user.drinks.each do |drink| %>
+              <input name="alcohol" type="radio" id="<%#= drink.name %>" value="<%#= drink.volume_alcohol %>">	
+              <label class="option" for="<%#= drink.name %>">
+                <div class="img-container">
+                  <img src="https://fakeimg.pl/300x300/aaf">
+                </div>
+                <div class="name"><%#= drink.name %></div>
+                <div class="concentration"><%#= drink.volume_alcohol %> %</div>
+
+                <%# JS WIP: need to delete the drink when "X" button is pressed %>
+                <button class="btn-delete">X</button>
+              </label>
+            <%# end %>              
+          </div>
+        </form>
+      </div>
+
+
+
+      
+      <%# WIP: form 按下後將以上資料存進DB後換頁到record_user_define %>
+      <input id="save-btn" type="button" value="儲存">
+    </form>  
+
+  </div>
+</div>    
