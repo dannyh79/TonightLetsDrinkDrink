@@ -1,4 +1,54 @@
-<h1>About Us</h1>
+<h1>關於我們</h1>
+
+<div class="container about">
+  <div class="row">
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://picsum.photos/300/200/?random=1">
+        <div class="card-body">
+          <h5 class="card-title">王大頭</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut accusamus necessitatibus illum fuga reiciendis sunt optio numquam quod enim? Placeat?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://picsum.photos/300/200/?random=1">
+        <div class="card-body">
+          <h5 class="card-title">王大頭</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, nisi vel voluptates quia numquam expedita minus laudantium optio maxime repudiandae.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://picsum.photos/300/200/?random=1">
+        <div class="card-body">
+          <h5 class="card-title">王大頭</h5>
+          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nam alias dignissimos perspiciatis temporibus praesentium excepturi maxime doloremque ut distinctio.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://picsum.photos/300/200/?random=1">
+        <div class="card-body">
+          <h5 class="card-title">王大頭</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde laborum mollitia quas obcaecati fugiat expedita! Nostrum nihil in voluptate suscipit!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 -->
-<%= link_to '回首頁', root_path %>
+<% if user_signed_in? %>
+  <%= link_to '回到計算頁', calc_path, class: 'btn btn-index' %>
+<% else %>
+  <%= link_to '回到登入頁', new_user_session_path, class: 'btn btn-index' %>
+<% end %>
