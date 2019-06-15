@@ -1,20 +1,73 @@
+<%#= form_for(current_user) do |form| %>
+  
+  <%= form_tag('/calc/user_define/add_ingredient', remote: true) do %>
+    <%= fields_for :ingredients do |field| %>
+      <div>
+
+        <label for="drink_id">材料名：</label>
+        <select name="drink_id" id="drink_id">
+          <% @drinks.each do |drink| %>
+            <option value="<%= drink.id %>">
+              <%= drink.name %>（常為 <%= drink.volume_alcohol %> %）
+            </option>
+          <% end %>
+        </select>
+      </div>
+
+      <div>
+        <label for="volume_alcohol">材料濃度（%）：</label>
+        <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
+      </div>
+
+      <div>
+        <label for="ratio">所佔比例：</label>
+        <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
+      </div>
+    <% end %>
+
+    
+            
+    <input type="submit" class="col-2" value="新增品項">
+  <% end %>
+
+  <div class="col-12 container-scroll">
+
+    <% if @list != nil %>
+      <% @list.each do |ingredient_item| %>
+        <input name="alcohol" type="radio" id="<%= ingredient_item[:drink_id] %>" value="<%= ingredient_item[:volume_alcohol] %>">	
+        <label class="option" for="<%= ingredient_item[:drink_id] %>">
+          <div class="img-container">
+            <img src="https://fakeimg.pl/300x300/aaf">
+          </div>
+          <div class="name"><%= ingredient_item[:drink_id] %></div>
+          <div class="concentration"><%= ingredient_item[:volume_alcohol] %> %</div>
+
+          <%# JS WIP: need to delete the drink when "X" button is pressed %>
+          <button class="btn-delete">X</button>
+        </label>
+      <% end %>              
+    <% end %>
+  </div>
+<%# end %>
+
+
+<!--
 <div class="container-fluid select-result">
   <div class="row flex-column">
     <div class="container-form-tabs">
-      <%= link_to '選一種酒', calc_path, class: 'form-tab' %>
-      <%= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
-      <%= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
+      <%#= link_to '選一種酒', calc_path, class: 'form-tab' %>
+      <%#= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
+      <%#= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
     </div>
+
 
     <form action="" class="form d-flex flex-wrap alc-select">
       <h3>選擇一個調酒紀錄：</h3>
-
 
       <div class="wrap col-12">
         <label for="name_user-define">酒品名稱：</label>
         <input type="text" id="name_user-define" placeholder="輸入名稱">
       </div>
-
 
       <div class="wrap col-12 d-flex flex-wrap">
         <form action="">
@@ -24,11 +77,11 @@
 
             <%# WIP: <optgroup> tag to group the drinks according to their alcohol level %>
             <select name="volume_alcohol" id="volume_alcohol">
-              <% @drinks.each do |drink| %>
-                <option value="<%= drink.volume_alcohol %>">
-                  <%= drink.name %> <%= drink.volume_alcohol %> %
+              <%# @drinks.each do |drink| %>
+                <option value="<%#= drink.volume_alcohol %>">
+                  <%#= drink.name %> <%#= drink.volume_alcohol %> %
                 </option>
-              <% end %>
+              <%# end %>
               
             </select>
           </div>
@@ -71,3 +124,6 @@
 
   </div>
 </div>    
+
+
+-->

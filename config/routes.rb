@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   # calc_page
+  post '/calc/user_define/add_ingredient', to: 'calcs#add_ingredient'
+
 
 end
 

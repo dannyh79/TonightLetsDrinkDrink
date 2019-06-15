@@ -1,16 +1,16 @@
 # *****Issue: UserDefine's instance can NOT be created if the class is inherited from ApplicationRecord
 # currently ApplicationRecord is "closed" so to make UserDefine PORO
-class UserDefine #< ApplicationRecord
-#  belongs_to :user
+class UserDefine < ApplicationRecord
+ belongs_to :user
 
-  attr_reader :name, :drink_id, :ratio, :ingredient_volume_alcohol
+  # attr_reader :name, :drink_id, :ratio, :ingredient_volume_alcohol
 
-  def initialize(name = '', drink_id = [], ratio = [], ingredient_volume_alcohol = [])
-    @name = name
-    @drink_id = drink_id
-    @ratio = ratio
-    @ingredient_volume_alcohol = ingredient_volume_alcohol
-  end
+  # def initialize(name = '', drink_id = [], ratio = [], ingredient_volume_alcohol = [])
+  #   @name = name
+  #   @drink_id = drink_id
+  #   @ratio = ratio
+  #   @ingredient_volume_alcohol = ingredient_volume_alcohol
+  # end
 
   def volume_alcohol
     # hashing the 2 arrays, "ratio" & "ingredient_volume_alcohol", into one 2-d array of hashes
