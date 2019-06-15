@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user_define do
-    name { "MyString" }
-    user { nil }
-    drink_id { "MyString" }
-    ratio { "MyString" }
-    ingredient_volume_alcohol { "MyString" }
+    name { 'Faker::Name.name' }
+    user { Faker::Number.between(1, 10) }
+    drink_id { [ Faker::Number.between(1, 10), Faker::Number.between(1, 10), Faker::Number.between(1, 10) ] }
+    ratio { [ Faker::Number.between(1, 10), Faker::Number.between(1, 10), Faker::Number.between(1, 10) ] }
+    ingredient_volume_alcohol { [ Faker::Number.between(1, 10), Faker::Number.between(1, 10), Faker::Number.between(1, 10) ] }
   end
 end
