@@ -5,7 +5,9 @@
   left: 0;
   right: 0;
   width: 6rem;
+  white-space: nowrap;
 }
+
 
 .sign-up_form {
     width: 17rem;
@@ -17,8 +19,9 @@
 }
 
 
-.btn.btn-index {
+#submit {
     color: #fff;
+    border-radius: 7px;
     background-color: #434bdf;
     border-color: #434bdf;
     text-decoration: none;
@@ -34,8 +37,9 @@
     width: 10rem;
   
   }
-  .btn.btn-index:hover {
+  #submit:hover {
     color: #fff;
+    border-radius: 7px;
     background-color: #d80075;
     border: 1px solid #e90b81;
     box-shadow: 2px 2px 5px #555;
@@ -45,3 +49,7 @@
     width: 10rem;
   
   }
+
+
+
+ 
