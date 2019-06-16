@@ -18,4 +18,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree './frontend/'
-// require_tree './vendor/'
+//= require_tree './vendor/'
