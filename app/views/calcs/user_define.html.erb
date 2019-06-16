@@ -1,129 +1,68 @@
-<%#= form_for(current_user) do |form| %>
-  
-  <%= form_tag('/calc/user_define/add_ingredient', remote: true) do %>
-    <%= fields_for :ingredients do |field| %>
-      <div>
+<%# 21:55 06.16 進度: 待將 drink_id, ingredient_volume_alcohol, ratio 參數以 array 形式傳回至此 %>
+<%# 22:20 06.16 進度: 該如何將 array 參數傳至 user_define#create? 此頁的 array 傳不過去 %>
+<%# 11:02 06.16 搞定了 送喇 %>
 
-        <label for="drink_id">材料名：</label>
-        <select name="drink_id" id="drink_id">
-          <% @drinks.each do |drink| %>
-            <option value="<%= drink.id %>">
-              <%= drink.name %>（常為 <%= drink.volume_alcohol %> %）
-            </option>
-          <% end %>
-        </select>
-      </div>
+<%= form_tag('/calc/user_define/add_ingredient') do %>
+  <%= fields_for :ingredients do |field| %>
+    <div>
 
-      <div>
-        <label for="volume_alcohol">材料濃度（%）：</label>
-        <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
-      </div>
-
-      <div>
-        <label for="ratio">所佔比例：</label>
-        <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
-      </div>
-    <% end %>
-
-    
-            
-    <input type="submit" class="col-2" value="新增品項">
-  <% end %>
-
-  <div class="col-12 container-scroll">
-
-    <% if @list != nil %>
-      <% @list.each do |ingredient_item| %>
-        <input name="alcohol" type="radio" id="<%= ingredient_item[:drink_id] %>" value="<%= ingredient_item[:volume_alcohol] %>">	
-        <label class="option" for="<%= ingredient_item[:drink_id] %>">
-          <div class="img-container">
-            <img src="https://fakeimg.pl/300x300/aaf">
-          </div>
-          <div class="name"><%= ingredient_item[:drink_id] %></div>
-          <div class="concentration"><%= ingredient_item[:volume_alcohol] %> %</div>
-
-          <%# JS WIP: need to delete the drink when "X" button is pressed %>
-          <button class="btn-delete">X</button>
-        </label>
-      <% end %>              
-    <% end %>
-  </div>
-<%# end %>
-
-
-<!--
-<div class="container-fluid select-result">
-  <div class="row flex-column">
-    <div class="container-form-tabs">
-      <%#= link_to '選一種酒', calc_path, class: 'form-tab' %>
-      <%#= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
-      <%#= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
+      <label for="drink_id">材料名：</label>
+      <select name="drink_id" id="drink_id">
+        <% @drinks.each do |drink| %>
+          <option value="<%= drink.id %>">
+            <%= drink.name %>（常為 <%= drink.volume_alcohol %> %）
+          </option>
+        <% end %>
+      </select>
     </div>
 
+    <div>
+      <label for="volume_alcohol">材料濃度（%）：</label>
+      <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
+    </div>
 
-    <form action="" class="form d-flex flex-wrap alc-select">
-      <h3>選擇一個調酒紀錄：</h3>
+    <div>
+      <label for="ratio">所佔比例：</label>
+      <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
+    </div>
+  <% end %>
 
-      <div class="wrap col-12">
-        <label for="name_user-define">酒品名稱：</label>
-        <input type="text" id="name_user-define" placeholder="輸入名稱">
-      </div>
-
-      <div class="wrap col-12 d-flex flex-wrap">
-        <form action="">
-          <div class="col-6">
-            <label for="volume_alcohol">調酒材料：</label>
-
-
-            <%# WIP: <optgroup> tag to group the drinks according to their alcohol level %>
-            <select name="volume_alcohol" id="volume_alcohol">
-              <%# @drinks.each do |drink| %>
-                <option value="<%#= drink.volume_alcohol %>">
-                  <%#= drink.name %> <%#= drink.volume_alcohol %> %
-                </option>
-              <%# end %>
-              
-            </select>
-          </div>
-
-          <div class="col-4">
-            <label for="ratio">所佔比例：</label>
-            <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">
-          </div>
+  <input type="submit" class="col-2" value="新增品項">
+<% end %>
 
 
-          <input type="submit" class="col-2" value="新增品項">
+<%= form_tag('/user_define') do |form| %>  
+  <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
+  <div class="alc-select">
 
-          <div class="col-12 container-scroll">
+    <div class="col-12 container-scroll">
+      <% if session[:yo] != nil %>
+        <% session[:yo].each do |ingredient| %>
+          <label class="option" for="">
+            <div class="img-container">
+              <img src="https://fakeimg.pl/300x300/aaf">
+            </div>
+            <div class="name"><%= name(ingredient["drink_id"].to_i) %></div>
+            <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
+            <div class="ratio">比例：<%= ingredient["ratio"] %></div>
 
-            <%# JS WIP: need render the drink selected from the above form when "新增品項" is pressed %>
-            <%# current_user.drinks.each do |drink| %>
-              <input name="alcohol" type="radio" id="<%#= drink.name %>" value="<%#= drink.volume_alcohol %>">	
-              <label class="option" for="<%#= drink.name %>">
-                <div class="img-container">
-                  <img src="https://fakeimg.pl/300x300/aaf">
-                </div>
-                <div class="name"><%#= drink.name %></div>
-                <div class="concentration"><%#= drink.volume_alcohol %> %</div>
+            <a class="btn" 
+              data-method="delete"  
+              href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
+              rel="nofollow"
+              data-confirm="Are you sure?"
+            >X</a>
+          </label>
+        <% end %>              
+      <% end %>
+    </div>
 
-                <%# JS WIP: need to delete the drink when "X" button is pressed %>
-                <button class="btn-delete">X</button>
-              </label>
-            <%# end %>              
-          </div>
-        </form>
-      </div>
+    <label for="name">最後請輸入飲料ㄉ名字，必填ㄛ：</label>
+    <input name="name" type="text" placeholder="例：卍超級好喝卍">
 
-
-
-      
-      <%# WIP: form 按下後將以上資料存進DB後換頁到record_user_define %>
-      <input id="save-btn" type="button" value="儲存">
-    </form>  
-
+    <input type="submit" class="col-2" value="儲存">
   </div>
-</div>    
 
+<% end %>
 
--->

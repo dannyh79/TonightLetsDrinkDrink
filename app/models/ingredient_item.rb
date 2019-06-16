@@ -1,3 +1,5 @@
+# 暫無使用 21:54, 06.16
+
 # 等同於 CartItem
 class IngredientItem
   attr_reader :drink_id, :ratio, :volume_alcohol
