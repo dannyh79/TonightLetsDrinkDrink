@@ -1,16 +1,8 @@
 # *****Issue: UserDefine's instance can NOT be created if the class is inherited from ApplicationRecord
-# currently ApplicationRecord is "closed" so to make UserDefine PORO
+# Close ApplicationRecord to make UserDefine PORO
 class UserDefine < ApplicationRecord
- belongs_to :user
-
-  # attr_reader :name, :drink_id, :ratio, :ingredient_volume_alcohol
-
-  # def initialize(name = '', drink_id = [], ratio = [], ingredient_volume_alcohol = [])
-  #   @name = name
-  #   @drink_id = drink_id
-  #   @ratio = ratio
-  #   @ingredient_volume_alcohol = ingredient_volume_alcohol
-  # end
+  validates :name, :user_id, :drink_id, :ingredient_volume_alcohol, :ratio, presence: true
+  belongs_to :user
 
   def volume_alcohol
     # hashing the 2 arrays, "ratio" & "ingredient_volume_alcohol", into one 2-d array of hashes
@@ -21,14 +13,13 @@ class UserDefine < ApplicationRecord
 
     # weighted average for the result
     # - the total of each ingredient's "ratio * volume_alcohol"
-    numerator = hash_combined.reduce(0) { |accumulator, sub_hash| accumulator + sub_hash[:ratio] * sub_hash[:volume_alcohol] }
+    numerator = hash_combined.reduce(0) { |accumulator, sub_hash| accumulator + sub_hash[:ratio].to_f * sub_hash[:volume_alcohol].to_f }
 
     # - the sum of all ingredient's ratio
-    denominator = hash_combined.reduce(0) { |accumulator, sub_hash| accumulator + sub_hash[:ratio] }
+    denominator = hash_combined.reduce(0) { |accumulator, sub_hash| accumulator + sub_hash[:ratio].to_f }
     
     
-    # - use ".to_f" to force the result as decimal, if the case
-    result = numerator.to_f / denominator    
+    result = (numerator / denominator).round(2)
   end
 
 

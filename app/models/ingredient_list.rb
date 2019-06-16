@@ -7,7 +7,7 @@ class IngredientList
   end
 
   def add(ingredient)
-    ingredients << IngredientItem.new(ingredient[:drink_id], ingredient[:ratio], ingredient[:volume_alcohol])
+    ingredients << { "drink_id": ingredient["drink_id"], "ratio": ingredient["ratio"], "volume_alcohol": ingredient["volume_alcohol"] }
   end
 
   def self.content(session)
