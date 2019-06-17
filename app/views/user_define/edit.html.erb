@@ -12,9 +12,11 @@
         <% current_user.user_defines.each do |user_define| %>
           <input name="alcohol" type="radio" id="<%= user_define.id %>" value="<%= user_define.volume_alcohol %>">	
           <label class="option" for="<%= user_define.id %>">
+
+            <!-- WIP: 問號圖的連結待補 -->
             <div class="img-container"><%#= user_define.img_path %></div>          
             <div class="name"><%= user_define.name %></div>
-            <div class="concentration"><%= user_define.volume_alcohol %></div>
+            <div class="concentration"><%= user_define.volume_alcohol %> %</div>
             <%= link_to 'X', user_define_path(user_define), method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
           </label>
         <% end %>
