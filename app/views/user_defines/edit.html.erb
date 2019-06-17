@@ -1,0 +1,28 @@
+<h1>編輯調酒紀錄</h1>
+
+<div class="container mx-auto select-result">
+  <div class="row flex-column">
+    <form action="" class="form alc-select">
+
+      <h3>點擊X鈕刪除紀錄：</h3>
+      
+      <div class="container-scroll">
+      
+        <% @drinks.each do |drink| %>
+          <input name="alcohol" type="radio" id="beer" value="beer">	
+          <label class="option" for="beer">
+            <div class="img-container"><%= drink.img_path %></div>          
+            <div class="name"><%= drink.name %></div>
+            <div class="concentration"><%= drink.volume_alcohol %></div>
+            <%= link_to 'X', user_define_path, method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
+          </label>
+        <% end %>
+
+      </div>
+
+      <%= link_to '回到計算頁', calc_path %>
+
+    </form>  
+
+  </div>
+</div>
