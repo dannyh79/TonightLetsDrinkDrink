@@ -3,6 +3,14 @@ class UserDefineController < ApplicationController
 
   def edit
   end
+
+  def destroy
+    user_define = UserDefine.find_by(id: params[:id])
+    
+    if user_define.destroy
+      redirect_to user_define_edit_path, notice: '刪除成功'
+    end
+  end
   
   def create
     user_define = UserDefine.new(params_user_define)
