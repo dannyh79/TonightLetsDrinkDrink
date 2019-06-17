@@ -20,10 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # for user_define & record_user_define
-  post '/calc/user_define/add_ingredient', to: 'calcs#add_ingredient'
-  delete '/calc/user_define/delete_ingredient/:id', to: 'calcs#delete_ingredient'
+  # user_define
   resources :user_define, only: [:create]
+  patch '/calc/user_define/add_ingredient', to: 'user_define#add_ingredient'
+  patch '/calc/user_define/delete_ingredient/:id', to: 'user_define#delete_ingredient'
 
 end
 

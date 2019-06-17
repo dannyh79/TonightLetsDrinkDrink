@@ -1,4 +1,5 @@
 class UserDefineController < ApplicationController
+  include CalcHelper
 
   def edit
   end
@@ -21,8 +22,33 @@ class UserDefineController < ApplicationController
     end
   end
 
+ 
+  # 調酒材料儲存至 session[:yo]
+  def add_ingredient
+    # 從前頁收參數
+    received_parameter = params_ingredient
+
+    # 於 session 內"加料"
+    session[:yo] = ingredient_list.add(received_parameter)
+
+    redirect_to user_define_calc_path
+  end
+  
+  def delete_ingredient
+    session[:yo].delete_at(params["id"].to_i)
+    redirect_to user_define_calc_path
+  end
+
+
+
+  
 
   private
+
+  # ingredient 用的 strong parameters
+  def params_ingredient
+    params.permit(:drink_id, :ratio, :volume_alcohol)
+  end
 
   def params_user_define
     params.permit(:user_id, :name, :drink_id, :ingredient_volume_alcohol, :ratio)
