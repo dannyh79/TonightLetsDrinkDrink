@@ -1,5 +1,15 @@
 // meta: PC screen first, then RWD to different sizes of screens 
 
+
+
+
+.select-result {
+  background-color: #afa;
+  width: 100vw;
+  height: 100vh;
+}
+
+
 // WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
 .select-result .container-form-tabs {
   padding-top: 45px; 
@@ -9,6 +19,8 @@
 
   .form-tab { padding: 0 10px; }
 }
+
+
 
 .select-result .row.flex-column {
   height: 100vh;
@@ -21,96 +33,80 @@
   box-sizing: border-box;
   padding: 10px;
 }
-
 .alc-select { 
   height: 50vh;
-
-  padding-top: 45px; 
-
-  .container-scroll {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-  }  
-
 }
-
+.alc-select .container-scroll {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
 input[type="radio"] {
   display: none;
 }
-
 .option {
   background-color: #ddd;
   display: flex;
   padding: 5px 10px;
   align-items: center;
-
-  .img-container { 
-    width: 50px; 
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    flex: none;
-  }
-
-  .name {
-    flex: auto; 
-    margin-left: 1rem;
-  }
-
-  .concentration { 
-    flex: none; 
-    margin-right: 1rem;
-  }
-
-
-  .btn-delete {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    background-color: #aaf;
-    border-radius: 50%;
-    flex: none;
-    margin-right: 1rem;
-  
-    /* hidding the delete button */
-    visibility: hidden; 
-  }
-
-  img { width: 100%; }
 }
+.option .img-container { 
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+}
+.option .name {
+  flex: auto; 
+  margin-left: 1rem;
+}
+.option .concentration { 
+  flex: none; 
+  margin-right: 1rem;
+}
+.option .btn-delete {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #aaf;
+  border-radius: 50%;
+  flex: none;
+  margin-right: 1rem;
 
+  /* "delete button": hidden */
+  visibility: hidden; 
+}
+.option img { width: 100%; }
 input[type="radio"]:checked + .option {
   background-color: #555;
 }
+
 
 .time-unit { 
   height: 40vh;
   display: none; 
 }
-
 .time-before,
 .time-after {
   width: 50%;
 }
-
 .unit {
   width: 100%;
 }
-
 label[for="time-before"],
 label[for="time-after"],
 label[for="unit"]  {
   display: block;
 }
-
 input[type="submit"] { 
   width: 100%;
   display: block; 
 }
+
 
 
 .result { 
@@ -119,51 +115,11 @@ input[type="submit"] {
   height: 100vh;
   position: relative;
   display: none; 
-
-  .container-man-figure {
-    width: 100%;
-    height: 78vh;
-    position: relative;
-    overflow: hidden;
-  
-    #man-figure,
-    #water-level {
-      position: absolute;
-      width: 100%;
-    }
-  
-    #man-figure {
-      top: -5rem;
-      z-index: 1;
-    }
-    
-    #water-level {
-      background-color: #f00;
-      bottom: -13%;
-    }  
-  }
-
-  .container-btn {
-    width: 13rem;
-    height: 40vh;
-    position: absolute;
-    right: 2vw;
-    top: 18%;
-    z-index: 2;
-  }  
-
-  .btn {
-    flex: none;
-  }  
-}
-
-@keyframes go_level_1 {
-  from { bottom: 1.5rem; }
-  to { bottom: -1%; }
 }
 
 // for form in "user_define.html.erb"
 #save-btn { width: 5rem; }
+
 
 // config for ".container-btn" in "animation_man-figure.scss"
 
@@ -171,25 +127,26 @@ input[type="submit"] {
   .select-result { 
     height: 200vh; 
   }
-
   .select-result .row.flex-column {
     height: 200vh;
   }
 
+
   .form {
     width: 100vw;
   }
-
   .alc-select { 
     height: 90vh; 
   }
-
   .time-unit {
     height: 20vh;
   }
   #user-defined_to-be-mixed-list { 
     width: 100%;
   }
+
+
+
 
   .result {
     width: 100vw;
