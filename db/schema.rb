@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_093425) do
+ActiveRecord::Schema.define(version: 2019_06_17_034825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2019_06_14_093425) do
     t.string "img_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "display_name"
+  end
+
+  create_table "user_defines", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name", default: "", null: false
+    t.string "drink_id", default: [], null: false, array: true
+    t.string "ratio", default: [], null: false, array: true
+    t.string "ingredient_volume_alcohol", default: [], null: false, array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_defines_on_user_id"
   end
 
   create_table "user_defines", force: :cascade do |t|
