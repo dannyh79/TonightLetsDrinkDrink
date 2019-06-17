@@ -31,23 +31,23 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 
 
-  #測試
+  # 忘記密碼時的寄送 email 
+  
   config.action_mailer.raise_delivery_errors = false #測試可改true，但如果已上線的話建議改回false
- # config.action_mailer.default_url_options = { host: ENV["WEB_PATH"]} #production的絕對網址
- config.action_mailer.default_url_options = { :host => "localhost:3000" }
+    
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
+  address: "smtp.mailgun.org",
   port: 587,
-  domain: "gmail.com",
+  domain: "TonightLetsDrinkDrink",
   authentication: "plain",
-  user_name: ENV["GMAIL_USERNAME"], #你的帳號
-  password: ENV["GMAIL_PASSWORD"], #信箱密碼 
+  user_name: ENV["mailgun_username"], #你的帳號
+  password: ENV["mailgun_password"], #信箱密碼 
   enable_starttls_auto: true 
 }
 
@@ -77,6 +77,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
-  
 end
