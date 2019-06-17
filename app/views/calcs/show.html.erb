@@ -11,12 +11,12 @@
       <h3>選擇預設飲品：</h3>
       <div class="container-scroll">
         <% @drinks.each do |drink| %>
-          <input name="alcohol" type="radio" id="<%= drink.name %>" value="<%= drink.volume_alcohol %>">	
+          <input name="alcohol" type="radio" id="<%= drink.name %>" value="<%= drink.volume_alcohol %>" data="<%= drink.display_name %>">	
           <label class="option" for="<%= drink.name %>">
             <div class="img-container">
               <img src="https://fakeimg.pl/300x300/aaf">
             </div>
-            <div class="name"><%= drink.name %></div>
+            <div class="name"><%= drink.display_name %></div>
             <div class="concentration"><%= drink.volume_alcohol %> %</div>
             <button class="btn-delete">X</button>
           </label>
