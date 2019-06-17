@@ -12,8 +12,4 @@ class CalcsController < ApplicationController
     @drinks = drinks
   end
 
-  def record_user_define
-    @drinks = drinks
-  end
-  
 end
