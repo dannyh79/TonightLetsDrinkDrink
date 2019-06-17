@@ -1,3 +1,33 @@
 <h1>編輯調酒紀錄</h1>
 
-<%= link_to '回到首頁', calc_path %>
+<div class="container mx-auto select-result">
+  <div class="row flex-column">
+    <form action="" class="form alc-select">
+
+      <h3>點擊X鈕刪除紀錄：</h3>
+      
+      <div class="container-scroll">
+
+      <% if current_user.user_defines.any? %>
+        <% current_user.user_defines.each do |user_define| %>
+          <input name="alcohol" type="radio" id="<%= user_define.id %>" value="<%= user_define.volume_alcohol %>">	
+          <label class="option" for="<%= user_define.id %>">
+            <div class="img-container"><%#= user_define.img_path %></div>          
+            <div class="name"><%= user_define.name %></div>
+            <div class="concentration"><%= user_define.volume_alcohol %></div>
+            <%= link_to 'X', user_define_path(user_define), method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
+          </label>
+        <% end %>
+      <% else %>
+        <h1>你沒有自己調的ㄛ a_a</h1>
+      <% end %>
+
+
+      </div>
+
+      <%= link_to '回到計算頁', calc_path %>
+
+    </form>  
+
+  </div>
+</div>
