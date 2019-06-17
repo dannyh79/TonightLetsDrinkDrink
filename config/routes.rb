@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
 
   # nav_bar 編輯調酒紀錄
-  get '/user_define/edit', to: 'user_define#edit'
+  resource :user_define, only: [:edit, :destroy]
 
   # calc_page
   resource :calc, only: [:show] do
