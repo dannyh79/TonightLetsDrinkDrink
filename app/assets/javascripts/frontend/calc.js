@@ -109,7 +109,8 @@ $(document).on('turbolinks:load', function() {
   $('form[class="form alc-select"] input[type=radio]').click(function (e) {
     alcoholContent = $('form[class="form alc-select"] input[type=radio]:checked').val();
     alcoholContent = Number(alcoholContent);
-    liquorName = $(this).attr('id');
+    liquorName = $(this).attr('data');
+    console.log(liquorName)
     changeButton();
   })
   $('#next-step').click(function (e) {
