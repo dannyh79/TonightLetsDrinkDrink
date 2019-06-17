@@ -70,7 +70,7 @@ Rails.application.configure do
 
 
   # 忘記密碼時的寄送 email 
-  config.action_mailer.raise_delivery_errors = false #測試可改true，但如果已上線的話建議改回false
+  config.action_mailer.raise_delivery_errors = true #測試可改true，但如果已上線的話建議改回false
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
