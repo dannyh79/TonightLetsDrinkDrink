@@ -2,7 +2,7 @@
 <%# 22:20 06.16 進度: 該如何將 array 參數傳至 user_define#create? 此頁的 array 傳不過去 %>
 <%# 11:02 06.16 搞定了 送喇 %>
 
-<%= form_tag('/calc/user_define/add_ingredient') do %>
+<%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
   <%= fields_for :ingredients do |field| %>
     <div>
 
@@ -48,7 +48,7 @@
             <div class="ratio">比例：<%= ingredient["ratio"] %></div>
 
             <a class="btn" 
-              data-method="delete"  
+              data-method="patch"  
               href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
               rel="nofollow"
               data-confirm="Are you sure?"
