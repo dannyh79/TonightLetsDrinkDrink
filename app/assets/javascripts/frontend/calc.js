@@ -109,7 +109,8 @@ $(document).on('turbolinks:load', function() {
   $('form[class="form alc-select"] input[type=radio]').click(function (e) {
     alcoholContent = $('form[class="form alc-select"] input[type=radio]:checked').val();
     alcoholContent = Number(alcoholContent);
-    liquorName = $(this).attr('id');
+    liquorName = $(this).attr('data');
+    console.log(liquorName)
     changeButton();
   })
   $('#next-step').click(function (e) {
@@ -169,27 +170,27 @@ $(document).on('turbolinks:load', function() {
   })
   
   $('#level1').on('click', function() {
-    $('#water-level').removeClass()
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_1')
   });
   
   $('#level2').on('click', function() {
-    $('#water-level').removeClass()
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_2')
   });
   
   $('#level3').on('click', function() {
-    $('#water-level').removeClass()
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_3')
   });
   
   $('#level4').on('click', function() {
-    $('#water-level').removeClass()
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_4')
   });
   
   $('#level5').on('click', function() {
-    $('#water-level').removeClass()
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_5')
   });
 
