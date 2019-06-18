@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
   // mk 以下尚待重構
   // % BAC = (A x 5.14 / (W x r)) - 0.015 x H
   // A = n * unit * alcoholContent * toOunces / 100
@@ -29,9 +29,11 @@ $(document).on('turbolinks:load', function() {
   let safeDrive = [0, 0, 0, 0, 0]
   let levelText = ["", "", "", "", ""]
   let driveText = ["", "", "", "", ""]
+  let rightPage = true;
 
   gender = setGenderConst(gon.current_user_gender)
-  function setGenderConst(gender){
+
+  function setGenderConst(gender) {
     return (gender === 0 ? menConst : womenConst)
   }
 
@@ -54,23 +56,27 @@ $(document).on('turbolinks:load', function() {
       return 0;
     }
   }
-  
+
   function minToTime(minutes) {
     let hours = 0;
     hours = Math.floor(minutes / 60);
     minutes = minutes % 60;
     return `${hours} 小時 ${minutes} 分`
   }
-  function setModal(id){
+
+  function setModal(id) {
     // 取得 levelnumber 的 number(最後一個字)
     id = id[id.length - 1];
     $(`#exampleModalLongTitle`).text(levelText[id - 1]);
     $(`#modal-bac`).text(`血酒濃度：${bacLevel[id - 1]} %`);
     $(`.modal-body .info .level${id}`).show();
-    $(`.modal-body h6`).text(driveText[id - 1]);
+    $(`#after-drink`).text(driveText[id - 1]);
+    console.log(driveText[id -1]);
   }
+
+  // 變更層級按鈕
   function changeButton() {
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
       maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i], gender)) * 10) / 10;
     }
     // var fns = {
@@ -97,98 +103,130 @@ $(document).on('turbolinks:load', function() {
       safeDrive[i] = Math.ceil(calcDrive(maxDrinksLevel[i], gender));
     }
 
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
       if (safeDrive[i] <= 0) {
         driveText[i] = `血酒濃度低於酒測標準 ${bacLevel[0]} %`;
+        console.log(driveText[i]);
       } else {
         driveText[i] = `結束後 ${minToTime(safeDrive[i])}，血酒濃度可低於酒測標準 ${bacLevel[0]} %`;
+        console.log(driveText[i]);
       }
     }
   }
 
-  $('form[class="form alc-select"] input[type=radio]').click(function (e) {
-    alcoholContent = $('form[class="form alc-select"] input[type=radio]:checked').val();
+  // 選擇酒類
+  $('#calc-drinks input[type=radio]').click(function (e) {
+    alcoholContent = $('#calc-drinks input[type=radio]:checked').val();
     alcoholContent = Number(alcoholContent);
+    console.log(alcoholContent);
     liquorName = $(this).attr('id');
+    console.log(liquorName);
     changeButton();
-  })
-  $('#next-step').click(function (e) {
-    if (alcoholContent !== 0) {
-      e.preventDefault();
-      const timeUnit = $('#time-unit');
-      timeUnit.show();
-      const top = timeUnit.offset().top;
-      $(window).scrollTop(top);
-    }
   })
   $('select[name="time-before"]')
     .change(function () {
       timeBefore = $('select[name="time-before"] option:selected').val();
       timeBefore = Number(timeBefore);
-      changeButton();
+      console.log(timeBefore);
+      // changeButton();
     })
   $('select[name="time-after"]')
     .change(function () {
       timeAfter = $('select[name="time-after"] option:selected').val();
       timeAfter = Number(timeAfter);
-      changeButton();
+      console.log(timeAfter);
+      // changeButton();
     })
   $('select[name="unit"]')
     .change(function () {
       unit = $('select[name = "unit"] option:selected').val();
       unit = Number(unit);
-      changeButton();
+      console.log(unit);
+      // changeButton();
     })
-  $('#next-result').click(function (e) {
-    e.preventDefault();
-    const result = $('#result');
-    result.show();
-    const top = result.offset().top;
-    $(window).scrollTop(top);
+
+
+  // 按鈕事件
+  $("#next-step").click(function () {
+    if (rightPage){
+      $("#time-unit").removeClass("d-none");
+      rightPage = false;
+    }
+    if (alcoholContent !== 0) {
+      $(window).scrollTop(10000);
+    }
+  });
+  $("#to-result").click(function () {
+    $("#time-unit").addClass("d-none");
+    $("#result-step").removeClass("d-none");
+    $(window).scrollTop(10000);
     changeButton();
-  })
+  });
+  $("#to-time-unit").click(function () {
+    $("#result-step").addClass("d-none");
+    $("#time-unit").removeClass("d-none");
+    $(window).scrollTop(top);
+  });
+
+
+
+
+  // $('#next-result').click(function (e) {
+  //   e.preventDefault();
+  //   const result = $('#result');
+  //   result.show();
+  //   const top = result.offset().top;
+  //   $(window).scrollTop(top);
+  //   changeButton();
+  // })
   $('#result button').click(function (e) {
     $(`.modal-body .info li`).hide();
     setModal($(this).attr('id'));
   })
   // mk 以上重構完成
-  $('#next-step').click(function(e) {
-    e.preventDefault();
-    const timeUnit = $('#time-unit');
-    timeUnit.show();
-    const top = timeUnit.offset().top;
-    $(window).scrollTop(top);
-  })
-  
-  $('#next-result').click(function(e) {
-    e.preventDefault();
-    const result = $('#result');
-    result.show();
-    const top = result.offset().top;
-    $(window).scrollTop(top);
-  })
-  
-  $('#level1').on('click', function() {
+
+
+
+
+
+
+  // $('#next-step').click(function (e) {
+  //   e.preventDefault();
+  //   const timeUnit = $('#time-unit');
+  //   timeUnit.show();
+  //   const top = timeUnit.offset().top;
+  //   $(window).scrollTop(top);
+  // })
+
+  // $('#next-result').click(function (e) {
+  //   e.preventDefault();
+  //   const result = $('#result');
+  //   result.show();
+  //   const top = result.offset().top;
+  //   $(window).scrollTop(top);
+  // })
+
+  $('#level1').on('click', function () {
     $('#water-level').removeClass()
     $('#water-level').addClass('level_1')
   });
-  
-  $('#level2').on('click', function() {
+
+  $('#level2').on('click', function () {
     $('#water-level').removeClass()
     $('#water-level').addClass('level_2')
   });
-  
-  $('#level3').on('click', function() {
+
+  $('#level3').on('click', function () {
     $('#water-level').removeClass()
     $('#water-level').addClass('level_3')
   });
-  
-  $('#level4').on('click', function() {
+
+  $('#level4').on('click', function () {
     $('#water-level').removeClass()
     $('#water-level').addClass('level_4')
   });
-  
-  $('#level5').on('click', function() {
+
+  $('#level5').on('click', function () {
     $('#water-level').removeClass()
     $('#water-level').addClass('level_5')
   });
