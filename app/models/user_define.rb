@@ -1,5 +1,3 @@
-# *****Issue: UserDefine's instance can NOT be created if the class is inherited from ApplicationRecord
-# Close ApplicationRecord to make UserDefine PORO
 class UserDefine < ApplicationRecord
   validates :name, :user_id, :drink_id, :ingredient_volume_alcohol, :ratio, presence: true
   belongs_to :user
