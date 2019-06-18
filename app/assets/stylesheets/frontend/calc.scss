@@ -1,155 +1,226 @@
-// meta: PC screen first, then RWD to different sizes of screens 
+// // meta: PC screen first, then RWD to different sizes of screens 
 
 
 
 
-.select-result {
-  background-color: #afa;
-  width: 100vw;
-  height: 100vh;
+// .select-result {
+//   background-color: #afa;
+//   width: 100vw;
+//   height: 100vh;
+// }
+
+
+// // WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
+// .select-result .container-form-tabs {
+//   padding-top: 45px; 
+
+//   height: 10vh;
+//   display: inline-block;
+
+//   .form-tab { padding: 0 10px; }
+// }
+
+
+
+// .select-result .row.flex-column {
+//   height: 100vh;
+// }
+
+
+// .form {
+//   width: 40vw;
+//   background-color: #faa;
+//   box-sizing: border-box;
+//   padding: 10px;
+// }
+// .alc-select { 
+//   height: 50vh;
+// }
+// .alc-select .container-scroll {
+//   width: 100%;
+//   height: 50%;
+//   display: flex;
+//   flex-direction: column;
+//   overflow: scroll;
+// }
+// input[type="radio"] {
+//   display: none;
+// }
+// .option {
+//   background-color: #ddd;
+//   display: flex;
+//   padding: 5px 10px;
+//   align-items: center;
+// }
+// .option .img-container { 
+//   width: 50px; 
+//   height: 50px;
+//   border-radius: 50%;
+//   overflow: hidden;
+//   flex: none;
+// }
+// .option .name {
+//   flex: auto; 
+//   margin-left: 1rem;
+// }
+// .option .concentration { 
+//   flex: none; 
+//   margin-right: 1rem;
+// }
+// .option .btn-delete {
+//   width: 30px;
+//   height: 30px;
+//   line-height: 30px;
+//   text-align: center;
+//   background-color: #aaf;
+//   border-radius: 50%;
+//   flex: none;
+//   margin-right: 1rem;
+
+//   /* "delete button": hidden */
+//   visibility: hidden; 
+// }
+// .option img { width: 100%; }
+// input[type="radio"]:checked + .option {
+//   background-color: #555;
+// }
+
+
+// .time-unit { 
+//   height: 40vh;
+//   display: none; 
+// }
+// .time-before,
+// .time-after {
+//   width: 50%;
+// }
+// .unit {
+//   width: 100%;
+// }
+// label[for="time-before"],
+// label[for="time-after"],
+// label[for="unit"]  {
+//   display: block;
+// }
+// input[type="submit"] { 
+//   width: 100%;
+//   display: block; 
+// }
+
+
+
+// .result { 
+//   background-color: #ffa;
+//   width: 60vw;
+//   height: 100vh;
+//   position: relative;
+//   display: none; 
+// }
+
+// // for form in "user_define.html.erb"
+// #save-btn { width: 5rem; }
+
+
+// // config for ".container-btn" in "animation_man-figure.scss"
+
+// @media screen and (max-width: 767px) {
+//   .select-result { 
+//     height: 200vh; 
+//   }
+//   .select-result .row.flex-column {
+//     height: 200vh;
+//   }
+
+
+//   .form {
+//     width: 100vw;
+//   }
+//   .alc-select { 
+//     height: 90vh; 
+//   }
+//   .time-unit {
+//     height: 20vh;
+//   }
+//   #user-defined_to-be-mixed-list { 
+//     width: 100%;
+//   }
+
+
+
+
+//   .result {
+//     width: 100vw;
+//     height: 80vh;
+//   }
+// }
+
+.content-left{
+  background-color: rgba(0, 123, 255, 0.5);
 }
-
-
-// WIP: style for button "選一種酒", "調酒紀錄", and "自製調酒"
-.select-result .container-form-tabs {
-  padding-top: 45px; 
-
-  height: 10vh;
+.content-left-wrapper{
+  background: none;
+}
+.forward a{
+  color: #fff;
+}
+#middle-wizard1{
+  padding-top: 10px;
+}
+.btn-change-page{
+  width: 30%;
+  margin: 1%;
+}
+#calc-drinks{
+  height: 400px;
+  overflow: auto;
+}
+.calc-drink-label{
+  text-align: left;
+}
+.calc-drink-label div{
   display: inline-block;
-
-  .form-tab { padding: 0 10px; }
-}
-
-
-
-.select-result .row.flex-column {
-  height: 100vh;
-}
-
-
-.form {
-  width: 40vw;
-  background-color: #faa;
+  height: 80px;
   box-sizing: border-box;
-  padding: 10px;
 }
-.alc-select { 
-  height: 50vh;
+.calc-drink-label .calc-img-container {
+  width: 50px;
 }
-.alc-select .container-scroll {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-}
-input[type="radio"] {
-  display: none;
-}
-.option {
-  background-color: #ddd;
-  display: flex;
-  padding: 5px 10px;
-  align-items: center;
-}
-.option .img-container { 
-  width: 50px; 
-  height: 50px;
+.calc-img-container img{
+  width: 90%;
   border-radius: 50%;
-  overflow: hidden;
-  flex: none;
+  // height: 50px;
 }
-.option .name {
-  flex: auto; 
-  margin-left: 1rem;
-}
-.option .concentration { 
-  flex: none; 
-  margin-right: 1rem;
-}
-.option .btn-delete {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  background-color: #aaf;
-  border-radius: 50%;
-  flex: none;
-  margin-right: 1rem;
+// .btn-delete{
+//   margin-left: auto;
+// }
+// .step2{
+//   display: none;
+// }
+// .step3{
+//   display: none;
+// }
 
-  /* "delete button": hidden */
-  visibility: hidden; 
+#result-step{
+  height: 55vh;
 }
-.option img { width: 100%; }
-input[type="radio"]:checked + .option {
-  background-color: #555;
+#after-drink{
+  font-size: 16px;
 }
-
-
-.time-unit { 
-  height: 40vh;
-  display: none; 
+.change-btn{
+  // margin-top: auto;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  // flex-flow: column wrap;
 }
-.time-before,
-.time-after {
-  width: 50%;
+#to-time-unit{
+  align-self: flex-end;
 }
-.unit {
-  width: 100%;
-}
-label[for="time-before"],
-label[for="time-after"],
-label[for="unit"]  {
-  display: block;
-}
-input[type="submit"] { 
-  width: 100%;
-  display: block; 
-}
-
-
-
-.result { 
-  background-color: #ffa;
-  width: 60vw;
-  height: 100vh;
-  position: relative;
-  display: none; 
-}
-
-// for form in "user_define.html.erb"
-#save-btn { width: 5rem; }
-
-
-// config for ".container-btn" in "animation_man-figure.scss"
-
 @media screen and (max-width: 767px) {
-  .select-result { 
-    height: 200vh; 
+  #result-step {
+    height: 75vh;
   }
-  .select-result .row.flex-column {
-    height: 200vh;
-  }
-
-
-  .form {
-    width: 100vw;
-  }
-  .alc-select { 
-    height: 90vh; 
-  }
-  .time-unit {
-    height: 20vh;
-  }
-  #user-defined_to-be-mixed-list { 
-    width: 100%;
-  }
-
-
-
-
-  .result {
-    width: 100vw;
-    height: 80vh;
+  #time-unit{
+    height: 75vh;
   }
 }
