@@ -1,8 +1,0 @@
-production:
-  mailgun_username: postmaster@sandbox403e3119d9a04939812e2948c0fe3ffa.mailgun.org
-  mailgun_password: 40db361e68c97c62b8d912698371be2a-29b7488f-9ab35295
-
-
-development:
-  mailgun_username: postmaster@sandbox403e3119d9a04939812e2948c0fe3ffa.mailgun.org
-  mailgun_password: 40db361e68c97c62b8d912698371be2a-29b7488f-9ab35295
