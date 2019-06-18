@@ -148,7 +148,7 @@ $(document).on('turbolinks:load', function () {
 
   // 按鈕事件
   $("#next-step").click(function () {
-    if (rightPage){
+    if (alcoholContent !== 0  && rightPage) {
       $("#time-unit").removeClass("d-none");
       rightPage = false;
     }
