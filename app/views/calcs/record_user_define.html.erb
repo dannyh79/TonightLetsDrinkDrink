@@ -10,20 +10,21 @@
       <h3>選擇一個飲品紀錄：</h3>
       <div class="container-scroll">
 
+        <% if current_user.user_defines.any? %>
+          <% current_user.user_defines.each do |user_define| %>
+            <input name="alcohol" type="radio" id="<%= user_define.id %>" value="<%= user_define.volume_alcohol %>">	
+            <label class="option" for="<%= user_define.id %>">
 
-        <%# WIP: awaiting data from "current_user.drinks" %>
-        <%# JS WIP: to be connected to page's calc flow %>
-        <%# current_user.drinks.each do |drink| %>
-          <input name="alcohol" type="radio" id="<%#= drink.name %>" value="<%#= drink.volume_alcohol %>">	
-          <label class="option" for="<%#= drink.name %>">
-            <div class="img-container">
-              <img src="https://fakeimg.pl/300x300/aaf">
-            </div>
-            <div class="name"><%#= drink.name %></div>
-            <div class="concentration"><%#= drink.volume_alcohol %> %</div>
-            <button class="btn-delete">X</button>
-          </label>
-        <%# end %>              
+              <!-- WIP: 問號圖的連結待補 -->
+              <div class="img-container"><%#= user_define.img_path %></div>          
+              <div class="name"><%= user_define.name %></div>
+              <div class="concentration"><%= user_define.volume_alcohol %> %</div>
+              <%= link_to 'X', user_define_path(user_define), method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
+            </label>
+          <% end %>
+        <% else %>
+          <h1>你沒有自己調的ㄛ a_a</h1>
+        <% end %>
       </div>
       <input id="next-step" type="button" value="下一步">
     </form>  
