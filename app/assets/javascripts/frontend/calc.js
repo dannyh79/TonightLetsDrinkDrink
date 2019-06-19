@@ -18,8 +18,8 @@ $(document).on('turbolinks:load', function () {
   let safeDrive = [0, 0, 0, 0, 0]
   let levelText = ["", "", "", "", ""]
   let driveText = ["", "", "", "", ""]
+  let genderConst = 0;
   let rightPage = true;
-  let genderConst
 
   function setGenderConst(gender) {
     return (gender === 0 ? menConst : womenConst)
@@ -36,8 +36,7 @@ $(document).on('turbolinks:load', function () {
     }
   }
 
-  function calcDrive(drinksLevel, genderConst) {
-    genderConst = setGenderConst(gon.current_user_gender);
+  function calcDrive(drinksLevel) {
     if ((genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (((205.6 * drinksLevel * unit * alcoholContent * toOunces) / (weight * toLB * genderConst))) - (timeBefore + timeAfter) - (4000 * bacLevel[0]);
     } else {
