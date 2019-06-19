@@ -31,23 +31,18 @@ $(document).on('turbolinks:load', function () {
   let driveText = ["", "", "", "", ""]
   let rightPage = true;
 
-  gender = setGenderConst(gon.current_user_gender)
 
   function setGenderConst(gender) {
     return (gender === 0 ? menConst : womenConst)
   }
 
-  weight = gon.current_user_weight;
-
-  // function killCalcSpan{
-
-  // }
-
-  function calcDrink(bac, genderConst) {
+  function calcDrink(bac) {
+    genderConst = setGenderConst(gon.current_user_gender);
+    weight = gon.current_user_weight;
     if ((bac !== 0) && (genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (100 * weight * toLB * genderConst * (bac + 0.00025 * (timeBefore + timeAfter))) / (5.14 * unit * alcoholContent * toOunces)
     } else {
-      console.log("有值為 0");
+      console.log("calcDrink 有值為 0");
       return 0;
     }
   }
@@ -56,7 +51,7 @@ $(document).on('turbolinks:load', function () {
     if ((genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (((205.6 * drinksLevel * unit * alcoholContent * toOunces) / (weight * toLB * genderConst))) - (timeBefore + timeAfter) - (4000 * bacLevel[0]);
     } else {
-      console.log("有值為 0");
+      console.log("calcDrive 有值為 0");
       return 0;
     }
   }
@@ -75,7 +70,7 @@ $(document).on('turbolinks:load', function () {
     $(`#modal-bac`).text(`血酒濃度：${bacLevel[id - 1]} %`);
     $(`.modal-body .info .level${id}`).show();
     $(`#after-drink`).text(driveText[id - 1]);
-    console.log(driveText[id -1]);
+    // console.log(driveText[id -1]);
   }
 
   // 變更層級按鈕
@@ -104,16 +99,16 @@ $(document).on('turbolinks:load', function () {
 
 
     for (let i = 0; i < 5; i++) {
-      safeDrive[i] = Math.ceil(calcDrive(maxDrinksLevel[i], gender));
+      safeDrive[i] = Math.ceil(calcDrive(maxDrinksLevel[i]));
     }
 
     for (let i = 0; i < 5; i++) {
       if (safeDrive[i] <= 0) {
         driveText[i] = `血酒濃度低於酒測標準 ${bacLevel[0]} %`;
-        console.log(driveText[i]);
+        // console.log(driveText[i]);
       } else {
         driveText[i] = `結束後 ${minToTime(safeDrive[i])}，血酒濃度可低於酒測標準 ${bacLevel[0]} %`;
-        console.log(driveText[i]);
+        // console.log(driveText[i]);
       }
     }
   }
@@ -122,9 +117,9 @@ $(document).on('turbolinks:load', function () {
   $('#calc-drinks input[type=radio]').click(function (e) {
     alcoholContent = $('#calc-drinks input[type=radio]:checked').val();
     alcoholContent = Number(alcoholContent);
-    console.log(alcoholContent);
+    // console.log(alcoholContent);
     liquorName = $(this).attr('id');
-    console.log(liquorName);
+    // console.log(liquorName);
     // $('#calcdrinks .form-grop input').removeClass('for-checked-form-group');
     $('#calc-drinks label').removeClass('for-checked-form-group');
     $(this).parent('label').addClass('for-checked-form-group');
@@ -135,21 +130,21 @@ $(document).on('turbolinks:load', function () {
     .change(function () {
       timeBefore = $('select[name="time-before"] option:selected').val();
       timeBefore = Number(timeBefore);
-      console.log(timeBefore);
+      // console.log(timeBefore);
       // changeButton();
     })
   $('select[name="time-after"]')
     .change(function () {
       timeAfter = $('select[name="time-after"] option:selected').val();
       timeAfter = Number(timeAfter);
-      console.log(timeAfter);
+      // console.log(timeAfter);
       // changeButton();
     })
   $('select[name="unit"]')
     .change(function () {
       unit = $('select[name = "unit"] option:selected').val();
       unit = Number(unit);
-      console.log(unit);
+      // console.log(unit);
       // changeButton();
     })
 
@@ -174,45 +169,15 @@ $(document).on('turbolinks:load', function () {
     $("#result-step").addClass("d-none");
     $("#time-unit").removeClass("d-none");
     $(window).scrollTop(top);
+    changeButton();
   });
 
 
-
-
-  // $('#next-result').click(function (e) {
-  //   e.preventDefault();
-  //   const result = $('#result');
-  //   result.show();
-  //   const top = result.offset().top;
-  //   $(window).scrollTop(top);
-  //   changeButton();
-  // })
   $('#result button').click(function (e) {
     $(`.modal-body .info li`).hide();
     setModal($(this).attr('id'));
   })
   // mk 以上重構完成
-
-
-
-
-
-
-  // $('#next-step').click(function (e) {
-  //   e.preventDefault();
-  //   const timeUnit = $('#time-unit');
-  //   timeUnit.show();
-  //   const top = timeUnit.offset().top;
-  //   $(window).scrollTop(top);
-  // })
-
-  // $('#next-result').click(function (e) {
-  //   e.preventDefault();
-  //   const result = $('#result');
-  //   result.show();
-  //   const top = result.offset().top;
-  //   $(window).scrollTop(top);
-  // })
 
   $('#level1').on('click', function () {
     $('#water-level').removeClass()
