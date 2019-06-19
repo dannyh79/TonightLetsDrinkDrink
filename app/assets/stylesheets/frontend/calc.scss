@@ -120,3 +120,29 @@
     height: 100vh;
   }
 }
+
+
+// for '/calc/user_define/
+.btn-save {
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  transition: background .5s ease;
+  -moz-transition: background .5s ease;
+  -webkit-transition: background .5s ease;
+  -o-transition: background .5s ease;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background: #434bdf;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 3px;
+  line-height: 1;
+  padding: 12px 30px
+}
+
+.label_name-user-define { display: block; }

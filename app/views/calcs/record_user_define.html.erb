@@ -1,197 +1,245 @@
-<div class="container-fluid select-result">
-  <div class="row flex-column">
-    <div class="container-form-tabs">
-      <%= link_to '選一種酒', calc_path, class: 'form-tab' %>
-      <%= link_to '調酒紀錄', record_user_define_calc_path, class: 'form-tab' %>
-      <%= link_to '自製調酒', user_define_calc_path, class: 'form-tab' %>
-    </div>
+<%= include_gon %>
+<div class="container-fluid full-height">
+  <div class="row row-height">
+    <div class="col-lg-6 content-left">
+      <div class="content-left-wrapper">
 
-    <form action="" class="form alc-select">
-      <h3>選擇一個飲品紀錄：</h3>
-      <div class="container-scroll">
+        <div id="wrapped">
+          
+          <div class="container-btn-change-page">
+            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
+            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page" %>
+            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page" %>
+          </div>
 
-        <% if current_user.user_defines.any? %>
-          <% current_user.user_defines.each do |user_define| %>
-            <input name="alcohol" type="radio" id="<%= user_define.id %>" value="<%= user_define.volume_alcohol %>">	
-            <label class="option" for="<%= user_define.id %>">
+          <div id="middle-wizard1">
+            <div class="step1">
+              <h3 class="main_question">選擇自己的調酒ㄛ：</h3>
 
-              <!-- WIP: 問號圖的連結待補 -->
-              <div class="img-container"><%#= user_define.img_path %></div>          
-              <div class="name"><%= user_define.name %></div>
-              <div class="concentration"><%= user_define.volume_alcohol %> %</div>
-              <%= link_to 'X', user_define_path(user_define), method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
-            </label>
-          <% end %>
-        <% else %>
-          <h1>你沒有自己調的ㄛ a_a</h1>
-        <% end %>
+
+              <div id="calc-drinks">
+                <% if current_user.user_defines.any? %>
+                  <% current_user.user_defines.each do |user_define| %>
+                  <div class="form-group">
+                    <label class="container_radio version_2 calc-drink-label">
+
+                        <input 
+                          type="radio" 
+                          name="question_1" 
+                          value="<%= user_define.volume_alcohol %>" 
+                          class="required"
+                          onchange="getVals(this, 'question_1');" 
+                          id="<%= user_define.name %>" 
+                          data="<%= user_define.name %>"
+                        >
+                      <span class="checkmark"></span>
+                      <div class="calc-img-container">
+                        <img src="https://fakeimg.pl/300x300/aaf">
+                      </div>
+                      <div class="calc-drink-name"><%= user_define.name %></div>
+                      <div class="concentration"><%= user_define.volume_alcohol %> %</div>
+                      <%= link_to 'X', user_define_path(user_define), method: 'delete', data: { confirm: '確認刪除嗎?!' } %>
+                    </label>
+                  </div>
+                  <% end %>
+                <% else %>
+                  <h3>你沒有自己調的ㄛ a_a</h3>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <button id="next-step" type="button" name="forward" class="forward">下一步</button>
+          <!-- <button id="next-step2" type="button" name="forward" class="forward">下一步2</button> -->
+        </div>
+          <!-- /content-left-wrapper -->
       </div>
-      <input id="next-step" type="button" value="下一步">
-    </form>  
+    </div>
+    <!-- /content-left -->
+
+    <div class="col-lg-6 content-right d-none" id="start">
+      <div id="wizard_container">
+        <div id="top-wizard">
+          <div id="progressbar"></div>
+        </div>
+        <!-- /top-wizard -->
+
+        <input id="website" name="website" type="text" value="">
+        <!-- Leave for security protection, read docs for details -->
+        <div id="middle-wizard">
+          <div id="time-unit" class="step2">
+            <h3 class="main_question"><strong class="d-none">2/3</strong>設定時間與單位</h3>
+            <div class="form-group">
+              <label>多久前開始：</label>
+              <div class="styled-select clearfix">
+                <select class="wide required" name="time-before">
+                  <option value="0">還沒開始</option>
+                  <option value="30">0 時 30 分 前</option>
+                  <option value="60">1 時 00 分 前</option>
+                  <option value="90">1 時 30 分 前</option>
+                  <option value="120">2 時 00 分 前</option>
+                  <option value="150">2 時 30 分 前</option>
+                  <option value="180">3 時 00 分 前</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>多久後結束：</label>
+              <div class="styled-select clearfix">
+                <select class="wide required" name="time-after">
+                  <option value="0">馬上</option>
+                  <option value="30">0 時 30 分 前</option>
+                  <option value="60">1 時 00 分 前</option>
+                  <option value="90">1 時 30 分 前</option>
+                  <option value="120">2 時 00 分 前</option>
+                  <option value="150">2 時 30 分 前</option>
+                  <option value="180">3 時 00 分 前</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>一杯的單位：</label>
+              <div class="styled-select clearfix">
+                <select class="wide required" name="unit">
+                  <optgroup label="啤酒常用">
+                    <option value="330">鋁罐（小）330ml</option>
+                    <option value="500">鋁罐（大）500ml</option>
+                    <option value="330">玻璃瓶（小）330ml</option>
+                    <option value="600">玻璃瓶（大）600ml</option>
+                  </optgroup>
+
+                  <optgroup label="葡萄酒常用">
+                    <option value="150">紅酒、白酒杯（2/3滿）150ml</option>
+                    <option value="150">香檳杯（3/4滿） 150ml</option>
+                  </optgroup>
+
+                  <optgroup label="烈酒常用">
+                    <option value="44.5">Shot 44.5ml</option>
+                    <option value="10">一口杯 10ml</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <button id="to-result" type="button" name="forward" class="forward">計算結果</button>
+          </div>
+          <!-- /step-->
+          <div id="result-step" class="submit step3 d-none">
+            <h3 class="main_question d-none"><strong>3/3</strong>計算結果</h3>
+            <div id="result" class="result">
+              <div class="container-man-figure">
+              <img id="man-figure" src="https://images2.imgbox.com/4e/e5/oQMFkzhA_o.png" alt="人形叉燒包">
+              <img id="water-level" src="https://images2.imgbox.com/40/3d/olTFpoWf_o.png" alt="水線圖叉燒包">
+              </div>
+
+            <div class="d-flex flex-column justify-content-between container-btn">
+                <!-- Button trigger modal -->
+                <button id="level5" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  「斷片」： 啤酒 6.2 杯
+                </button>
+                <button id="level4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  噁心想吐： 啤酒 5.1 杯
+                </button>
+                <button id="level3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  亢奮： 啤酒 3.4 杯
+                </button>
+                <button id="level2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  心情愉悅： 啤酒 1.7 杯
+                </button>
+                <button id="level1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  （正常）： 啤酒 0.8 杯
+                </button>
+            </div>
+          </div>
+            <div class="change-btn">
+              <button id="to-time-unit" type="button" name="forward" class="forward">重新選擇</button>
+            </div>
+          </div>
+          <!-- /step-->
+        </div>
+        <!-- /middle-wizard -->
+        <!-- <div id="bottom-wizard">
+          <button type="button" name="backward" class="backward">Prev</button>
+          <button type="button" name="forward" class="forward">Next</button>
+          <button type="submit" name="process" class="submit">Submit</button>
+        </div> -->
+        <!-- /bottom-wizard -->
+      </div>
+      <!-- /Wizard container -->
+    </div>
+    <!-- /content-right-->
+
+    <!-- Modal terms -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLongTitle">心情愉悅： 啤酒 1.7 杯</h4>
+          </div>
+          <div class="modal-body">
+            <h5 id="modal-bac">血酒濃度: 0.30 % </h5>
+            <div class="info">
+              <h5>行為特徵</h5>
+              <ul>
+                <li class="level1">個體平均感覺正常</li>
+
+                <li class="level2">溫和欣快感</li>
+                <li class="level2">鬆弛</li>
+                <li class="level2">快樂</li>
+                <li class="level2">多語</li>
+                <li class="level2">抑制力下降</li>
+
+                <li class="level3">感覺變得麻木</li>
+                <li class="level3">去抑制</li>
+                <li class="level3">外向</li>
+
+                <li class="level4">過表達</li>
+                <li class="level4">情緒波動</li>
+                <li class="level4">憤怒或悲傷</li>
+                <li class="level4">喧鬧</li>
+                <li class="level4">力比多下降</li>
+
+                <li class="level5">目光呆滯；恍惚</li>
+                <li class="level5">失去理解力</li>
+                <li class="level5">感知受損</li>
+                <li class="level5">可能陷入昏迷</li>
 
 
-    
-    <form id="time-unit" action="" class="form time-unit">
-      <div class="container">
-        <div class="row">
-          <div class="wrap time-before">
-            <label for="time-before">多久前開始：</label>
-            <select name="time-before" id="">
-              <option value="0">還沒開始</option>
-              <option value="30">0 時 30 分 前</option>
-              <option value="60">1 時 00 分 前</option>
-              <option value="90">1 時 30 分 前</option>
-              <option value="120">2 時 00 分 前</option>
-              <option value="150">2 時 30 分 前</option>
-              <option value="180">3 時 00 分 前</option>
-            </select>
+              </ul>
+              <h5>損害</h5>
+              <ul>
+                <li class="level1">特殊試驗可探測到些微效應</li>
+
+                <li class="level2">專注力</li>
+
+                <li class="level3">推理</li>
+                <li class="level3">深度感知</li>
+                <li class="level3">周邊視覺</li>
+                <li class="level3">眩光視覺恢復</li>
+
+                <li class="level4">條件反射</li>
+                <li class="level4">反應時間</li>
+                <li class="level4">粗略運動控制</li>
+                <li class="level4">蹣跚</li>
+                <li class="level4">口齒不清</li>
+                <li class="level4">暫時陽痿</li>
+                <li class="level4">可能暫時性酒精中毒</li>
+
+                <li class="level5">嚴重的運動能力受損</li>
+                <li class="level5">失去意識</li>
+                <li class="level5">記憶空白</li>
+
+              </ul>
+              <h5 id="after-drink">於 0 小時 58 分後低於酒測值水準（0.25 %）</h5>
+            </div>
           </div>
-          <div class="wrap time-after">
-            <label for="time-after">多久後結束：</label>
-            <select name="time-after" id="">
-              <option value="0">馬上</option>
-              <option value="30">0 時 30 分 後</option>
-              <option value="60">1 時 00 分 後</option>
-              <option value="90">1 時 30 分 後</option>
-              <option value="120">2 時 00 分 後</option>
-              <option value="150">2 時 30 分 後</option>
-              <option value="180">3 時 00 分 後</option>
-            </select>
-          </div>
-          <div class="wrap unit">
-            <label for="unit">一杯的單位：</label>
-            <select name="unit" id="unit">
-              <optgroup label="啤酒常用">
-                <option value="330">鋁罐（小）330ml</option>
-                <option value="500">鋁罐（大）500ml</option>
-                <option value="330">玻璃瓶（小）330ml</option>
-                <option value="600">玻璃瓶（大）600ml</option>
-              </optgroup>
-              
-              <optgroup label="葡萄酒常用">
-                <option value="150">紅酒、白酒杯（2/3滿）150ml</option>
-                <option value="150">香檳杯（3/4滿）	150ml</option>
-              </optgroup>
-                
-              <optgroup label="烈酒常用">
-                <option value="44.5">Shot	44.5ml</option>
-                <option value="10">一口杯 10ml</option>
-              </optgroup>
-            </select>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">哇災</button>
           </div>
         </div>
       </div>
-
-      
-      <input id="next-result" type="button" value="估算結果">
-    </form>  
-
-
-
-    <div id="result" class="result">
-      <div class="container-man-figure">
-        <img id="man-figure" src="https://images2.imgbox.com/4e/e5/oQMFkzhA_o.png" alt="人形叉燒包">
-        <img id="water-level" src="https://images2.imgbox.com/40/3d/olTFpoWf_o.png" alt="水線圖叉燒包">
-      </div>
-
-      <div class="d-flex flex-column justify-content-between container-btn">
-        <!-- Button trigger modal -->
-        <button id="level5" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          「斷片」： 啤酒 6.2 杯
-        </button>
-        <button id="level4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          噁心想吐： 啤酒 5.1 杯
-        </button>
-        <button id="level3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          亢奮： 啤酒 3.4 杯
-        </button>
-        <button id="level2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          心情愉悅： 啤酒 1.7 杯
-        </button>
-        <button id="level1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          （正常）： 啤酒 0.8 杯
-        </button>
-      </div>
     </div>
+    <!-- /.modal -->
+
   </div>
+  <!-- /row-->
 </div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">心情愉悅： 啤酒  1.7  杯</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h5 id="modal-bac">血酒濃度: 0.30 % </h5>
-        <div class="info">
-          <div>
-            <p>行為特徵</p>
-          </div>
-          <ul>
-            <li class="level1">個體平均感覺正常</li>
-
-            <li class="level2">溫和欣快感</li>
-            <li class="level2">鬆弛</li>
-            <li class="level2">快樂</li>
-            <li class="level2">多語</li>
-            <li class="level2">抑制力下降</li>
-
-            <li class="level3">感覺變得麻木</li>
-            <li class="level3">去抑制</li>
-            <li class="level3">外向</li>
-
-            <li class="level4">過表達</li>
-            <li class="level4">情緒波動</li>
-            <li class="level4">憤怒或悲傷</li>
-            <li class="level4">喧鬧</li>
-            <li class="level4">力比多下降</li>
-
-            <li class="level5">目光呆滯；恍惚</li>
-            <li class="level5">失去理解力</li>
-            <li class="level5">感知受損</li>
-            <li class="level5">可能陷入昏迷</li>
-
-
-          </ul>
-          <div>
-            <p>損害</p>
-          </div>
-          <ul>
-            <li class="level1">特殊試驗可探測到些微效應</li>
-
-            <li class="level2">專注力</li>
-
-            <li class="level3">推理</li>
-            <li class="level3">深度感知</li>
-            <li class="level3">周邊視覺</li>
-            <li class="level3">眩光視覺恢復</li>
-
-            <li class="level4">條件反射</li>
-            <li class="level4">反應時間</li>
-            <li class="level4">粗略運動控制</li>
-            <li class="level4">蹣跚</li>
-            <li class="level4">口齒不清</li>
-            <li class="level4">暫時陽痿</li>
-            <li class="level4">可能暫時性酒精中毒</li>
-
-            <li class="level5">嚴重的運動能力受損</li>
-            <li class="level5">失去意識</li>
-            <li class="level5">記憶空白</li>
-
-          </ul>
-        </div>
-
-        <hr>
-        <h6>於 0 小時 58 分後低於酒測值水準（0.25 %）</h6>
-      </div>
-    </div>
-  </div>
-</div>    
