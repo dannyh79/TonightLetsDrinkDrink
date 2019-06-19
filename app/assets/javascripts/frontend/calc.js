@@ -29,6 +29,7 @@ $(document).on('turbolinks:load', function () {
   let safeDrive = [0, 0, 0, 0, 0]
   let levelText = ["", "", "", "", ""]
   let driveText = ["", "", "", "", ""]
+  let genderConst = 0;
   let rightPage = true;
 
 
@@ -47,7 +48,7 @@ $(document).on('turbolinks:load', function () {
     }
   }
 
-  function calcDrive(drinksLevel, genderConst) {
+  function calcDrive(drinksLevel) {
     if ((genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (((205.6 * drinksLevel * unit * alcoholContent * toOunces) / (weight * toLB * genderConst))) - (timeBefore + timeAfter) - (4000 * bacLevel[0]);
     } else {
@@ -76,7 +77,7 @@ $(document).on('turbolinks:load', function () {
   // 變更層級按鈕
   function changeButton() {
     for (let i = 0; i < 5; i++) {
-      maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i], gender)) * 10) / 10;
+      maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i])) * 10) / 10;
     }
     // var fns = {
     //   doMaxDrinksLevel: function (times) {
