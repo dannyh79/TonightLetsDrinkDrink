@@ -117,13 +117,12 @@ $(document).on('turbolinks:load', function () {
   $('#calc-drinks input[type=radio]').click(function (e) {
     alcoholContent = $('#calc-drinks input[type=radio]:checked').val();
     alcoholContent = Number(alcoholContent);
-    // console.log(alcoholContent);
-    liquorName = $(this).attr('id');
-    // console.log(liquorName);
+    liquorName = $(this).attr('data');
+    console.log(liquorName)
     // $('#calcdrinks .form-grop input').removeClass('for-checked-form-group');
     $('#calc-drinks label').removeClass('for-checked-form-group');
     $(this).parent('label').addClass('for-checked-form-group');
-    // console.log(this);
+    // console.log(this);    
     changeButton();
   })
   $('select[name="time-before"]')
@@ -178,29 +177,44 @@ $(document).on('turbolinks:load', function () {
     setModal($(this).attr('id'));
   })
   // mk 以上重構完成
-
-  $('#level1').on('click', function () {
-    $('#water-level').removeClass()
+  $('#next-step').click(function(e) {
+    e.preventDefault();
+    const timeUnit = $('#time-unit');
+    timeUnit.show();
+    const top = timeUnit.offset().top;
+    $(window).scrollTop(top);
+  })
+  
+  $('#next-result').click(function(e) {
+    e.preventDefault();
+    const result = $('#result');
+    result.show();
+    const top = result.offset().top;
+    $(window).scrollTop(top);
+  })
+  
+  $('#level1').on('click', function() {
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_1')
   });
-
-  $('#level2').on('click', function () {
-    $('#water-level').removeClass()
+  
+  $('#level2').on('click', function() {
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_2')
   });
-
-  $('#level3').on('click', function () {
-    $('#water-level').removeClass()
+  
+  $('#level3').on('click', function() {
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_3')
   });
-
-  $('#level4').on('click', function () {
-    $('#water-level').removeClass()
+  
+  $('#level4').on('click', function() {
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_4')
   });
-
-  $('#level5').on('click', function () {
-    $('#water-level').removeClass()
+  
+  $('#level5').on('click', function() {
+    $('#water-level').removeAttr("class")
     $('#water-level').addClass('level_5')
   });
 
