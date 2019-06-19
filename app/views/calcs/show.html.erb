@@ -5,15 +5,13 @@
       <div class="content-left-wrapper">
 
         <form id="wrapped" method="POST" action="" class="">
-          <button type="button" name="forward" class="forward btn-change-page">
-            <%= link_to '選一種酒', calc_path %>
-          </button>
-          <button type="button" name="forward" class="forward  btn-change-page">
-            <%= link_to '調酒紀錄', record_user_define_calc_path %>
-          </button>
-          <button type="button" name="forward" class="forward  btn-change-page">
-            <%= link_to '自製調酒', user_define_calc_path %>
-          </button>
+          
+          <div class="container-btn-change-page">
+            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
+            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page" %>
+            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page" %>
+          </div>
+
           <div id="middle-wizard1">
             <div class="step1">
               <h3 class="main_question"><strong class="d-none">1/3</strong>選擇預設飲品：</h3>
