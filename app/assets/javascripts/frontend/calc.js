@@ -39,6 +39,10 @@ $(document).on('turbolinks:load', function () {
 
   weight = gon.current_user_weight;
 
+  // function killCalcSpan{
+
+  // }
+
   function calcDrink(bac, genderConst) {
     if ((bac !== 0) && (genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (100 * weight * toLB * genderConst * (bac + 0.00025 * (timeBefore + timeAfter))) / (5.14 * unit * alcoholContent * toOunces)
@@ -121,6 +125,10 @@ $(document).on('turbolinks:load', function () {
     console.log(alcoholContent);
     liquorName = $(this).attr('id');
     console.log(liquorName);
+    // $('#calcdrinks .form-grop input').removeClass('for-checked-form-group');
+    $('#calc-drinks label').removeClass('for-checked-form-group');
+    $(this).parent('label').addClass('for-checked-form-group');
+    // console.log(this);
     changeButton();
   })
   $('select[name="time-before"]')
@@ -149,7 +157,7 @@ $(document).on('turbolinks:load', function () {
   // 按鈕事件
   $("#next-step").click(function () {
     if (alcoholContent !== 0  && rightPage) {
-      $("#time-unit").removeClass("d-none");
+      $("#start").removeClass("d-none");
       rightPage = false;
     }
     if (alcoholContent !== 0) {
