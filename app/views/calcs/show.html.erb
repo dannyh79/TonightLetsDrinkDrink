@@ -4,7 +4,7 @@
     <div class="col-lg-6 content-left">
       <div class="content-left-wrapper">
 
-        <form id="wrapped" method="POST" action="" class="">
+        <div id="wrapped">
           
           <div class="container-btn-change-page">
             <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
@@ -14,7 +14,7 @@
 
           <div id="middle-wizard1">
             <div class="step1">
-              <h3 class="main_question"><strong class="d-none">1/3</strong>選擇預設飲品：</h3>
+              <h3 class="main_question">選擇預設飲品：</h3>
 
 
               <div id="calc-drinks">
@@ -47,7 +47,7 @@
           </div>
           <button id="next-step" type="button" name="forward" class="forward">下一步</button>
           <!-- <button id="next-step2" type="button" name="forward" class="forward">下一步2</button> -->
-
+        </div>
           <!-- /content-left-wrapper -->
       </div>
     </div>
@@ -159,7 +159,6 @@
           <button type="submit" name="process" class="submit">Submit</button>
         </div> -->
         <!-- /bottom-wizard -->
-        </form>
       </div>
       <!-- /Wizard container -->
     </div>

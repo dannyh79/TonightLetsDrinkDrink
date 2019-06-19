@@ -1,15 +1,4 @@
 $(document).on('turbolinks:load', function () {
-  // mk 以下尚待重構
-  // % BAC = (A x 5.14 / (W x r)) - 0.015 x H
-  // A = n * unit * alcoholContent * toOunces / 100
-  // w = weight * toLB
-  // r = gender
-  // H = minutes / 60
-  // const bacLevel1 = 0.03; // 安全酒測值 之後依照維基百科設置多組血酒濃度
-  // const bacLevel2 = 0.059;
-  // const bacLevel3 = 0.09;
-  // const bacLevel4 = 0.19;
-  // const bacLevel5 = 0.29;
 
   const bacLevel = [0.03, 0.059, 0.09, 0.19, 0.29]; // 酒測值由小到大
   const menConst = 0.73;
@@ -30,7 +19,7 @@ $(document).on('turbolinks:load', function () {
   let levelText = ["", "", "", "", ""]
   let driveText = ["", "", "", "", ""]
   let rightPage = true;
-
+  let genderConst
 
   function setGenderConst(gender) {
     return (gender === 0 ? menConst : womenConst)
@@ -48,6 +37,7 @@ $(document).on('turbolinks:load', function () {
   }
 
   function calcDrive(drinksLevel, genderConst) {
+    genderConst = setGenderConst(gon.current_user_gender);
     if ((genderConst !== 0) && (weight !== 0) && (alcoholContent !== 0)) {
       return (((205.6 * drinksLevel * unit * alcoholContent * toOunces) / (weight * toLB * genderConst))) - (timeBefore + timeAfter) - (4000 * bacLevel[0]);
     } else {
@@ -76,16 +66,8 @@ $(document).on('turbolinks:load', function () {
   // 變更層級按鈕
   function changeButton() {
     for (let i = 0; i < 5; i++) {
-      maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i], gender)) * 10) / 10;
+      maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i])) * 10) / 10;
     }
-    // var fns = {
-    //   doMaxDrinksLevel: function (times) {
-    //     for (let i = 0; i < times; i++) {
-    //       maxDrinksLevel[i] = Math.floor((calcDrink(bacLevel[i], gender)) * 10) / 10;
-    //     }
-    //   }
-    // }
-    // fns.doMaxDrinksLevel(5)
 
     levelText[0] = `（正常）：${liquorName} ${maxDrinksLevel[0]} 杯`;
     levelText[1] = `心情愉悅：${liquorName} ${maxDrinksLevel[1]} 杯`;
