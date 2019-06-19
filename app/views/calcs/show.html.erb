@@ -21,13 +21,21 @@
                 <% @drinks.each do |drink| %>
                 <div class="form-group">
                   <label class="container_radio version_2 calc-drink-label">
-                      <input type="radio" name="question_1" value="<%= drink.volume_alcohol %>" class="required"
-                      onchange="getVals(this, 'question_1');" id="<%= drink.name %>">
+
+                      <input 
+                        type="radio" 
+                        name="question_1" 
+                        value="<%= drink.volume_alcohol %>" 
+                        class="required"
+                        onchange="getVals(this, 'question_1');" 
+                        id="<%= drink.name %>" 
+                        data="<%= drink.display_name %>"
+                      >
                     <span class="checkmark"></span>
                     <div class="calc-img-container">
                       <img src="https://fakeimg.pl/300x300/aaf">
                     </div>
-                    <div class="calc-drink-name"><%= drink.name %></div>
+                    <div class="calc-drink-name"><%= drink.display_name %></div>
                     <div class="concentration"><%= drink.volume_alcohol %> %</div>
                   </label>
                 </div>
