@@ -5,7 +5,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
  
 <div class="sign-up_form">
-  <div class="fieldl">
+  <div class="field">
     <%= f.label "信箱" %><br />
     <div class="form-group">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required' %>
@@ -48,7 +48,7 @@
   </div>  
          
 <div>
-    <%= f.submit "送出",  id: 'submit'%>
+    <%= f.submit "送出", id: 'submit' %>
  </div>
 <% end %>
 

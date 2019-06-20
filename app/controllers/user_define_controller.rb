@@ -8,7 +8,7 @@ class UserDefineController < ApplicationController
     user_define = UserDefine.find_by(id: params[:id])
     
     if user_define.destroy
-      redirect_to user_define_edit_path, notice: '刪除成功'
+      redirect_to record_user_define_calc_path, notice: '刪除成功'
     end
   end
   
