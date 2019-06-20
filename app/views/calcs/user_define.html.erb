@@ -46,7 +46,7 @@
               <%= form_tag('/user_define') do |form| %>
                 <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
-                <div id="calc-drinks">
+                <div id="calc-drinks" class="clac-drinks-mini">
                   <% if session[:yo] != nil %>
                     <% session[:yo].each do |ingredient| %>
                       <div class="form-group">
