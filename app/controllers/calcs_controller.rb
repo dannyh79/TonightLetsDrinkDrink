@@ -1,7 +1,7 @@
 class CalcsController < ApplicationController
   include CalcHelper
 
-  before_action :gon_lin_lao_mu
+  before_action :export_user_gender_weight
 
   def show
     @drinks = drinks
@@ -13,7 +13,7 @@ class CalcsController < ApplicationController
 
   private
 
-  def gon_lin_lao_mu
+  def export_user_gender_weight
     gon.current_user_gender = current_user.gender
     gon.current_user_weight = current_user.weight
   end
