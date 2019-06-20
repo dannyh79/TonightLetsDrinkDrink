@@ -24,7 +24,7 @@
                     <select name="drink_id" id="drink_id">
                       <% @drinks.each do |drink| %>
                         <option value="<%= drink.id %>">
-                          <%= drink.name %>（常為 <%= drink.volume_alcohol %> %）
+                          <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
                         </option>
                       <% end %>
                     </select>
