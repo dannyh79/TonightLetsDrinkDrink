@@ -1,9 +1,6 @@
 class UserDefineController < ApplicationController
   include CalcHelper
 
-  def edit
-  end
-
   def destroy
     user_define = UserDefine.find_by(id: params[:id])
     
@@ -36,10 +33,14 @@ class UserDefineController < ApplicationController
     # 從前頁收參數
     received_parameter = params_ingredient
 
-    # 於 session 內"加料"
-    session[:yo] = ingredient_list.add(received_parameter)
+    if received_parameter["ratio"] != "" && received_parameter["volume_alcohol"] != ""
+      # 於 session 內"加料"
+      session[:yo] = ingredient_list.add(received_parameter)
 
-    redirect_to user_define_calc_path
+      redirect_to user_define_calc_path
+    else
+      redirect_to user_define_calc_path, notice: '沒填好ㄛ'
+    end
   end
   
   def delete_ingredient
