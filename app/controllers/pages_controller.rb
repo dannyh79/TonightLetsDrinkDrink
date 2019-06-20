@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def intro  # intro_page
   end
 
-  def about  # nave_bar about_us_page
+  def about  # nav_bar about_us_page
   end
 
 end
