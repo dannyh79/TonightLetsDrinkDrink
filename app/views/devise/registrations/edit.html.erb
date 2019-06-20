@@ -1,0 +1,59 @@
+<h1 class="sign-up edit-user-page">編輯個人資料<% resource_name.to_s.humanize %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="sign-up_form">
+    <div class="field">
+      <%= f.label '信箱' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required' %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label '新密碼' %> <i>(密碼長度至少 <%= @minimum_password_length %> 碼，如無需更改請留白)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password", class:'form-control required' %>
+      <% if @minimum_password_length %>
+        <br />
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label '確認新密碼' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control required' %>
+    </div>
+
+    <div class="field">
+      <%= f.label '目前密碼' %> <i>（輸入現在的密碼為您確認更改密碼）</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", class:'form-control required' %>
+    </div>
+    
+    <%= f.label '性別' %><em>（會影響估計）</em><br />
+    <div class="row">
+      <div class="col-9">
+        <div class="form-group radio_input">
+          <label class="container_radio">男
+            <input type="radio" name="gender" value="Male" class="required">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container_radio">女
+            <input type="radio" name="gender" value="Female" class="required">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label '體重' %>（公斤）：<br />
+      <input type="number" name="user[weight]" id="user_weight" class="form-control required" />
+    </div>  
+
+    <div class="actions">
+      <%= f.submit '更新個人資料', id: 'submit' %>
+    </div>
+  </div>
+<% end %>

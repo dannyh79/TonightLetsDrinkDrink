@@ -1,0 +1,19 @@
+<h1 class="forgot-password">忘記密碼</h1>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+<div class="forgot_form">
+  <div class="field">
+    <%= f.label :"信箱" %><br />
+    <div class="form-group">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required' %>
+    </div>
+  </div>
+ </div>
+
+  <div class="actions">
+    <%= f.submit "送出",  id: 'submit' %>
+  </div>
+<% end %>

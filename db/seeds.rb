@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+drink = Drink.create([
+  { name: 'Beer', display_name: '啤酒' ,volume_alcohol: '4.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Cider', display_name: '蘋果酒' ,volume_alcohol: '4.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Craft-Beer', display_name: '精釀啤酒' ,volume_alcohol: '6', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Red-Wine', display_name: '紅葡萄酒' ,volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'White-Wine', display_name: '白葡萄酒' ,volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Champagne', display_name: '香檳' ,volume_alcohol: '12.5', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Tequila', display_name: '龍舌蘭' ,volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Vodka', display_name: '伏特加' ,volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Whisky', display_name: '威士忌' ,volume_alcohol: '40', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Umeshu', display_name: '梅酒' ,volume_alcohol: '15', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Sake', display_name: '清酒' ,volume_alcohol: '13', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Soju', display_name: '燒酒' ,volume_alcohol: '20.1', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Gao-Liang-38', display_name: '38°高粱' ,volume_alcohol: '38', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+  { name: 'Gao-Liang-58', display_name: '58°高粱' ,volume_alcohol: '58', img_path: 'https://image.shutterstock.com/image-vector/question-mark-icon-help-symbol-450w-400447213.jpg' },
+])

@@ -1,0 +1,40 @@
+.about-we {
+  
+  display: block;
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  left: 0;
+  right: 0;
+  width: 10rem;
+  white-space: nowrap;
+}
+
+.btn.btn-index {
+  color: #fff;
+  background-color: #434bdf;
+  border-color: #434bdf;
+  text-decoration: none;
+
+  padding: 5px 15px;
+  box-shadow: 2px 2px 5px #555;
+  display: block;
+  margin: auto;
+  margin-top: 3rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 10rem;
+
+}
+.btn.btn-index:hover {
+  color: #fff;
+  background-color: #d80075;
+  border: 1px solid #e90b81;
+  box-shadow: 2px 2px 5px #555;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 10rem;
+
+}

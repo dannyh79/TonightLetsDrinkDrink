@@ -1,0 +1,33 @@
+<div id="preloader">
+  <div data-loader="circle-side"></div>
+</div><!-- /Preload -->
+
+<div id="loader_form">
+  <div data-loader="circle-side-2"></div>
+</div><!-- /loader_form -->
+
+<nav>
+  <ul class="cd-primary-nav">
+    <li><%= link_to '編輯個人資料', edit_user_registration_path, class: 'animated_link' if user_signed_in? %></li>
+    <li><%= link_to '關於我們', about_path, class: 'animated_link' %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to '登出', destroy_user_session_path, method: 'delete', data: { confirm: 'Are you sure?' }, class: 'animated_link'  %></li>
+    <% else %>
+      <li><%= link_to '登入', user_session_path, method: 'post', class: 'animated_link' %></li>
+      <li><%= link_to '註冊', new_user_registration_path, class: 'animated_link' %></li>
+    <% end %>
+  </ul>
+</nav>
+
+<div class="cd-overlay-nav">
+<span></span>
+</div>
+<!-- /cd-overlay-nav -->
+
+<div class="cd-overlay-content">
+<span></span>
+</div>
+<!-- /cd-overlay-content -->
+
+<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
+<!-- /menu button -->

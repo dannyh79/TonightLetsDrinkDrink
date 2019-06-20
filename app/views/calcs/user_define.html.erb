@@ -1,0 +1,88 @@
+<%= include_gon %>
+<div class="container-fluid full-height">
+  <div class="row row-height">
+    <div class="col-lg-6 content-left">
+      <div class="content-left-wrapper">
+
+        <div class="wrapped">
+          
+          <div class="container-btn-change-page">
+            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
+            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page" %>
+            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page" %>
+          </div>
+
+          <div id="middle-wizard1">
+            <div class="step1">
+              <h3 class="main_question">自己定義調酒ㄛ：</h3>
+
+              <%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
+                <%= fields_for :ingredients do |field| %>
+                  <div class="container-input">
+
+                    <label for="drink_id">材料名：</label>
+                    <select name="drink_id" id="drink_id" autofocus>
+                      <% @drinks.each do |drink| %>
+                        <option value="<%= drink.id %>">
+                          <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
+                        </option>
+                      <% end %>
+                    </select>
+                  </div>
+
+                  <div class="container-input">
+                    <label for="volume_alcohol">材料濃度（%）：</label>
+                    <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
+                  </div>
+
+                  <div class="container-input">
+                    <label for="ratio">所佔比例（不得為零）：</label>
+                    <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
+                  </div>
+                <% end %>
+                <input type="submit" class="btn-save" value="新增品項">
+              <% end %>
+
+              <%= form_tag('/user_define') do |form| %>
+                <input name="user_id" type="hidden" value="<%= current_user.id %>">
+
+                <div id="calc-drinks" class="calc-drinks-mini">
+                  <% if session[:yo] != nil %>
+                    <% session[:yo].each do |ingredient| %>
+                      <div class="form-group">
+                        <label class="version_2 calc-drink-label">
+                          <span class="checkmark"></span>
+                          <div class="calc-img-container">
+                            <img src="https://fakeimg.pl/300x300/aaf">
+                          </div>
+                          <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
+                          <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
+                          <div class="ratio">比例：<%= ingredient["ratio"] %></div>
+                          <a class="btn" 
+                            data-method="patch"  
+                            href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
+                            rel="nofollow"
+                            data-confirm="Are you sure?"
+                          >X</a>
+                        </label>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <label class="label_name-user-define" for="name">最後請輸入飲料ㄉ名字，必填ㄛ：</label>
+                <input name="name" type="text" placeholder="例：卍超級好喝卍" maxlength="10">
+
+                <input type="submit" class="btn-save" value="儲存">
+              <% end %>
+
+
+            </div>
+          </div>
+        </div>
+          <!-- /content-left-wrapper -->
+      </div>
+    </div>
+    <!-- /content-left -->
+  <!-- /row-->
+</div>

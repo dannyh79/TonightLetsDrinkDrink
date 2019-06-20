@@ -6,7 +6,9 @@ ruby '2.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+# Use PostgreSQL
+gem 'pg', '~> 1.1', '>= 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -35,10 +37,25 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise', '~> 4.6', '>= 4.6.2'  # member_system
+gem 'gon', '~> 6.2', '>= 6.2.1' # send the variable to js
+
+
+# TonightLetsDrinkDrink
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # TonightLetsDrinkDrink
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'faker', '~> 1.9', '>= 1.9.3'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+
 end
 
 group :development do

@@ -1,0 +1,57 @@
+<h1 class="about-we">關於我們</h1>
+<div class="container about">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/30727089?s=460&v=4">
+            <div class="card-body">
+              <h5 class="card-title">韓政璇</h5>
+              <h6><a href="mailto:chenghsuan.han@gmail.com">chenghsuan.han@gmail.com</a></h6>
+              <p class="card-text">拜託別灌我酒，因為我會喝下去</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <img class="card-img-top" src="https://avatars0.githubusercontent.com/u/49583246?s=400&v=4">
+            <div class="card-body">
+              <h5 class="card-title">Chao Wu</h5>
+              <h6><a href="mailto:carion0216@gmail.com">carion0216@gmail.com</a></h6>
+              <p class="card-text">拜託別灌我酒，因為我會喝下去</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <img class="card-img-top" src="https://avatars0.githubusercontent.com/u/48974903?s=400&v=4">
+            <div class="card-body">
+              <h5 class="card-title">MK</h5>
+              <h6><a href="mailto:m.k.chen.1021@gmail.com">m.k.chen.1021@gmail.com</a></h6>
+              <p class="card-text">拜託別灌我酒，因為我會喝下去</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+          <img class="card-img-top" src="https://avatars3.githubusercontent.com/u/49578192?s=460&v=4">
+          <div class="card-body">
+            <h5 class="card-title">Eva Yang</h5>
+            <h6><a href="mailto:evayangms@gmail.com">evayangms@gmail.com</a></h6>
+            <p class="card-text">喝酒不開車，開車不喝酒</p>
+          </div>
+        </div>
+      </div>
+    
+        
+      </div>
+    </div>
+
+<!-- if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 -->
+<% if user_signed_in? %>
+  <%= link_to '回到計算頁', calc_path, class: 'btn btn-index' %>
+<% else %>
+  <%= link_to '回到登入頁', new_user_session_path, class: 'btn btn-index' %>
+<% end %>

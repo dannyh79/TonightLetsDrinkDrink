@@ -1,0 +1,50 @@
+<div class="landing">
+  <div class="headline">
+      <h1>
+        <p>想喝但怕喝掛嗎？</p>
+        <p>測看看吧！</p>
+      </h1>
+   </div>
+							
+
+   <button type="button" class="btn_1 rounded" data-toggle="modal" data-target="#exampleModalCenter">
+我已滿 18 歲，想來試試</button>
+   </div>
+</div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLongTitle">「今夜想買醉」⋯⋯</h4>
+          </div>
+          <div class="modal-body">
+            <div class="info">
+              <h5>不會</h5>
+              <ul>
+                <li>不會告訴你酒量好不好</li>
+                <li>不會負責你急性、大量飲酒的任何後果</li>
+              </ul>
+              <h5>會/可以</h5>
+              <ul>
+                <li>可以紀錄你調酒資訊</li>
+                <li>可以新增喜歡的調酒資訊</li>
+                <li>會了解你喝醉的五種狀態</li>
+                <li>會讓你知道喝完酒多久會清醒</li>
+              </ul>
+              <h5>操作說明</h5>
+              <ul>
+                <li>請註冊</li>
+                <li>請你依照步驟操作網站</li>
+                <li>依照上面的資料產出在預定結束時間時五種等級的「醉況」</li>
+                <li>預估結束時間會知道你有多醉</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">再想一下</button>
+            <%= link_to '我知道了', new_user_session_path, id: 'login', class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>    
