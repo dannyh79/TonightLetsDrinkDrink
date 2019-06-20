@@ -18,10 +18,10 @@
 
               <%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
                 <%= fields_for :ingredients do |field| %>
-                  <div>
+                  <div class="container-input">
 
                     <label for="drink_id">材料名：</label>
-                    <select name="drink_id" id="drink_id">
+                    <select name="drink_id" id="drink_id" autofocus>
                       <% @drinks.each do |drink| %>
                         <option value="<%= drink.id %>">
                           <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
@@ -30,12 +30,12 @@
                     </select>
                   </div>
 
-                  <div>
+                  <div class="container-input">
                     <label for="volume_alcohol">材料濃度（%）：</label>
                     <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
                   </div>
 
-                  <div>
+                  <div class="container-input">
                     <label for="ratio">所佔比例（不得為零）：</label>
                     <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
                   </div>
@@ -46,7 +46,7 @@
               <%= form_tag('/user_define') do |form| %>
                 <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
-                <div id="calc-drinks">
+                <div id="calc-drinks" class="calc-drinks-mini">
                   <% if session[:yo] != nil %>
                     <% session[:yo].each do |ingredient| %>
                       <div class="form-group">
