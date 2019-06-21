@@ -36,11 +36,11 @@
       <div class="col-9">
         <div class="form-group radio_input">
           <label class="container_radio">男
-            <input type="radio" name="gender" value="Male" class="required">
+            <input type="radio" name="gender" value="Male" class="required" >
             <span class="checkmark"></span>
           </label>
           <label class="container_radio">女
-            <input type="radio" name="gender" value="Female" class="required">
+            <input type="radio" name="gender" value="Female" class="required" >
             <span class="checkmark"></span>
           </label>
         </div>
@@ -49,7 +49,7 @@
 
     <div class="field">
       <%= f.label '體重' %>（公斤）：<br />
-      <input type="number" name="user[weight]" id="user_weight" class="form-control required" />
+      <input type="number" name="user[weight]" id="user_weight" class="form-control required" min="0" />
     </div>  
 
     <div class="actions">
