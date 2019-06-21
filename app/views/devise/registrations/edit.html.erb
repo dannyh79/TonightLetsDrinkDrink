@@ -37,8 +37,8 @@
         <div class="form-group radio_input">
           <label class="container_radio">男
             <input type="radio"
-                   name="gender"
-                   value="Male"
+                   name="user[gender]"
+                   value="true"
                    class="required"
                    <%= "checked='true'" if current_user.gender == true %>
 
@@ -47,8 +47,8 @@
           </label>
           <label class="container_radio">女
             <input type="radio"
-                   name="gender"
-                   value="Female"
+                   name="user[gender]"
+                   value="false"
                    class="required"
                    <%= "checked='true'" if current_user.gender == false %>
             >
@@ -60,7 +60,7 @@
 
     <div class="field">
       <%= f.label '體重' %>（公斤）：<br />
-      <input type="number" name="user[weight]" id="user_weight" class="form-control required" min="0" placeholder="<%= current_user.weight %>" />
+      <input type="number" name="user[weight]" id="user_weight" class="form-control required" min="0" value="<%= current_user.weight %>" >
     </div>  
 
     <div class="actions">
