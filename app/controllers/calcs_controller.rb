@@ -1,6 +1,6 @@
 class CalcsController < ApplicationController
   include CalcHelper
-
+  before_action :authenticate_user!
   before_action :export_user_gender_weight
 
   def show
