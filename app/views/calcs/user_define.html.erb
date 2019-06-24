@@ -50,10 +50,10 @@
                   <% if session[:yo] != nil %>
                     <% session[:yo].each do |ingredient| %>
                       <div class="form-group">
-                        <label class="version_2 calc-drink-label">
+                        <label class="container_radio version_2 calc-drink-label">
                           <span class="checkmark"></span>
                           <div class="calc-img-container">
-                            <img src="https://fakeimg.pl/300x300/aaf">
+                            <img src="<%= image(ingredient["drink_id"].to_i) %>">
                           </div>
                           <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
                           <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
