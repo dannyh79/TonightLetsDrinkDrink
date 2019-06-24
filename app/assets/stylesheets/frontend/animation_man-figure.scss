@@ -7,21 +7,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  #man-figure,
-  #water-level {
-    position: absolute;
-    width: 100%;
-  }
-
+  
   #man-figure {
+    width: 100%;
+    position: absolute;
     top: 0;
     z-index: 1;
   }
   
   #water-level {
+    position: absolute;
     background-color: #f00;
     bottom: -91%;
+    width: 99%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
