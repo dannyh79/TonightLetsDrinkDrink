@@ -29,12 +29,37 @@
   width: 13rem;
   height: 25rem;
   position: absolute;
-  top: 25vh;
+  top: 20%;
   right: 8vw;
   z-index: 2;
 }
 .result .btn {
   flex: none;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  transition: background .5s ease;
+  -moz-transition: background .5s ease;
+  -webkit-transition: background .5s ease;
+  -o-transition: background .5s ease;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background: #434bdf;
+  position: relative;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 3px;
+  line-height: 1;
+  padding: 12px 20px;
+
+  &:hover {
+    background: #d80075;
+    color: #fff;
+    box-shadow: #000 1px 1px 5px;
+  }
 }
 
 @keyframes go_level_1 {
