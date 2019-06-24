@@ -175,7 +175,31 @@ $(document).on('turbolinks:load', function () {
     $(`.modal-body .info li`).hide();
     setModal($(this).attr('id'));
   })
-  // mk 以上重構完成
+  // 輸入檢查綁定
+  $('#volume_alcohol').focusout(function () {
+    if ($('#volume_alcohol').val() == ''){
+      $('#volume_alcohol + span').removeClass('d-none');
+    }
+  })
+  $('#volume_alcohol').focusin(function () {
+    $('#volume_alcohol + span').addClass('d-none');
+  })
+  $('#ratio').focusout(function () {
+    if (($('#ratio').val()) == '') {
+      $('#ratio + span').removeClass('d-none');
+    }
+  })
+  $('#ratio').focusin(function () {
+    $('#ratio + span').addClass('d-none');
+  })
+  $('#label_name-user-define').focusout(function () {
+    if (($('#label_name-user-define').val()) == '') {
+      $('#label_name-user-define + div span').removeClass('d-none');
+    }
+  })
+  $('#label_name-user-define').focusin(function () {
+    $('#label_name-user-define + div span').addClass('d-none');
+  })
 
   // 動畫按鈕綁定
   $('#level1').on('click', function() {
