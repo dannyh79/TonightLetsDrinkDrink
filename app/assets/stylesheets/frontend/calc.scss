@@ -132,11 +132,25 @@ button#to-result {
 .container-input {
   display: flex;
   margin-bottom: 0.5rem;
-
+  position: relative;
   label { flex: none; }
   input { width: 100%; }
 }
 
+#volume_alcohol + span,
+#ratio + span {
+  right: 0;
+  top: -35px;
+}
+
+#label_name-user-define + div {
+  position: relative;
+  span {
+    color: #fff;
+    right: 0;
+    top: -60px;
+  }
+}
 
 
 // RWD section
