@@ -32,12 +32,16 @@
 
                   <div class="container-input">
                     <label for="volume_alcohol">材料濃度（%）：</label>
-                    <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100">  
+                    <input type="number" name="volume_alcohol" id="volume_alcohol" class=""
+                      step="0.1"
+                      min="0" max="100" required >
+                    <span for="volume_alcohol" class="error d-none">請輸入酒精濃度</span>
                   </div>
 
                   <div class="container-input">
                     <label for="ratio">所佔比例（不得為零）：</label>
-                    <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1">  
+                    <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1" required >
+                    <span for="volume_alcohol" class="error d-none">請輸入飲品比例</span>
                   </div>
                 <% end %>
                 <input type="submit" class="btn-save" value="新增品項">
@@ -50,10 +54,10 @@
                   <% if session[:yo] != nil %>
                     <% session[:yo].each do |ingredient| %>
                       <div class="form-group">
-                        <label class="version_2 calc-drink-label">
+                        <label class="container_radio version_2 calc-drink-label">
                           <span class="checkmark"></span>
                           <div class="calc-img-container">
-                            <img src="https://fakeimg.pl/300x300/aaf">
+                            <img src="<%= image(ingredient["drink_id"].to_i) %>">
                           </div>
                           <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
                           <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
@@ -71,7 +75,11 @@
                 </div>
 
                 <label class="label_name-user-define" for="name">最後請輸入飲料ㄉ名字，必填ㄛ：</label>
-                <input name="name" type="text" placeholder="例：卍超級好喝卍" maxlength="10">
+                <input name="name" id="label_name-user-define" type="text" placeholder="例：卍超級好喝卍" maxlength="10"
+                  required >
+                <div>
+                  <span for="label_name-user-define" class="error d-none">請輸入調酒名稱</span>
+                </div>
 
                 <input type="submit" class="btn-save" value="儲存">
               <% end %>

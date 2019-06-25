@@ -58,21 +58,23 @@
   display: none;
 }
 #calc-drinks .container_radio.version_2 {
-  padding: 5px 0 0 5px;
+  padding: 5px;
+  padding-left: 30px;
+  margin: 0;
 }
 .calc-drink-label {
   text-align: left;
 }
 .calc-drink-label div {
   display: inline-block;
-  height: 80px;
+  // height: 80px;
   box-sizing: border-box;
 }
 .calc-drink-label .calc-img-container {
   width: 50px;
 }
 .calc-img-container img {
-  width: 90%;
+  width: 100%;
   border-radius: 50%;
 }
 #result-step {
@@ -130,11 +132,25 @@ button#to-result {
 .container-input {
   display: flex;
   margin-bottom: 0.5rem;
-
+  position: relative;
   label { flex: none; }
   input { width: 100%; }
 }
 
+#volume_alcohol + span,
+#ratio + span {
+  right: 0;
+  top: -35px;
+}
+
+#label_name-user-define + div {
+  position: relative;
+  span {
+    color: #fff;
+    right: 0;
+    top: -60px;
+  }
+}
 
 
 // RWD section
