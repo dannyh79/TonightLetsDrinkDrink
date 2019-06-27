@@ -1,16 +1,26 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :check_pwd_change, only: :update
+  # prepend_before_action :authenticate_scope!, only: [:edit, :profile, :update, :destroy]
+  before_action :set_profile, only: [:profile, :profile_update]
 
   def update
     super
   end
 
-  def edit_info
-    :edit
+  def edit
+    render :edit
   end
 
-  def update_info
-    :update
+  def profile
+    # byebug
+    render :profile
+  end
+
+  def profile_update
+    # byebug
+    if current_user.update(profile_params)
+      redirect_to calc_path
+    end
   end
 
   # def update
@@ -45,6 +55,15 @@ class RegistrationsController < Devise::RegistrationsController
       calc_path
     end
   end
+
+  def profile_params
+    params.require(:user).permit(:email, :gender, :weight, :password)
+  end
+
+  def set_profile
+    @user = User.find_by(id: params[:id])
+  end
+
 end
 
 # 屬性的寫法

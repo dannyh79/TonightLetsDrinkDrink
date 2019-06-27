@@ -9,7 +9,7 @@
 <nav>
   <ul class="cd-primary-nav">
     <li><%= link_to '計算頁', calc_path, class: 'animated_link' if user_signed_in? %></li>
-    <li><%= link_to '編輯個人資料', edit_info_path, class: 'animated_link' if user_signed_in? %></li>
+    <li><%= link_to '編輯個人資料', user_profile_path, class: 'animated_link' if user_signed_in? %></li>
     <li><%= link_to '關於我們', about_path, class: 'animated_link' %></li>
     <li><%= link_to '更新密碼', edit_user_registration_path, class: 'animated_link' if user_signed_in? %></li>
     <% if user_signed_in? %>
