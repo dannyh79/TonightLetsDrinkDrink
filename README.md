@@ -4,7 +4,7 @@
 - 響應式網頁；用手機看也不怕
 ---
 ## Features
-- 使用者可以申辦帳號
+- 使用者申辦帳號
 - 依照使用者的資料及輸入資訊，動態顯示到達五種醉況的酒品份量及單位
 - 使用者可以自己定義酒精飲品，儲存於紀錄頁供日後使用
 - 按下五種醉況按鈕會跳出行為特徵供使用者作參考，達教育目的
@@ -27,16 +27,17 @@
 2. `$ cd tonightLetsDrinkDrink`
 3. `$ bundle install`
 4. `$ rails db:create`
-5. `$ rails db:seed`
-6. `$ rails server`
-7. 於瀏覽器網址列輸入`localhost:3000/`後按 enter
+5. `$ rails db:migrate` 
+6. `$ rails db:seed`
+7. `$ rails server`
+8. 於瀏覽器網址列輸入`localhost:3000/`後按 enter
 
 ### 「忘記密碼」寄信服務
 1. 申辦 [Mailgun](https://www.mailgun.com/) 的寄信服務
 2. 將帳號密碼加入`config/application.yml`中。格式請參考`config/application.yml.example`
 
 ## ER Diagram
-![ERD](https://trello-attachments.s3.amazonaws.com/5d0075c45f40b07c0eb0cf61/758x696/80b8bdedbb7c2db91012a2ccea2c9712/ERD_06.24.png)
+![ERD](https://gist.github.com/dannyh79/830e1f1fca212b71e0fa288431abc7b5/raw/5b3e3aca4949096c978a6c6134db33c73e0560ec/ERD%252006.24.png)
 
 ## Test Suite
 欲執行專案內的測試，請於終端機中：
