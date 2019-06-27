@@ -1,0 +1,62 @@
+<h1 class="sign-up edit-user-page">編輯個人資料<% resource_name.to_s.humanize %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="sign-up_form">
+    <div class="field">
+      <%= f.label '信箱', for: 'edit-email' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required', id: 'edit-email' %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    
+    <%= f.label '性別', for: 'gender' %><em>（會影響估計）</em><br />
+    <div class="row">
+      <div class="col-9">
+        <div class="form-group radio_input">
+          <label class="container_radio">男
+            <input type="radio"
+                   name="user[gender]"
+                   value="true"
+                   class="required"
+                   id="gender"
+                   <%= "checked='true'" if current_user.gender == true %>
+
+            >
+            <span class="checkmark"></span>
+          </label>
+          <label class="container_radio">女
+            <input type="radio"
+                   name="user[gender]"
+                   value="false"
+                   class="required"
+                   id="gender"
+                   <%= "checked='true'" if current_user.gender == false %>
+            >
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label '體重', for: 'user_weight' %>（公斤）：<br />
+      <input type="number" name="user[weight]" id="user_weight" class="form-control required" min="0" value="<%= current_user.weight %>" >
+    </div>  
+
+    <div class="field">
+      <%= f.label '目前密碼', for: 'current_password' %> <i>（輸入現在的密碼為您確認更改密碼）</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", class:'form-control required', id: 'current_password' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit '更新個人資料', id: 'submit' %>
+    </div>
+
+    <%= link_to '取消變更，回到計算頁', calc_path, class: 'btn btn-index', id: 'cancel-btn' %>
+
+  </div>
+<% end %>
