@@ -1,0 +1,26 @@
+@keyframes shaking {
+  from { transform: rotate(30deg) }
+  to { transform: rotate(-30deg) }
+}
+
+a#logo {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  img { width: 100%; }
+
+  &:hover {
+    background-color: #434BDF;
+    box-shadow: 1px 1px 5px #555;
+    animation: shaking 1s forwards;
+
+    img {
+      filter: invert(1);
+    }
+  }
+}

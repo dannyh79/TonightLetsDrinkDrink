@@ -72,7 +72,8 @@ strong {
 
 label {
   font-weight: 400;
-  margin-bottom: 3px;
+  // 06.27 設定為0以避免影響說明文字的 label by 璇
+  margin-bottom: 0;
   color: #222222;
 }
 
@@ -357,7 +358,7 @@ a.btn_1.rounded,
 }
 
 .content-left {
-  background-color: #434bdf;
+  background-color: rgba(0, 123, 255, 0.5);
   padding: 0;
 }
 
@@ -369,13 +370,10 @@ a.btn_1.rounded,
   height: 100%;
   min-height: 100%;
   padding: 60px 90px 35px 90px;
-  background-color: #434bdf;
   color: #fff;
   text-align: center;
   position: relative;
-  background: transparent;
-  background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+  background: radial-gradient(transparent, rgba(0, 123, 255, 0.7))
 }
 @media (max-width: 991px) {
   .content-left-wrapper {
@@ -452,13 +450,6 @@ a.btn_1.rounded,
   }
 }
 
-a#logo {
-  position: absolute;
-  left: 20px;
-  top: 15px;
-  display: block;
-  height: 35px;
-}
 @media (max-width: 991px) {
   a#logo {
     left: 15px;

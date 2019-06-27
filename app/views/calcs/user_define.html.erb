@@ -3,7 +3,7 @@
   <div class="row row-height">
     <div class="col-lg-6 content-left">
       <div class="content-left-wrapper">
-
+        <a href="<%= root_path %>" id="logo"><img src="https://images2.imgbox.com/15/b1/IgbK3rN4_o.png" alt=""></a>
         <div class="wrapped">
 
           <div class="container-btn-change-page">
@@ -32,13 +32,30 @@
 
                   <div class="container-input">
                     <label for="volume_alcohol">材料濃度（%）：</label>
-                    <input type="number" name="volume_alcohol" id="volume_alcohol" step="0.1" min="0" max="100" required >
+                    <input 
+                      type="number" 
+                      name="volume_alcohol" 
+                      id="volume_alcohol" 
+                      step="0.1"
+                      min="0" 
+                      max="100" 
+                      required 
+                      placeholder="請填入材料酒精濃度"
+                    >
                     <span for="volume_alcohol" class="error d-none">請輸入酒精濃度</span>
                   </div>
 
                   <div class="container-input">
                     <label for="ratio">所佔比例（不得為零）：</label>
-                    <input type="number" name="ratio" id="ratio" placeholder="輸入比例" min="1" required >
+                    <input 
+                      type="number" 
+                      name="ratio" 
+                      id="ratio" 
+                      placeholder="例如 5:1 的「5」" 
+                      min="1" 
+                      max="100" 
+                      required 
+                    >
                     <span for="volume_alcohol" class="error d-none">請輸入飲品比例</span>
                   </div>
                 <% end %>
@@ -52,19 +69,23 @@
                 <% if session[:yo] != nil %>
                   <% session[:yo].each do |ingredient| %>
                     <div class="form-group">
-                      <label class="container_radio version_2 calc-drink-label">
+                      <label class="calc-drink-label ingredient-list">
                         <span class="checkmark"></span>
                         <div class="calc-img-container">
                           <img src="<%= image(ingredient["drink_id"].to_i) %>">
                         </div>
                         <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
                         <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
-                        <div class="ratio">比例：<%= ingredient["ratio"] %></div>
-                        <a class="btn" data-method="patch"
+                        <div class="ratio">佔比例<%= ingredient["ratio"] %></div>
+                        <a 
+                          class="delete-btn" 
+                          data-method="patch"  
                           href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
                           rel="nofollow"
-                          data-confirm="Are you sure?"
-                          >X</a>
+                          data-confirm="確認刪除此材料嗎？"
+                        >
+                          x
+                        </a>
                       </label>
                     </div>
                   <% end %>
@@ -72,7 +93,8 @@
               </div>
 
               <label class="label_name-user-define" for="name">最後請輸入飲料ㄉ名字，必填ㄛ：</label>
-              <input name="name" id="label_name-user-define" type="text" placeholder="例：卍超級好喝卍" maxlength="10" required >
+              <input name="name" id="label_name-user-define" type="text" placeholder="例：「卍超級好喝卍」" maxlength="10"
+                required >
               <div>
                 <span for="label_name-user-define" class="error d-none">請輸入調酒名稱</span>
               </div>

@@ -1,14 +1,4 @@
 // Shared setting for calc page
-.content-left {
-  background-color: rgba(0, 123, 255, 0.5);
-}
-.content-left-wrapper {
-  background: none;
-}
-.forward a {
-  color: #fff;
-}
-
 // // calc page
 #middle-wizard1 {
   padding-top: 10px;
@@ -43,40 +33,79 @@
   height: 225px;
   background-color: #fff;
   overflow: auto;
+  outline: 5px double #434BDF;
 }
 .form-group {
-  height: 50px;
-}
-.for-checked-form-group {
-  background-color: #e6c8ff6b;
-  height: 100%;
+  margin: 0rem;
 }
 
-#calc-drinks .container_radio.version_2 .checkmark,
-#calc-drinks .container_radio.version_2 .checkmark:before,
-#calc-drinks .container_radio.version_2 .checkmark:after {
+#calc-drinks input[type="radio"],
+#calc-drinks .checkmark,
+#calc-drinks .checkmark:before,
+#calc-drinks .checkmark:after {
   display: none;
 }
-#calc-drinks .container_radio.version_2 {
-  padding: 5px;
-  padding-left: 30px;
+#calc-drinks .calc-drink-label {
+  cursor: pointer;
+  padding: 5px 10px 5px 5px;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.calc-drink-label {
-  text-align: left;
+#calc-drinks .calc-drink-label:hover {
+  box-shadow: 1px 1px 3px #555;
 }
-.calc-drink-label div {
-  display: inline-block;
-  // height: 80px;
-  box-sizing: border-box;
+.calc-drink-label.for-checked-form-group {
+  background-color: #e6c8ff6b;
+  height: 100%;
+  box-shadow: inset 1px 1px 3px #555;
 }
 .calc-drink-label .calc-img-container {
+  flex: none;
   width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #434BDF;
+  box-shadow: 1px 1px 5px #555;  
 }
 .calc-img-container img {
   width: 100%;
+}
+.calc-drink-name { width: 60% }
+.concentration { width: 20%; }
+.ratio { 
+  width: 20%; 
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.delete-btn {
+  flex: none;
+  display:inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  border: 2px solid #434BDF;
   border-radius: 50%;
 }
+.delete-btn:hover {
+  background-color: #434BDF;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 1px 1px 3px #555;
+}
+
+// style for page "record_user_define"
+.shaker { filter: invert(1); }
+
+// style for page "user_define" 
+#calc-drinks .calc-drink-label.ingredient-list { cursor: default; }
+.calc-drink-label.ingredient-list .calc-drink-name { width: 47% }
+
+
+
+
 #result-step {
   height: 55vh;
 }
@@ -126,14 +155,17 @@ button#to-result {
 }
 .label_name-user-define { 
   display: block; 
-  margin-top: 0.25rem;
+  margin-top: 1rem;
   font-weight: 700;
 }
 .container-input {
   display: flex;
   margin-bottom: 0.5rem;
   position: relative;
-  label { flex: none; }
+  label { 
+    flex: none; 
+    line-height: 25px;
+  }
   input { width: 100%; }
 }
 
@@ -175,4 +207,3 @@ button#to-result {
     height: 100vh;
   }
 }
-
