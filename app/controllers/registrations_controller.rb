@@ -12,14 +12,16 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def profile
-    # byebug
     render :profile
   end
 
   def profile_update
-    # byebug
-    if current_user.update(profile_params)
+    if current_user.valid_password?(params[:user][:current_password])
+      current_user.update(profile_params)
       redirect_to calc_path
+    else
+      current_user.errors.add(:password, :invalid, message: '目前密碼打錯啦...')
+      render :profile
     end
   end
 
