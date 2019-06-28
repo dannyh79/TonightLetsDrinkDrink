@@ -1,0 +1,7 @@
+production:
+  mailgun_username: (replace_this_with_your_mailgun_username)
+  mailgun_password: (replace_this_with_your_mailgun_password)
+
+development:
+  mailgun_username: (replace_this_with_your_mailgun_username)
+  mailgun_password: (replace_this_with_your_mailgun_password)
