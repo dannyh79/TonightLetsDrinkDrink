@@ -1,7 +1,7 @@
-<h1 class="about-we">關於我們</h1>
+<h1 class="about-us">關於我們</h1>
 <div class="container about">
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-3">
+    <div class="col-12 col-md-6 col-lg-3 item">
       <div class="card">
         <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/30727089?s=460&v=4">
         <div class="card-body">
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-3">
+    <div class="col-12 col-md-6 col-lg-3 item">
       <div class="card">
         <img class="card-img-top" src="https://avatars0.githubusercontent.com/u/49583246?s=400&v=4">
         <div class="card-body">
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-3">
+    <div class="col-12 col-md-6 col-lg-3 item">
       <div class="card">
         <img class="card-img-top" src="https://avatars0.githubusercontent.com/u/48974903?s=400&v=4">
         <div class="card-body">
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-3">
+    <div class="col-12 col-md-6 col-lg-3 item">
       <div class="card">
         <img class="card-img-top" src="https://avatars3.githubusercontent.com/u/49578192?s=460&v=4">
         <div class="card-body">
@@ -43,11 +43,32 @@
           <p class="card-text">喝酒不開車，開車不喝酒</p>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 
-<!-- if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 -->
+<div class="container references">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>參考資料</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>公式參考</th>
+        <td><a href="http://www.drinkfox.com/tools/bac-calculator">BAC Calculator</a> by <a href="http://www.drinkfox.com/">DrinkFox</a></td>
+      </tr>
+      <tr>
+        <th>行為表徵</th>
+        <td><a href="https://en.wikipedia.org/wiki/Blood_alcohol_content">Blood alcohol content</a> on Wikipedia</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<%# if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 %>
 <% if user_signed_in? %>
   <%= link_to '回到計算頁', calc_path, class: 'btn btn-index' %>
 <% else %>

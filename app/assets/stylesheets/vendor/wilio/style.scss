@@ -505,14 +505,14 @@ a.btn_1.rounded,
   bottom: 25px;
   left: 0;
   width: 100%;
-  opacity: 0.5;
+  text-align: center;
+  opacity: 0.6;
 }
-@media (max-width: 991px) {
-  .copy {
-    display: none;
-  }
+.copy__text {
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px 10px;
 }
-
 /*============================================================================================*/
 /* 2.  CONTENT */
 /*============================================================================================*/
