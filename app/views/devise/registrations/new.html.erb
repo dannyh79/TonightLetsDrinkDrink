@@ -16,7 +16,7 @@
     <%= f.label "密碼" %>
     <div class="form-group">
     <% if @minimum_password_length %>
-    <em>(註冊密碼長度至少 <%= @minimum_password_length %> 碼)</em>
+    <em>（註冊密碼長度至少 <%= @minimum_password_length %> 碼）</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class:'form-control required' %>
     </div>

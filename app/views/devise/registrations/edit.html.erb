@@ -6,7 +6,7 @@
   <div class="sign-up_form">
 
     <div class="field">
-      <%= f.label '新密碼', for: 'new-password' %> <i>(密碼長度至少 <%= @minimum_password_length %> 碼，如無需更改請留白)</i><br />
+      <%= f.label '新密碼', for: 'new-password' %> <i>（密碼長度至少 <%= @minimum_password_length %> 碼）</i><br />
       <%= f.password_field :password, autocomplete: "new-password", class:'form-control required', id: 'new-password' %>
       <% if @minimum_password_length %>
         <br />
