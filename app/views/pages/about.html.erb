@@ -69,7 +69,7 @@
   </table>
 </div>
 
-<!-- if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 -->
+<%# if 有登入 => 回計算頁 else 沒有登入 => 回登入頁 %>
 <% if user_signed_in? %>
   <%= link_to '回到計算頁', calc_path, class: 'btn btn-index' %>
 <% else %>
