@@ -5,7 +5,6 @@
       <div class="content-left-wrapper">
         <a href="<%= root_path %>" id="logo"><img src="https://images2.imgbox.com/15/b1/IgbK3rN4_o.png" alt=""></a>
         <div class="wrapped">
-          
           <div class="container-btn-change-page">
             <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
             <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page" %>
@@ -14,15 +13,12 @@
 
           <div id="middle-wizard1">
             <div class="step1">
-              <h3 class="main_question">選擇自己的調酒ㄛ：</h3>
-
-
+              <h3 class="main_question">選擇自己做的調酒：</h3>
               <div id="calc-drinks">
                 <% if current_user.user_defines.any? %>
                   <% current_user.user_defines.each do |user_define| %>
-                  <div class="form-group">
-                    <label class="calc-drink-label">
-
+                    <div class="form-group">
+                      <label class="calc-drink-label">
                         <input 
                           type="radio" 
                           name="question_1" 
@@ -32,50 +28,43 @@
                           id="<%= user_define.name %>" 
                           data="<%= user_define.name %>"
                         >
-                      <span class="checkmark"></span>
-                      <div class="calc-img-container">
-                        <img class="shaker" src="https://images2.imgbox.com/15/b1/IgbK3rN4_o.png">
-                      </div>
-                      <div class="calc-drink-name"><%= user_define.name %></div>
-                      <div class="concentration"><%= user_define.volume_alcohol %> %</div>
-                      <%= link_to 'x', user_define_path(user_define), 
-                                    class: 'delete-btn',
-                                    method: 'delete', 
-                                    data: { confirm: '確認刪除嗎?!' } 
-                      %>
-                    </label>
-                  </div>
+                        <span class="checkmark"></span>
+                        <div class="calc-img-container">
+                          <img class="shaker" src="https://images2.imgbox.com/15/b1/IgbK3rN4_o.png">
+                        </div>
+                        <div class="calc-drink-name"><%= user_define.name %></div>
+                        <div class="concentration"><%= user_define.volume_alcohol %> %</div>
+                        <%= link_to 'x', 
+                          user_define_path(user_define), 
+                          class: 'delete-btn',
+                          method: 'delete', 
+                          data: { confirm: '確認刪除嗎?!' } 
+                        %>
+                      </label>
+                    </div>
                   <% end %>
                 <% else %>
-                  <h3>你沒有自己調的ㄛ a_a</h3>
+                  <h4>（尚未建立調酒清單）</h4>
                 <% end %>
               </div>
             </div>
           </div>
           <button id="next-step" type="button" name="forward" class="forward">下一步</button>
-          <!-- <button id="next-step2" type="button" name="forward" class="forward">下一步2</button> -->
         </div>
-          <!-- /content-left-wrapper -->
+        <!-- /content-left-wrapper -->
       </div>
     </div>
     <!-- /content-left -->
 
     <div class="col-lg-6 content-right d-none" id="start">
       <div id="wizard_container">
-        <div id="top-wizard">
-          <div id="progressbar"></div>
-        </div>
-        <!-- /top-wizard -->
-
-        <input id="website" name="website" type="text" value="">
-        <!-- Leave for security protection, read docs for details -->
         <div id="middle-wizard">
           <div id="time-unit" class="step2">
-            <h3 class="main_question"><strong class="d-none">2/3</strong>設定時間與單位</h3>
+            <h3 class="main_question">設定時間與單位：</h3>
             <div class="form-group">
-              <label>多久前開始：</label>
+              <label for="time-before">多久前開始：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="time-before">
+                <select id="time-before" class="wide required" name="time-before">
                   <option value="0">還沒開始</option>
                   <option value="30">0 時 30 分 前</option>
                   <option value="60">1 時 00 分 前</option>
@@ -87,9 +76,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label>多久後結束：</label>
+              <label for="time-after">多久後結束：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="time-after">
+                <select id="time-after" class="wide required" name="time-after">
                   <option value="0">馬上</option>
                   <option value="30">0 時 30 分 後</option>
                   <option value="60">1 時 00 分 後</option>
@@ -101,9 +90,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label>一杯的單位：</label>
+              <label for="unit">一杯的單位：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="unit">
+                <select id="unit" class="wide required" name="unit">
                   <optgroup label="啤酒常用">
                     <option value="330">鋁罐（小）330ml</option>
                     <option value="500">鋁罐（大）500ml</option>
@@ -134,7 +123,7 @@
                 <img id="water-level" src="https://images2.imgbox.com/40/3d/olTFpoWf_o.png" alt="水線圖叉燒包">
               </div>
 
-            <div class="d-flex flex-column justify-content-between container-btn">
+              <div class="d-flex flex-column justify-content-between container-btn">
                 <!-- Button trigger modal -->
                 <button id="level5" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                   「斷片」： 啤酒 6.2 杯
@@ -151,21 +140,13 @@
                 <button id="level1" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                   （正常）： 啤酒 0.8 杯
                 </button>
-            </div>
-          </div>
-            <div class="change-btn">
+              </div>
               <button id="to-time-unit" type="button" name="forward" class="forward">重新選擇</button>
             </div>
           </div>
           <!-- /step-->
         </div>
         <!-- /middle-wizard -->
-        <!-- <div id="bottom-wizard">
-          <button type="button" name="backward" class="backward">Prev</button>
-          <button type="button" name="forward" class="forward">Next</button>
-          <button type="submit" name="process" class="submit">Submit</button>
-        </div> -->
-        <!-- /bottom-wizard -->
       </div>
       <!-- /Wizard container -->
     </div>

@@ -14,7 +14,7 @@
 
           <div id="middle-wizard1">
             <div class="step1">
-              <h3 class="main_question">自己定義調酒ㄛ：</h3>
+              <h3 class="main_question">自己做個調酒吧：</h3>
 
               <%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
                 <%= fields_for :ingredients do |field| %>
@@ -92,7 +92,7 @@
                 <% end %>
               </div>
 
-              <label class="label_name-user-define" for="name">最後請輸入飲料ㄉ名字，必填ㄛ：</label>
+              <label class="label_name-user-define" for="name">最後請輸入調酒名（必填）：</label>
               <input name="name" id="label_name-user-define" type="text" placeholder="例：「卍超級好喝卍」" maxlength="10"
                 required >
               <div>

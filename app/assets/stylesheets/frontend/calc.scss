@@ -105,20 +105,18 @@
 
 
 
-
+#time-unit { padding-top: 21%; }
 #result-step {
   height: 55vh;
+
+  .result {
+    width: 100%;
+    height: 55vh;
+    position: relative; 
+  }
 }
 #after-drink {
   font-size: 16px;
-}
-.change-btn {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-}
-#to-time-unit {
-  align-self: flex-end;
 }
 #next-step {
   margin-top: 1rem;
@@ -129,7 +127,7 @@ button#to-result {
   margin: auto;
   margin-top: 2rem;
 }
-// // for '/calc/user_define/
+// // for '/calc/user_define/'
 .btn-save {
   border: none;
   color: #fff;

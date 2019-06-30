@@ -14,14 +14,12 @@
 
           <div id="middle-wizard1">
             <div class="step1">
-              <h3 class="main_question">選擇預設飲品：</h3>
-
+              <h3 class="main_question">選擇飲品：</h3>
 
               <div id="calc-drinks">
                 <% @drinks.each do |drink| %>
-                <div class="form-group">
-                  <label class="container_radio version_2 calc-drink-label">
-
+                  <div class="form-group">
+                    <label class="container_radio version_2 calc-drink-label">
                       <input 
                         type="radio" 
                         name="question_1" 
@@ -31,22 +29,19 @@
                         id="<%= drink.name %>" 
                         data="<%= drink.display_name %>"
                       >
-                    <span class="checkmark"></span>
-                    <div class="calc-img-container">
-                      <img src="<%= drink.img_path %>">
-                    </div>
-                    <div class="calc-drink-name"><%= drink.display_name %></div>
-                    <div class="concentration"><%= drink.volume_alcohol %> %</div>
-                  </label>
-                </div>
+                      <span class="checkmark"></span>
+                      <div class="calc-img-container">
+                        <img src="<%= drink.img_path %>">
+                      </div>
+                      <div class="calc-drink-name"><%= drink.display_name %></div>
+                      <div class="concentration"><%= drink.volume_alcohol %> %</div>
+                    </label>
+                  </div>
                 <% end %>
               </div>
-
-
             </div>
           </div>
           <button id="next-step" type="button" name="forward" class="forward">下一步</button>
-          <!-- <button id="next-step2" type="button" name="forward" class="forward">下一步2</button> -->
         </div>
         <!-- /content-left-wrapper -->
       </div>
@@ -55,20 +50,13 @@
 
     <div class="col-lg-6 content-right d-none" id="start">
       <div id="wizard_container">
-        <div id="top-wizard">
-          <div id="progressbar"></div>
-        </div>
-        <!-- /top-wizard -->
-
-        <input id="website" name="website" type="text" value="">
-        <!-- Leave for security protection, read docs for details -->
         <div id="middle-wizard">
           <div id="time-unit" class="step2">
-            <h3 class="main_question"><strong class="d-none">2/3</strong>設定時間與單位</h3>
+            <h3 class="main_question"><strong class="d-none">2/3</strong>設定時間與單位：</h3>
             <div class="form-group">
-              <label>多久前開始：</label>
+              <label for="time-before">多久前開始：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="time-before">
+                <select id="time-before" class="wide required" name="time-before">
                   <option value="0">還沒開始</option>
                   <option value="30">0 時 30 分 前</option>
                   <option value="60">1 時 00 分 前</option>
@@ -80,9 +68,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label>多久後結束：</label>
+              <label for="time-after">多久後結束：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="time-after">
+                <select id="time-after" class="wide required" name="time-after">
                   <option value="0">馬上</option>
                   <option value="30">0 時 30 分 後</option>
                   <option value="60">1 時 00 分 後</option>
@@ -94,9 +82,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label>一杯的單位：</label>
+              <label for="unit">一杯的單位：</label>
               <div class="styled-select clearfix">
-                <select class="wide required" name="unit">
+                <select id="unit" class="wide required" name="unit">
                   <optgroup label="啤酒常用">
                     <option value="330">鋁罐（小）330ml</option>
                     <option value="500">鋁罐（大）500ml</option>
@@ -119,15 +107,15 @@
             <button id="to-result" type="button" name="forward" class="forward">計算結果</button>
           </div>
           <!-- /step-->
+
           <div id="result-step" class="submit step3 d-none">
-            <h3 class="main_question d-none"><strong>3/3</strong>計算結果</h3>
             <div id="result" class="result">
               <div class="container-man-figure">
                 <img id="man-figure" src="https://images2.imgbox.com/4e/e5/oQMFkzhA_o.png" alt="人形叉燒包">
                 <img id="water-level" src="https://images2.imgbox.com/40/3d/olTFpoWf_o.png" alt="水線圖叉燒包">
               </div>
 
-            <div class="d-flex flex-column justify-content-between container-btn">
+              <div class="d-flex flex-column justify-content-between container-btn">
                 <!-- Button trigger modal -->
                 <button id="level5" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                   記憶斷片： 啤酒 6.2 杯
@@ -144,16 +132,15 @@
                 <button id="level1" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                   （正常）： 啤酒 0.8 杯
                 </button>
-            </div>
-          </div>
-            <div class="change-btn">
+              </div>
+
               <button id="to-time-unit" type="button" name="forward" class="forward">重新選擇</button>
             </div>
+          
           </div>
           <!-- /step-->
         </div>
       </div>
-      <!-- /Wizard container -->
     </div>
     <!-- /content-right-->
 
