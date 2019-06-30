@@ -1,5 +1,20 @@
 <h1 class="sign-up edit-user-page">編輯資料<% resource_name.to_s.humanize %></h1>
 
+<<<<<<< HEAD
+=======
+<!-- 暫存：錯誤訊息區 -->
+<div id="error_explanation">
+  <% if current_user.errors.any? %>
+    <ul>
+      <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<!-- 暫存：錯誤訊息區 -->
+
+>>>>>>> add notice
 <%= form_for current_user, method: :patch, url: { controller: 'registrations', action: 'profile_update' } do |f| %>
 
   <div class="sign-up_form">
