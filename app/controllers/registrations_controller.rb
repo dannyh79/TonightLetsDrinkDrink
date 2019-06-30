@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
   def profile_update
     if current_user.valid_password?(params[:user][:current_password])
       current_user.update(profile_params)
-      redirect_to calc_path
+      redirect_to calc_path, notice: '個人資料更改成功'
     else
       current_user.errors.add(:password, :invalid, message: '目前密碼打錯啦...')
       render :profile
