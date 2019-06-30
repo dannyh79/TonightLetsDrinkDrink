@@ -1,4 +1,7 @@
 <%= include_gon %>
+<div id="success_explanation">
+  <h2><%= notice %></h2>
+</div>
 <div class="container-fluid full-height">
   <div class="row row-height">
     <div class="col-lg-6 content-left">
@@ -17,49 +20,49 @@
               <h3 class="main_question">自己做個調酒吧：</h3>
 
               <%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
-                <%= fields_for :ingredients do |field| %>
-                  <div class="container-input">
+              <%= fields_for :ingredients do |field| %>
+              <div class="container-input">
 
-                    <label for="drink_id">材料名：</label>
-                    <select name="drink_id" id="drink_id" autofocus >
-                      <% @drinks.each do |drink| %>
-                      <option value="<%= drink.id %>">
-                        <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
-                      </option>
-                      <% end %>
-                    </select>
-                  </div>
+                <label for="drink_id">材料名：</label>
+                <select name="drink_id" id="drink_id" autofocus >
+                  <% @drinks.each do |drink| %>
+                  <option value="<%= drink.id %>">
+                    <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
+                  </option>
+                  <% end %>
+                </select>
+              </div>
 
-                  <div class="container-input">
-                    <label for="volume_alcohol">材料濃度（%）：</label>
-                    <input 
-                      type="number" 
-                      name="volume_alcohol" 
-                      id="volume_alcohol" 
-                      step="0.1"
-                      min="0" 
-                      max="100" 
-                      required 
-                      placeholder="請填入材料酒精濃度"
-                    >
-                    <span for="volume_alcohol" class="error d-none">請輸入酒精濃度</span>
-                  </div>
+              <div class="container-input">
+                <label for="volume_alcohol">材料濃度（%）：</label>
+                <input
+                  type="number"
+                  name="volume_alcohol"
+                  id="volume_alcohol"
+                  step="0.1"
+                  min="0"
+                  max="100"
+                  required
+                  placeholder="請填入材料酒精濃度"
+                >
+                <span for="volume_alcohol" class="error d-none">請輸入酒精濃度</span>
+              </div>
 
-                  <div class="container-input">
-                    <label for="ratio">所佔比例（不得為零）：</label>
-                    <input 
-                      type="number" 
-                      name="ratio" 
-                      id="ratio" 
-                      placeholder="例如 5:1 的「5」" 
-                      min="1" 
-                      max="100" 
-                      required 
-                    >
-                    <span for="volume_alcohol" class="error d-none">請輸入飲品比例</span>
-                  </div>
-                <% end %>
-                <input type="submit" class="btn-save" value="新增品項" data-disable-with="處理中...">
+              <div class="container-input">
+                <label for="ratio">所佔比例（不得為零）：</label>
+                <input
+                  type="number"
+                  name="ratio"
+                  id="ratio"
+                  placeholder="例如 5:1 的「5」"
+                  min="1"
+                  max="100"
+                  required
+                >
+                <span for="volume_alcohol" class="error d-none">請輸入飲品比例</span>
+              </div>
+              <% end %>
+              <input type="submit" class="btn-save" value="新增品項" data-disable-with="處理中...">
               <% end %>
 
               <%= form_tag('/user_define',{class: 'user_define-form d-none'}) do |form| %>
@@ -67,28 +70,28 @@
 
               <div id="calc-drinks" class="calc-drinks-mini">
                 <% if session[:yo] != nil %>
-                  <% session[:yo].each do |ingredient| %>
-                    <div class="form-group">
-                      <label class="calc-drink-label ingredient-list">
-                        <span class="checkmark"></span>
-                        <div class="calc-img-container">
-                          <img src="<%= image(ingredient["drink_id"].to_i) %>">
-                        </div>
-                        <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
-                        <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
-                        <div class="ratio">佔比例<%= ingredient["ratio"] %></div>
-                        <a 
-                          class="delete-btn" 
-                          data-method="patch"  
-                          href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
-                          rel="nofollow"
-                          data-confirm="確認刪除此材料嗎？"
-                        >
-                          x
-                        </a>
-                      </label>
+                <% session[:yo].each do |ingredient| %>
+                <div class="form-group">
+                  <label class="calc-drink-label ingredient-list">
+                    <span class="checkmark"></span>
+                    <div class="calc-img-container">
+                      <img src="<%= image(ingredient["drink_id"].to_i) %>">
                     </div>
-                  <% end %>
+                    <div class="calc-drink-name"><%= name(ingredient["drink_id"].to_i) %></div>
+                    <div class="concentration"><%= ingredient["volume_alcohol"] %> %</div>
+                    <div class="ratio">佔比例<%= ingredient["ratio"] %></div>
+                    <a
+                      class="delete-btn"
+                      data-method="patch"
+                      href="/calc/user_define/delete_ingredient/<%= session[:yo].index(ingredient) %>"
+                      rel="nofollow"
+                      data-confirm="確認刪除此材料嗎？"
+                    >
+                    x
+                  </a>
+                  </label>
+                </div>
+                <% end %>
                 <% end %>
               </div>
 
