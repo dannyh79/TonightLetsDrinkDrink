@@ -30,6 +30,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
+  # Configure default URL for action mailer
+  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
+
   # Don't care if the mailer can't send.
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
@@ -40,14 +43,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true #測試可改true，但如果已上線的話建議改回false
     
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address: "smtp.mailgun.org",
   port: 587,
-  domain: "TonightLetsDrinkDrink",
+  domain: "tonightletsdrinkdrink.tw",
+  user_name: ENV["mailgun_username"],
+  password: ENV["mailgun_password"],
   authentication: "plain",
-  user_name: ENV["mailgun_username"], #你的帳號
-  password: ENV["mailgun_password"], #信箱密碼 
   enable_starttls_auto: true 
 }
 
@@ -77,4 +82,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+<<<<<<< Updated upstream
+=======
+
+  
+>>>>>>> Stashed changes
 end
