@@ -39,7 +39,7 @@ class UserDefineController < ApplicationController
 
       redirect_to user_define_calc_path, notice: '品項新增成功'
     else
-      redirect_to user_define_calc_path, notice: '沒填好ㄛ'
+      redirect_to user_define_calc_path
     end
   end
   
