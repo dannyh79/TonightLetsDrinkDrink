@@ -11,7 +11,11 @@
     <li><%= link_to '計算頁', calc_path, class: 'animated_link' if user_signed_in? %></li>
     <li><%= link_to '編輯個人資料', user_profile_path, class: 'animated_link' if user_signed_in? %></li>
     <li><%= link_to '關於我們', about_path, class: 'animated_link' %></li>
-    <li><%= link_to '更新密碼', edit_user_registration_path, class: 'animated_link' if user_signed_in? %></li>
+  
+    <% unless current_user_from_google?  %>
+      <li><%= link_to '更新密碼', edit_user_registration_path, class: 'animated_link' if user_signed_in? %></li>
+    <% end %>
+    
     <% if user_signed_in? %>
       <li><%= link_to '登出', destroy_user_session_path, method: 'delete', data: { confirm: '確定要登出嗎？' }, class: 'animated_link'  %></li>
     <% else %>

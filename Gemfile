@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.6', '>= 4.6.2'  # member_system
+gem 'omniauth', '~> 1.9'  # multiple-provider authentication
+gem 'omniauth-google-oauth2', '~> 0.7.0'  # allows user to login to Google with app
 gem 'gon', '~> 6.2', '>= 6.2.1' # send the variable to js
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3' # internationalization
