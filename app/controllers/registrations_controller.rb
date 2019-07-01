@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
       current_user.update(profile_params)
       redirect_to calc_path, notice: '個人資料更改成功'
     else
-      current_user.errors.add(:password, :invalid, message: '目前密碼錯誤')
+      current_user.errors.add(:password, :invalid, message: '密碼輸入錯誤')
       render :profile
     end
   end
@@ -32,14 +32,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     sign_out
-    flash[:notice] = '註冊成功 請登入'
+    flash[:notice] = '註冊成功'
     new_user_session_path
   end
   
   def after_update_path_for(resource)
     if @isPwdChanged
       sign_out
-      flash[:notice] = '密碼更新成功 請重新登入'
+      flash[:notice] = '密碼更新成功；請重新登入'
       new_user_session_path
     else
       calc_path
