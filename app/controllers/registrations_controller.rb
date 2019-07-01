@@ -19,7 +19,11 @@ class RegistrationsController < Devise::RegistrationsController
       current_user.update(profile_params)
       redirect_to calc_path, notice: '個人資料更改成功'
     else
+<<<<<<< HEAD
       current_user.errors.add(:current_password, :invalid, message: '輸入錯誤')
+=======
+      current_user.errors.add(:password, :invalid, message: '目前密碼錯誤')
+>>>>>>> 減短編輯個人資料頁的密碼錯誤訊息
       render :profile
     end
   end
