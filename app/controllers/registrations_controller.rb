@@ -32,12 +32,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     sign_out
+    flash[:notice] = '註冊成功 請登入'
     new_user_session_path
   end
   
   def after_update_path_for(resource)
     if @isPwdChanged
       sign_out
+      flash[:notice] = '密碼更新成功 請重新登入'
       new_user_session_path
     else
       calc_path
