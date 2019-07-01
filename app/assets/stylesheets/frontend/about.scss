@@ -2,7 +2,7 @@
   display: block;
   margin: auto;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.75rem;
   left: 0;
   right: 0;
   width: 10rem;
@@ -23,6 +23,7 @@
   display: block;
   margin: auto;
   margin-top: 3rem;
+  margin-bottom: 1rem;
   position: absolute;
   left: 0;
   right: 0;
@@ -33,11 +34,6 @@
   color: #fff;
   background-color: #d80075;
   border: 1px solid #e90b81;
-  box-shadow: 2px 2px 5px #555;
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 10rem;
 }
 
 .btn-index {
