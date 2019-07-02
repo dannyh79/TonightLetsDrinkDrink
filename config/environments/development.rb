@@ -46,7 +46,6 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  #config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 
 
   # 忘記密碼時的寄送 email 
