@@ -18,7 +18,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(provider) %><br />
     <%= link_to omniauth_authorize_path(resource_name, 'google_oauth2'), id: "google_oauth2-login", class: "btn btn-index" do %>
-      <i class="fa fa-google-plus"></i>  Google +
+      <i class="fa fa-google-plus"></i> continue with Google 
     <% end %>
   <% end %>
 <% end %>
