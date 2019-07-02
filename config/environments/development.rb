@@ -45,14 +45,13 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Don't care if the mailer can't send.
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
 
   # 忘記密碼時的寄送 email 
   
   config.action_mailer.raise_delivery_errors = true #測試可改true，但如果已上線的話建議改回false
     
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
