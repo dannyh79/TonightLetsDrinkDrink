@@ -7,7 +7,7 @@ Primary style
   box-sizing: border-box;
 }
 
-*::after, *::before {
+*:not(div)::after, *:not(div)::before {
   content: '';
 }
 
