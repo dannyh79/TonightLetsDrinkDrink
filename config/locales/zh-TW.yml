@@ -3,9 +3,10 @@ zh-TW:
   activerecord:
     attributes:
       user:
-        password_confirmation: '確認新密碼'
-        password: '新密碼'
-        current_password: '目前密碼'
+        password: '「密碼」'
+        password_confirmation: '「確認密碼」'
+        current_password: '「目前密碼」'
+        weight: '「體重」'
     messages:
       record_invalid: '校驗失敗: %{errors}'
       restrict_dependent_destroy:
