@@ -31,8 +31,6 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -48,22 +46,21 @@ Rails.application.configure do
 
 
   # 忘記密碼時的寄送 email 
-  
-  config.action_mailer.raise_delivery_errors = true #測試可改true，但如果已上線的話建議改回false
-    
+  # config for "Don't care if the mailer can't send."
+  #                                                    change this to your domain
   config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: "smtp.mailgun.org",
-  port: 587,
-  domain: "tonightletsdrinkdrink.tw",
-  user_name: ENV["mailgun_username"],
-  password: ENV["mailgun_password"],
-  authentication: "plain",
-  enable_starttls_auto: true 
-}
+    address: "smtp.mailgun.org",
+    port: 587,
+    domain: "tonightletsdrinkdrink.tw",
+    user_name: ENV["mailgun_username"],
+    password: ENV["mailgun_password"],
+    authentication: "plain",
+    enable_starttls_auto: true 
+  }
 
 
   # Debug mode disables concatenation and preprocessing of assets.
