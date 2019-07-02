@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
- 
+
 <div class="sign-up_form">
   <div class="field">
     <%= f.label "信箱" %><br />
@@ -46,15 +46,15 @@
   </div>
 
   <div class="field">
-     <%= f.label "體重" %>（公斤）：<br />
-     <div class="form-group">
-     <input type="number" name="user[weight]" id="user_weight", class="form-control required" min="0" />
-     </div>
+    <%= f.label "體重" %>（公斤）：<br />
+    <div class="form-group">
+      <input type="number" name="user[weight]" id="user_weight", class="form-control required" min="0" />
+    </div>
   </div>  
-         
+
 <div>
     <%= f.submit "送出", id: 'submit' %>
- </div>
+</div>
 <% end %>
 
 <% render "devise/shared/links" %>
