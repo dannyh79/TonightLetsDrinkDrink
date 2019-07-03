@@ -12,7 +12,7 @@
     <li><%= link_to '編輯個人資料', user_profile_path, class: 'animated_link' if user_signed_in? %></li>
     <li><%= link_to '關於我們', about_path, class: 'animated_link' %></li>
   
-    <% unless current_user_from_google?  %>
+    <% unless current_user_from_3rd_party_login?  %>
       <li><%= link_to '更新密碼', edit_user_registration_path, class: 'animated_link' if user_signed_in? %></li>
     <% end %>
     
