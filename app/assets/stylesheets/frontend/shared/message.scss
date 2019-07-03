@@ -29,7 +29,7 @@
 }
 .success_message,
 .error_message {
-    animation: 4s showSuccessExplanation;
+    animation: 3.5s showSuccessExplanation;
     animation-delay: 800ms;
     -webkit-animation-delay: 800ms;
     -moz-animation-delay: 800ms;
@@ -40,11 +40,11 @@
         left: -340px;
     }
 
-    25% {
+    10% {
         left: 0;
     }
 
-    75% {
+    90% {
         left: 0;
     }
 
