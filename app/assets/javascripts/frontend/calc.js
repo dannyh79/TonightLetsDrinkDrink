@@ -147,6 +147,9 @@ $(document).on('turbolinks:load', function () {
     if (alcoholContent !== 0  && rightPage) {
       $("#start").removeClass("d-none");
       rightPage = false;
+    } else if (alcoholContent == 0) {
+      $('#error_message').html('<p>請先選擇一種酒</p>');
+      $('#error_message').addClass('error_message');
     }
     if (alcoholContent !== 0) {
       $(window).scrollTop(10000);

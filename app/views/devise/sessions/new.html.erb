@@ -3,6 +3,7 @@
   <div class="sign-up_form">
   <div class="step">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%# byebug %>
       <div class="field">
         <%= f.label '信箱' %><br />
         <div class="form-group">
