@@ -26,3 +26,21 @@
     background-color: #d80075;
     border: 1px solid #e90b81;
 }
+.modal-title {
+    font-weight: 700;
+    margin: auto;
+}
+.modal-body {
+
+    padding-bottom: 0;
+
+    .info {
+        text-align: center;
+        h6 {
+            color: #434bdf;
+            font-weight: 700;
+        }
+        ul li { line-height: 1.3rem; }
+    }
+
+}
