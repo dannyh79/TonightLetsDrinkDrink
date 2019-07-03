@@ -6,9 +6,9 @@
         <div class="wrapped">
 
           <div class="container-btn-change-page">
-            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page help", title: t('help.calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
-            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page help", title: t('help.record_user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
-            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page help", title: t('help.user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
+            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page", title: t('help.calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
+            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page", title: t('help.record_user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
+            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page", title: t('help.user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
           </div>
 
           <div id="middle-wizard1">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <button id="next-step" type="button" name="forward" class="forward help"
+          <button id="next-step" type="button" name="forward" class="forward"
                   title="<%= t('help.next_stap') %>" data-toggle="tooltip" data-placement="top">下一步</button>
         </div>
         <!-- /content-left-wrapper -->
@@ -124,7 +124,7 @@
                 </select>
               </div>
             </div>
-            <button id="to-result" type="button" name="forward" class="forward help" title="<%= t('help.to_result') %>"
+            <button id="to-result" type="button" name="forward" class="forward" title="<%= t('help.to_result') %>"
               data-toggle="tooltip" data-placement="top">計算結果</button>
           </div>
           <!-- /step-->
@@ -138,32 +138,32 @@
               <div class="d-flex flex-column justify-content-between container-btn">
                 <!-- Button trigger modal -->
                 <dip class="help" title="<%= t('help.modal_btn') %>" data-toggle="tooltip" data-placement="top">
-                  <button id="level5" type="button" class="btn help" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button id="level5" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                     「斷片」： 啤酒 6.2 杯
                   </button>
                 </dip>
                 <div class="help" title="<%= t('help.modal_btn') %>" data-toggle="tooltip" data-placement="top">
-                  <button id="level4" type="button" class="btn help" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button id="level4" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                     噁心想吐： 啤酒 5.1 杯
                   </button>
                 </div>
                 <div class="help" title="<%= t('help.modal_btn') %>" data-toggle="tooltip" data-placement="top">
-                  <button id="level3" type="button" class="btn help" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button id="level3" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                     亢奮： 啤酒 3.4 杯
                   </button>
                 </div>
                 <div class="help" title="<%= t('help.modal_btn') %>" data-toggle="tooltip" data-placement="top">
-                  <button id="level2" type="button" class="btn help" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button id="level2" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                     心情愉悅： 啤酒 1.7 杯
                   </button>
                 </div>
                 <div class="help" title="<%= t('help.modal_btn') %>" data-toggle="tooltip" data-placement="top">
-                  <button id="level1" type="button" class="btn help" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button id="level1" type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
                     （正常）： 啤酒 0.8 杯
                   </button>
                 </div>
               </div>
-              <button id="to-time-unit" type="button" name="forward" class="forward help"
+              <button id="to-time-unit" type="button" name="forward" class="forward"
                       title="<%= t('help.to_time_unit') %>"
                       data-toggle="tooltip"
                       data-placement="top">重新選擇</button>
