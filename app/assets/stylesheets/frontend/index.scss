@@ -26,7 +26,10 @@
     background-color: #d80075;
     border: 1px solid #e90b81;
 }
-.modal-title { font-weight: 700; }
+.modal-title {
+    font-weight: 700;
+    margin: auto;
+}
 .modal-body {
 
     padding-bottom: 0;
