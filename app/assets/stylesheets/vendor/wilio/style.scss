@@ -376,7 +376,6 @@ a.btn_1.rounded,
   min-height: 100%;
   padding: 60px 90px 35px 90px;
   color: #fff;
-  text-align: center;
   position: relative;
   background: radial-gradient(transparent, rgba(0, 123, 255, 0.7))
 }
@@ -502,7 +501,7 @@ a.btn_1.rounded,
 
 .copy {
   position: absolute;
-  bottom: 25px;
+  bottom: 15px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -546,7 +545,7 @@ input#website {
 }
 
 h3.main_question {
-  margin: 0 0 20px 0;
+  margin: 0 0 0.5rem 0;
   padding: 0;
   font-weight: 500;
   font-size: 18px;
