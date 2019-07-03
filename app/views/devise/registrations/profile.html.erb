@@ -45,7 +45,7 @@
       <input type="number" name="user[weight]" id="user_weight" class="form-control required" min="0" value="<%= current_user.weight %>" >
     </div>  
 
-    <% unless current_user_from_google? %>
+    <% unless current_user_from_3rd_party_login? %>
       <div class="field">
         <%= f.label '目前密碼', for: 'current_password' %> <i>（輸入現在的密碼為您確認更改密碼）</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password", class:'form-control required', id: 'current_password' %>

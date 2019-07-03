@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :user_defines
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
          # :google_oauth2 是在 controller 中設定的 instance method
 
   validates :email, :encrypted_password, :gender, :weight, presence: true
@@ -58,7 +58,7 @@ class User < ApplicationRecord
     @graph.delete_connections(auth.uid, "permissions")
   end
 
-  def from_google?
+  def from_3rd_party_login?
     Identity.find_by(user_id: id).present?
   end
 end

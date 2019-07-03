@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_update    
-    if current_user.from_google? || current_user.valid_password?(params[:user][:current_password])
+    if current_user.from_3rd_party_login? || current_user.valid_password?(params[:user][:current_password])
       current_user.update(profile_params)
       redirect_to calc_path, notice: '個人資料更改成功'
     else
