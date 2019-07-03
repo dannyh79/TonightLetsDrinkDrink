@@ -21,7 +21,7 @@ zh-TW:
       last_attempt: "您還有最後一次嘗試機會，再次失敗您的帳號將會被鎖定。"
       not_found_in_database: "信箱或密碼是無效的。"
       timeout: "您的登入時效過期，請重新登入。"
-      unauthenticated: "您需要先登入或註冊後才能繼續。"
+      unauthenticated: "請先登入或註冊"
       unconfirmed: "您的帳號需需要經過驗證後，才能繼續。"
     mailer:
       confirmation_instructions:

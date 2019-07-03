@@ -25,6 +25,8 @@
           <p><%= message %></p>
           <% end %>
         <% end %>
+      <% elsif %>
+        <p><%= flash[:alert] %></p>
       <% end %>
     </div>
     <a href="<%= root_path %>" id="logo">
