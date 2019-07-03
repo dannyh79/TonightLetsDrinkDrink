@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
       <li><%= link_to '登出', destroy_user_session_path, method: 'delete', data: { confirm: '確定要登出嗎？' }, class: 'animated_link'  %></li>
     <% else %>
-      <li><%= link_to '登入', user_session_path, method: 'post', class: 'animated_link' %></li>
+      <li><%= link_to '登入', user_session_path, class: 'animated_link' %></li>
       <li><%= link_to '註冊', new_user_registration_path, class: 'animated_link' %></li>
     <% end %>
     <div class="copy">© 2019 今夜想買醉；酒後請勿駕車</div>
