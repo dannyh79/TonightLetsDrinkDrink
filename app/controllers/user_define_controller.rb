@@ -5,7 +5,7 @@ class UserDefineController < ApplicationController
     user_define = UserDefine.find_by(id: params[:id])
     
     if user_define.destroy
-      redirect_to record_user_define_calc_path, notice: '刪除成功'
+      redirect_to record_user_define_calc_path, notice: '調酒紀錄已刪除'
     end
   end
   
@@ -20,14 +20,14 @@ class UserDefineController < ApplicationController
     
     if user_define.save
       session[:yo] = nil
-      redirect_to record_user_define_calc_path
+      redirect_to record_user_define_calc_path, notice: '新增調酒成功'
     else
       # need designated error msg area on "/calc", "/calc/record_user_define", "/calc/user_define" when there is error
       redirect_to '/calc/user_define'
     end
   end
 
- 
+
   # 調酒材料儲存至 session[:yo]
   def add_ingredient
     # 從前頁收參數
@@ -37,15 +37,15 @@ class UserDefineController < ApplicationController
       # 於 session 內"加料"
       session[:yo] = ingredient_list.add(received_parameter)
 
-      redirect_to user_define_calc_path
+      redirect_to user_define_calc_path, notice: '品項新增成功'
     else
-      redirect_to user_define_calc_path, notice: '沒填好ㄛ'
+      redirect_to user_define_calc_path
     end
   end
   
   def delete_ingredient
     session[:yo].delete_at(params["id"].to_i)
-    redirect_to user_define_calc_path
+    redirect_to user_define_calc_path, notice: '品項刪除成功'
   end
 
 

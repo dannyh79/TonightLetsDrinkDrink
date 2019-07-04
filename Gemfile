@@ -40,6 +40,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.6', '>= 4.6.2'  # member_system
 gem 'gon', '~> 6.2', '>= 6.2.1' # send the variable to js
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'rails-i18n', '~> 5.1', '>= 5.1.3' # internationalization
+
 
 # TonightLetsDrinkDrink
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
