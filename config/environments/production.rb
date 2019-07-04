@@ -71,7 +71,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   
   #                                                       change this to your domain
-  config.action_mailer.default_url_options = { :host => "https://afternoon-scrubland-82020.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "https://tonight-lets-drink-drink.herokuapp.com" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
