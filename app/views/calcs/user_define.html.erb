@@ -6,21 +6,24 @@
         <div class="wrapped">
 
           <div class="container-btn-change-page">
-            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page" %>
-            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page" %>
-            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page" %>
+            <%= link_to '選一種酒', calc_path, class: "forward btn-change-page", title: t('help.calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
+            <%= link_to '調酒紀錄', record_user_define_calc_path, class: "forward btn-change-page", title: t('help.record_user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
+            <%= link_to '自製調酒', user_define_calc_path, class: "forward btn-change-page", title: t('help.user_define_calc_page'), data: { toggle: 'tooltip', placement: 'top'} %>
           </div>
 
           <div id="middle-wizard1">
             <div class="step1">
-              <h3 class="main_question">自己做個調酒吧：</h3>
+              <h3 class="main_question help" title="<%= t('help.make_drink') %>" data-toggle="tooltip"
+                data-placement="top">自己做個調酒吧：</h3>
 
               <%= form_tag('/calc/user_define/add_ingredient', method: :patch) do %>
               <%= fields_for :ingredients do |field| %>
               <div class="container-input">
 
-                <label for="drink_id">材料名：</label>
-                <select name="drink_id" id="drink_id" autofocus >
+                <label for="drink_id" class="help" title="<%= t('help.drink_id') %>" data-toggle="tooltip"
+                  data-placement="top">材料名：</label>
+                <select name="drink_id" id="drink_id" autofocus title="<%= t('help.drink_id') %>" data-toggle="tooltip"
+                  data-placement="top">
                   <% @drinks.each do |drink| %>
                   <option value="<%= drink.id %>">
                     <%= drink.display_name %>（常為 <%= drink.volume_alcohol %> %）
@@ -30,7 +33,8 @@
               </div>
 
               <div class="container-input">
-                <label for="volume_alcohol">材料濃度（%）：</label>
+                <label for="volume_alcohol" class="help" title="<%= t('help.volume_alcohol') %>" data-toggle="tooltip"
+                  data-placement="top">材料濃度（%）：</label>
                 <input
                   type="number"
                   name="volume_alcohol"
@@ -40,12 +44,16 @@
                   max="100"
                   required
                   placeholder="請填入材料酒精濃度"
+                  title="<%= t('help.volume_alcohol') %>"
+                  data-toggle="tooltip"
+                  data-placement="top"
                 >
                 <span for="volume_alcohol" class="error d-none">請輸入酒精濃度</span>
               </div>
 
               <div class="container-input">
-                <label for="ratio">所佔比例（不得為零）：</label>
+                <label for="ratio" class="help" title="<%= t('help.ratio') %>" data-toggle="tooltip"
+                  data-placement="top">所佔比例（不得為零）：</label>
                 <input
                   type="number"
                   name="ratio"
@@ -54,11 +62,16 @@
                   min="1"
                   max="100"
                   required
+                  title="<%= t('help.ratio') %>"
+                  data-toggle="tooltip"
+                  data-placement="top"
                 >
                 <span for="volume_alcohol" class="error d-none">請輸入飲品比例</span>
               </div>
               <% end %>
-              <input type="submit" class="btn-save" value="新增品項" data-disable-with="處理中...">
+              <input type="submit" class="btn-save help" value="新增品項" data-disable-with="處理中..."
+                      title="<%= t('help.btn_save') %>" data-toggle="tooltip"
+                      data-placement="top">
               <% end %>
 
               <%= form_tag('/user_define',{class: 'user_define-form d-none'}) do |form| %>
@@ -89,14 +102,17 @@
                 <% end %>
               </div>
 
-              <label class="label_name-user-define" for="name">最後請輸入調酒名（必填）：</label>
+              <label class="label_name-user-define help" for="name" title="<%= t('help.name_user_define') %>"
+                data-toggle="tooltip" data-placement="top">最後請輸入調酒名（必填）：</label>
               <input name="name" id="label_name-user-define" type="text" placeholder="例：「卍超級好喝卍」" maxlength="10"
-                required >
+                required class="help" title="<%= t('help.name_user_define') %>" data-toggle="tooltip"
+                data-placement="top">
               <div>
                 <span for="label_name-user-define" class="error d-none">請輸入調酒名稱</span>
               </div>
 
-              <input type="submit" class="btn-save" value="儲存">
+              <input type="submit" class="btn-save help" value="儲存" title="<%= t('help.btn_save_user_define') %>"
+                data-toggle="tooltip" data-placement="top">
               <% end %>
 
 
