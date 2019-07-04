@@ -2,19 +2,20 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :user_defines
+  has_one :identities
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
          # :google_oauth2 是在 controller 中設定的 instance method
 
-  validates :email, :encrypted_password, :gender, :weight, presence: true
+  validates :email, :encrypted_password, :weight, presence: true
 
   # email
   validates_format_of :email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([a-zA-Z]{2,})\z/i
   validates :email, uniqueness: true
 
   # password
-  validates :password, length: { minimum: 6 }
+  # validates :password, length: { minimum: 6 }
 
   # weight
   validates :weight, numericality: { greater_than: 0 }
