@@ -2,7 +2,6 @@
   display: block;
   margin: auto;
   padding-top: 2rem;
-  padding-bottom: 2rem;
   left: 0;
   right: 0;
   width: 6rem;
@@ -49,6 +48,9 @@
     width: 10rem;
   }
 }
+
+// hotfix for login button
+#submit.login { margin-top: 4rem; }
 
 #facebook-login {
   margin-top: calc(3rem + 71px);
