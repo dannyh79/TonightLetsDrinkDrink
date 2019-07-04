@@ -2,9 +2,10 @@
 <%= form_for current_user, method: :patch, url: { controller: 'registrations', action: 'profile_update' } do |f| %>
 
   <div class="sign-up_form">
+  
     <div class="field">
       <%= f.label '信箱', for: 'edit-email' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required', id: 'edit-email' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control required', id: 'edit-email', readonly: 'readonly' %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
