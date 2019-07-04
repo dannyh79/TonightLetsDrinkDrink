@@ -1,8 +1,8 @@
 zh-TW:
   help:
     calc_page: "前往「選一種酒」，選擇內建酒品來估計醉況"
-    record_user_define_calc_page: "前往「自製調酒」，自建酒品供估計醉況用"
-    user_define_calc_page: "前往自製調酒，可以自製調酒"
+    record_user_define_calc_page: "前往「調酒紀錄」，選擇自建酒品來估計醉況"
+    user_define_calc_page: "前往「自製調酒」，自建酒品供估計醉況用"
     calc_main_question: "請選擇要估算的飲品"
     record_user_define: "請選擇想要估算的自製調酒"
     next_stap: "若選完酒品請按下一步"
