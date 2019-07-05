@@ -1,9 +1,17 @@
-.sign-up.edit-user-page{
+.sign-up.edit-user-page {
   display: block;
   margin: auto;
-  margin-top: 5rem;
-  left: 0;
-  right: 0;
+  margin-top: 2rem;
   width: 14.5rem;
   white-space: nowrap;
+  text-align: center;
 }
+
+#cancel-btn{
+  margin-top: 4.5rem;
+  font-size: inherit;
+  width: 200px;
+  border-radius: 8px;
+}
+
+.new-password-field { height: 100%; }

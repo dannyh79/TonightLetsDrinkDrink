@@ -18,9 +18,13 @@
       </div>
 
       <div class="actions">
-        <%= f.submit '登入', id: 'submit' %>
+        <%= f.submit '登入', id: 'submit', class: 'login' %>
       </div>
     <% end %>
+
+    <!-- devise/shared/links 裡有內建，先看看合不合適 -->
+    <%#= link_to '使用 Google 帳號登入', user_google_oauth2_omniauth_authorize_path %>
+
     <%= render "devise/shared/links" %>
   </step>
 </div>

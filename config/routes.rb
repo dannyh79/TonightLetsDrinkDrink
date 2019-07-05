@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   
   # member_system => devise gem
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
+
+  devise_scope :user do
+    get '/profile', to: 'registrations#profile', as: :user_profile
+    patch '/profile_update', to: 'registrations#profile_update', as: :update_user_profile
+  end
+  
   
   # landing_page
   root 'pages#index'

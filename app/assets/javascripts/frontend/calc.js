@@ -79,9 +79,9 @@ $(document).on('turbolinks:load', function () {
     // 設定各杯數文字內容
     levelText[0] = `（正常）：${liquorName} ${maxDrinksLevel[0]} 杯`;
     levelText[1] = `心情愉悅：${liquorName} ${maxDrinksLevel[1]} 杯`;
-    levelText[2] = `亢奮：${liquorName} ${maxDrinksLevel[2]} 杯`;
+    levelText[2] = `外向亢奮：${liquorName} ${maxDrinksLevel[2]} 杯`;
     levelText[3] = `噁心想吐：${liquorName} ${maxDrinksLevel[3]} 杯`;
-    levelText[4] = `「斷片」：${liquorName} ${maxDrinksLevel[4]} 杯`;
+    levelText[4] = `記憶斷片：${liquorName} ${maxDrinksLevel[4]} 杯`;
 
     // 轉換杯數文字 array 進 html 內
     for (let i = 0; i < 5; i++) {
@@ -147,6 +147,9 @@ $(document).on('turbolinks:load', function () {
     if (alcoholContent !== 0  && rightPage) {
       $("#start").removeClass("d-none");
       rightPage = false;
+    } else if (alcoholContent == 0) {
+      $('#error_message').html('<p>請先選擇一種酒</p>');
+      $('#error_message').addClass('error_message');
     }
     if (alcoholContent !== 0) {
       $(window).scrollTop(10000);
@@ -175,7 +178,31 @@ $(document).on('turbolinks:load', function () {
     $(`.modal-body .info li`).hide();
     setModal($(this).attr('id'));
   })
-  // mk 以上重構完成
+  // 輸入檢查綁定
+  $('#volume_alcohol').focusout(function () {
+    if ($('#volume_alcohol').val() == ''){
+      $('#volume_alcohol + span').removeClass('d-none');
+    }
+  })
+  $('#volume_alcohol').focusin(function () {
+    $('#volume_alcohol + span').addClass('d-none');
+  })
+  $('#ratio').focusout(function () {
+    if (($('#ratio').val()) == '') {
+      $('#ratio + span').removeClass('d-none');
+    }
+  })
+  $('#ratio').focusin(function () {
+    $('#ratio + span').addClass('d-none');
+  })
+  $('#label_name-user-define').focusout(function () {
+    if (($('#label_name-user-define').val()) == '') {
+      $('#label_name-user-define + div span').removeClass('d-none');
+    }
+  })
+  $('#label_name-user-define').focusin(function () {
+    $('#label_name-user-define + div span').addClass('d-none');
+  })
 
   // 動畫按鈕綁定
   $('#level1').on('click', function() {

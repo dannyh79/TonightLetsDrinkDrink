@@ -72,8 +72,14 @@ strong {
 
 label {
   font-weight: 400;
-  margin-bottom: 3px;
+  // 06.27 設定為0以避免影響說明文字的 label by 璇
+  margin-bottom: 0;
   color: #222222;
+}
+label[for="time-before"],
+label[for="time-after"],
+label[for="unit"] { 
+  margin-top: 0.5rem; 
 }
 
 hr {
@@ -357,7 +363,7 @@ a.btn_1.rounded,
 }
 
 .content-left {
-  background-color: #434bdf;
+  background-color: rgba(0, 123, 255, 0.5);
   padding: 0;
 }
 
@@ -369,13 +375,9 @@ a.btn_1.rounded,
   height: 100%;
   min-height: 100%;
   padding: 60px 90px 35px 90px;
-  background-color: #434bdf;
   color: #fff;
-  text-align: center;
   position: relative;
-  background: transparent;
-  background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+  background: radial-gradient(transparent, rgba(0, 123, 255, 0.7))
 }
 @media (max-width: 991px) {
   .content-left-wrapper {
@@ -439,7 +441,8 @@ a.btn_1.rounded,
   padding: 60px;
   height: 100%;
   min-height: 100%;
-  overflow-y: scroll;
+  // 20190624 修復捲動造成版面無法自動捲動到底的問題
+  // overflow-y: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -451,13 +454,6 @@ a.btn_1.rounded,
   }
 }
 
-a#logo {
-  position: absolute;
-  left: 20px;
-  top: 15px;
-  display: block;
-  height: 35px;
-}
 @media (max-width: 991px) {
   a#logo {
     left: 15px;
@@ -505,17 +501,17 @@ a#logo {
 
 .copy {
   position: absolute;
-  bottom: 25px;
+  bottom: 15px;
   left: 0;
   width: 100%;
-  opacity: 0.5;
+  text-align: center;
+  opacity: 0.6;
 }
-@media (max-width: 991px) {
-  .copy {
-    display: none;
-  }
+.copy__text {
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px 10px;
 }
-
 /*============================================================================================*/
 /* 2.  CONTENT */
 /*============================================================================================*/
@@ -549,7 +545,7 @@ input#website {
 }
 
 h3.main_question {
-  margin: 0 0 20px 0;
+  margin: 0 0 0.5rem 0;
   padding: 0;
   font-weight: 500;
   font-size: 18px;

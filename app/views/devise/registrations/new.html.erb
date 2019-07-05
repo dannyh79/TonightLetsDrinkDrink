@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
- 
+
 <div class="sign-up_form">
   <div class="field">
     <%= f.label "信箱" %><br />
@@ -16,7 +16,7 @@
     <%= f.label "密碼" %>
     <div class="form-group">
     <% if @minimum_password_length %>
-    <em>(註冊密碼長度至少 <%= @minimum_password_length %> 碼)</em>
+    <em>（註冊密碼長度至少 <%= @minimum_password_length %> 碼）</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class:'form-control required' %>
     </div>
@@ -28,33 +28,34 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control required' %>
     </div>
   </div>
-      
+
   <%= f.label '性別' %><em>（會影響估計）</em><br />
   <div class="row">
     <div class="col-9">
       <div class="form-group radio_input">
         <label class="container_radio">男
-          <input type="radio" name="gender" value="Male" class="required">
+          <input type="radio" name="user[gender]" value="Male" class="required" <%= male? %> >
           <span class="checkmark"></span>
         </label>
         <label class="container_radio">女
-          <input type="radio" name="gender" value="Female" class="required">
+          <input type="radio" name="user[gender]" value="Female" class="required" <%= female? %> >
           <span class="checkmark"></span>
         </label>
       </div>
     </div>
   </div>
 
+
   <div class="field">
-     <%= f.label "體重" %>（公斤）：<br />
-     <div class="form-group">
-     <input type="number" name="user[weight]" id="user_weight", class="form-control required" />
-     </div>
-  </div>  
-         
+    <%= f.label(:weight, "體重（公斤）：") %>
+    <div class="form-group">
+      <%= f.number_field(:weight, class:"form-control required", min:"0") %>
+    </div>
+  </div>
+
 <div>
     <%= f.submit "送出", id: 'submit' %>
- </div>
+</div>
 <% end %>
 
 <% render "devise/shared/links" %>

@@ -1,5 +1,38 @@
-.about {
-  margin-top: 20vh;
+.about-us {
+  display: block;
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  left: 0;
+  right: 0;
+  width: 10rem;
+  white-space: nowrap;
+}
+
+// style for member card
+.col-12.col-md-6.col-lg-3.item { padding-bottom: 3rem; }
+
+.btn.btn-index {
+  color: #fff;
+  background-color: #434bdf;
+  border-color: #434bdf;
+  text-decoration: none;
+
+  padding: 5px 15px;
+  box-shadow: 2px 2px 5px #555;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 10rem;
+
+}
+.btn.btn-index:hover {
+  color: #fff;
+  background-color: #d80075;
+  border: 1px solid #e90b81;
 }
 
 .btn-index {

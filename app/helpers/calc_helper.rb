@@ -11,4 +11,8 @@ module CalcHelper
   def name(drink_id)
     Drink.find_by(id: drink_id).display_name
   end
+
+  def image(drink_id)
+    Drink.find_by(id: drink_id).img_path
+  end
 end

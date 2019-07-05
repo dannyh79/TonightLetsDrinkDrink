@@ -1,7 +1,7 @@
-.sign-up{
+.sign-up {
   display: block;
   margin: auto;
-  margin-top: 5rem;
+  padding-top: 2rem;
   left: 0;
   right: 0;
   width: 6rem;
@@ -13,7 +13,6 @@
     width: 17rem;
     display: block;
     margin: auto;
-    margin-top: 5rem;
     left: 0;
     right: 0;
 }
@@ -30,14 +29,14 @@
     box-shadow: 2px 2px 5px #555;
     display: block;
     margin: auto;
-    margin-top: 3.5rem;
+    margin-top: 1.5rem;
     position: absolute;
     left: 0;
     right: 0;
     width: 10rem;
   
-  }
-  #submit:hover {
+
+  &:hover {
     color: #fff;
     border-radius: 7px;
     background-color: #d80075;
@@ -47,9 +46,15 @@
     left: 0;
     right: 0;
     width: 10rem;
-  
   }
+}
 
+// hotfix for login button
+#submit.login { margin-top: 4rem; }
+
+#facebook-login {
+  margin-top: calc(3rem + 71px);
+}
 
 
  
