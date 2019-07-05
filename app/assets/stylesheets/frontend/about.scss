@@ -10,8 +10,19 @@
 }
 
 // style for member card
-.col-12.col-md-6.col-lg-3.item { padding-bottom: 3rem; }
-p.card-text { font-size: 13px; }
+.col-12.col-md-6.col-lg-3.item { 
+  padding-bottom: 3rem; 
+  
+  .card-title { color: #434bdf; }
+  
+  .card-body {
+    padding: 0.5rem 1.25rem;
+
+    p.card-text { 
+      font-size: 13px; 
+    }
+  }
+}
 
 
 
