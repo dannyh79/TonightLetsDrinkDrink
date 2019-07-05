@@ -267,7 +267,7 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV["google_public_key"], ENV["google_private_key"],{access_type: "offline", approval_prompt: ""}  # omniauth.auth
 
   #                                                                                               URL needs to be changed to the domain of the app
-  config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_app_secret"], callback_url: ENV["facebook_callback_url"]
+  # config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_app_secret"], callback_url: ENV["facebook_callback_url"]
 
 
   # ==> Warden configuration
