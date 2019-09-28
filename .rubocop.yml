@@ -1,0 +1,77 @@
+AllCops:
+  TargetRubyVersion: 2.6x
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'db/**/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'spec/*'
+
+AsciiComments:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+
+Metrics/ModuleLength:
+  Enabled: true
+  Max: 119
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Security/Open:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: true
+
+Style/RedundantBegin:
+  Enabled: true
