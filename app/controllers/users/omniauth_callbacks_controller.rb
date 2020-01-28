@@ -15,17 +15,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+  
+  # 05 Jul., '19- Facebook would not whitelist our domain,
+  # "https://tonight-lets-drink-drink.herokuapp.com", so the FB login
+  # feature is taken out for now.
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
-  end
+  # def facebook
+  #   @user = User.from_omniauth(request.env["omniauth.auth"])
+
+  #   if @user.persisted?
+  #     sign_in_and_redirect @user, :event => :authentication
+  #     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+  #   else
+  #     session["devise.facebook_data"] = request.env["omniauth.auth"]
+  #     redirect_to new_user_registration_url
+  #   end
+  # end
 
   # 認證失敗
   def failure
