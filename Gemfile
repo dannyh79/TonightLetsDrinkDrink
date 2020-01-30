@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise', '~> 4.7.1' #member_system
+gem 'devise', '~> 4.7.1' # member_system
 gem 'omniauth', '~> 1.9'  # multiple-provider authentication
 gem 'omniauth-google-oauth2', '~> 0.7.0'  # allows users to log into the app with Facebook accounts
 gem 'omniauth-facebook', '~> 5.0' # allows users to log into the app with Facebook accounts
