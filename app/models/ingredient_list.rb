@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# FIXME: Refactor methods
 # 等同於 "Cart"
 class IngredientList
   attr_reader :ingredients
@@ -7,7 +10,11 @@ class IngredientList
   end
 
   def add(ingredient)
-    ingredients << { "drink_id": ingredient["drink_id"], "ratio": ingredient["ratio"], "volume_alcohol": ingredient["volume_alcohol"] }
+    ingredients << {
+      'drink_id': ingredient['drink_id'],
+      'ratio': ingredient['ratio'],
+      'volume_alcohol': ingredient['volume_alcohol']
+    }
   end
 
   def self.content(session)
@@ -21,5 +28,4 @@ class IngredientList
   def delete(ingredient_index)
     ingredients.delete_at(ingredient_index) if ingredient_index
   end
-
 end
