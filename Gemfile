@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2.3'
 # Use PostgreSQL
 gem 'pg', '~> 1.1', '>= 1.1.4'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise', '~> 4.6', '>= 4.6.2'  # member_system
+gem 'devise', '~> 4.7.1' # member_system
 gem 'omniauth', '~> 1.9'  # multiple-provider authentication
 gem 'omniauth-google-oauth2', '~> 0.7.0'  # allows users to log into the app with Facebook accounts
 gem 'omniauth-facebook', '~> 5.0' # allows users to log into the app with Facebook accounts
