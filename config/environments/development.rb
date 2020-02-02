@@ -44,11 +44,10 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
 
-
-  # 忘記密碼時的寄送 email 
+  # 忘記密碼時的寄送 email
   # config for "Don't care if the mailer can't send."
   #                                                    change this to your domain
-  config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
@@ -59,9 +58,8 @@ Rails.application.configure do
     user_name: ENV["mailgun_username"],
     password: ENV["mailgun_password"],
     authentication: "plain",
-    enable_starttls_auto: true 
+    enable_starttls_auto: true
   }
-
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
