@@ -18,16 +18,13 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender ="do-not-reply@tonightletsdrinkdrink.tw"
+  config.mailer_sender = "do-not-reply@tonightletsdrinkdrink.tw"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
-
-  
-
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -263,12 +260,11 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  
-  config.omniauth :google_oauth2, ENV["google_public_key"], ENV["google_private_key"],{access_type: "offline", approval_prompt: ""}  # omniauth.auth
 
-  #                                                                                               URL needs to be changed to the domain of the app
+  config.omniauth :google_oauth2, ENV["google_public_key"], ENV["google_private_key"], access_type: "offline", approval_prompt: ""
+
+  # facebook_callback_url needs to be changed to the domain of the app
   # config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_app_secret"], callback_url: ENV["facebook_callback_url"]
-
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
