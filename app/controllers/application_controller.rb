@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -8,9 +10,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :gender, :weight]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    added_attrs = %i[
+      email
+      gender
+      password
+      password_confirmation
+      username
+      weight
+    ]
+    devise_parameter_sanitizer.permit :sign_up,        keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
-
 end
