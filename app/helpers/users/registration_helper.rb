@@ -1,23 +1,22 @@
-module Users::RegistrationHelper
+# frozen_string_literal: true
 
+# FIXME: Refector me w/ associated views
+module Users::RegistrationHelper
   def set_gender
-    if params[:user].try(:[], :gender)
-      sanitize 'checked="checked"'
-    end
+    return unless params[:user].try(:[], :gender)
+
+    sanitize 'checked="checked"'
   end
 
   def male?
-    if params[:user] != nil && params[:user][:gender] == "Male"
-      sanitize 'checked="checked"'
-    end
-  end
-  
-  def female?
-    if params[:user] != nil && params[:user][:gender] == "Female"
+    return unless params[:user].present? && params[:user][:gender] == 'Male'
+
     sanitize 'checked="checked"'
-    end
   end
-  
 
+  def female?
+    return unless params[:user].present? && params[:user][:gender] == 'Female'
 
+    sanitize 'checked="checked"'
+  end
 end

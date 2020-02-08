@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# FIXME: Refactor below methods
 module CalcHelper
   def drinks
     Drink.all
