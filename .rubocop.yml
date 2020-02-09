@@ -4,9 +4,10 @@ AllCops:
     - 'Gemfile'
     - 'Rakefile'
     - 'db/**/*'
+    - 'spec/*'
     - 'bin/*'
     - 'node_modules/**/*'
-    - 'spec/*'
+    - 'vendor/**/*'
 
 AsciiComments:
   Enabled: false
