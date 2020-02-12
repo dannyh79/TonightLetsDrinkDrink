@@ -1,0 +1,22 @@
+language: ruby
+
+rvm:
+ - 2.6.0
+
+dist: trusty
+
+cache: bundler
+
+before_install:
+  - nvm install 8.16.2
+  - npm install -g yarn
+
+before_script:
+  - yarn
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+
+script:
+  - yarn lint
+  - bundle exec rubocop
+  - bundle exec rspec
