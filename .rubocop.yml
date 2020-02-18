@@ -1,0 +1,86 @@
+AllCops:
+  TargetRubyVersion: 2.6x
+  Exclude:
+    # FIXME: Include Gemfile once done refactoring
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'db/**/*'
+    - 'spec/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+
+# FIXME: Enable the cop once done refactoring
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: true
+  Max: 119
+
+# FIXME: Enable the cop once done refactoring
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Metrics/ParameterLists:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Style/AsciiComments:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Security/Open:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+
+# FIXME: Enable the cop once done refactoring
+Style/StringLiterals:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Style/PerlBackrefs:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Style/RescueModifier:
+  Enabled: false
+
+# FIXME: Enable the cop once done refactoring
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: true
+
+Style/RedundantBegin:
+  Enabled: true

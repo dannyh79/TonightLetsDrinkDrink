@@ -1,0 +1,3 @@
+node_modules/*
+**/vendor/**/*
+app/assets/javascripts/cable.js

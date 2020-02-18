@@ -1,9 +1,7 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
+  def index; end
 
-  def index  # landing_page
-  end
-
-  def about  # nav_bar about_us_page
-  end
-
+  def about; end
 end
