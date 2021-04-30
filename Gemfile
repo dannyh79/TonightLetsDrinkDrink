@@ -41,7 +41,7 @@ gem 'devise', '~> 4.7.1' #member_system
 gem 'omniauth', '~> 1.9'  # multiple-provider authentication
 gem 'omniauth-google-oauth2', '~> 0.7.0'  # allows users to log into the app with Facebook accounts
 gem 'omniauth-facebook', '~> 5.0' # allows users to log into the app with Facebook accounts
-gem 'gon', '~> 6.2', '>= 6.2.1' # send the variable to js
+gem 'gon', '~> 6.4' # send the variable to js
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3' # internationalization
 
